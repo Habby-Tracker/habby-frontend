@@ -36,11 +36,10 @@ export default function User({ username }) {
                     onClick={handleClick}>
             Profile
                 </Link>
-                <Link 
-                    to="user" 
+                <a 
                     onClick={signOut}>
             Sign Out
-                </Link>
+                </a>
             </div>
         </div>
     );
