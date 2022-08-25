@@ -14,7 +14,7 @@ export default function Routes() {
             <Route element={<Layout />}>
                 <Route element={<ProtectRoutes />}>
                     <Route index element={<Home />} />
-                    <Route path="list" element={<Progress />} />
+                    <Route path="progress" element={<Progress />} />
                     <Route path="about" element={<About />} />
                     <Route path="user/profile" element={<Profile />} />
                 </Route>
