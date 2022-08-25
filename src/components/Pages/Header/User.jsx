@@ -4,7 +4,7 @@ import { useAuthActions, useUser } from '../../../State/Hooks/user';
 
 // eslint-disable-next-line react/prop-types
 export default function User({ username }) {
-    const [isOpen, setIsOpen] = useState(false);
+    const [, setIsOpen] = useState(false);
     // eslint-disable-next-line react/prop-types
     const [initial, setInitial] = useState(username.substring(0, 1));
     const { signOut } = useAuthActions();
