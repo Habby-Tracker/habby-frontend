@@ -4,7 +4,12 @@ import Auth from './Auth';
 import Profile from './Profile';
 
 export default function UserAuth() {
-    const { user, profile } = useUser();
+    const { user, checkedForUser } = useUser();
 
-    return user ? <Navigate to={'/'} /> : <Auth />;
+    return (
+        checkedForUser 
+            ? user ? <Navigate to={'/'} /> : <Auth /> 
+            // should be a loading page below while app checks for user after refresh
+            : <></>
+    );
 }
