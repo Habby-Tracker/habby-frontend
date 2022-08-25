@@ -1,4 +1,4 @@
-export async function insertMood(mood) {
+export async function createMood(mood) {
     const rawResponse = await fetch(`${process.env.API_URL}/moods`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
