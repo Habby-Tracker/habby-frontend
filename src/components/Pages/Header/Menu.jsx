@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Navigation from './Navigation.jsx';
 
 export default function Menu() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [, setIsOpen] = useState(false);
 
     // const className = classNames(styles.Menu, {
     //     [styles.Open]: isOpen,
