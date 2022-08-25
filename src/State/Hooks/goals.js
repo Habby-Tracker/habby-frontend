@@ -1,9 +1,9 @@
-import { getNextCursorPosition } from '@testing-library/user-event/dist/types/utils';
 import { useContext, useEffect, useState } from 'react';
 import { DataContext, DataDispatchContext } from '../Context/dataContext';
-import { getGoals } from '../Services/goals-service';
+import { getGoals, createGoal } from '../Services/goals-service';
+import { showError } from '../Services/toaster';
 
-export default function useGoals() {
+export function useGoals() {
     const { goals } = useContext(DataContext);
     const { dispatch } = useContext(DataDispatchContext);
     const [error, setError] = useState(null);
@@ -29,4 +29,38 @@ export default function useGoals() {
     }, []);
 
     return { goals, error };
+}
+
+export function goalActions() {
+    const { dispatch } = useContext(DataDispatchContext);
+
+    const create = async (goal) => {
+        const { body, error } = await createGoal(goal);
+        if(body) {
+            dispatch({ type: 'add', payload: body });
+        }
+        if(error){
+            showError(error.message);
+        }
+    };
+
+    const remove = async (goal) => {
+        const { body, error } = await createGoal(goal);
+        if(body) {
+            dispatch({ type: 'add', payload: body });
+        }
+        if(error){
+            showError(error.message);
+        }
+    };
+
+    const update = async (goal) => {
+        const { body, error } = await createGoal(goal);
+        if(body) {
+            dispatch({ type: 'add', payload: body });
+        }
+        if(error){
+            showError(error.message);
+        }
+    };
 }
