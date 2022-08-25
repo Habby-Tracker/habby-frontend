@@ -5,15 +5,18 @@ export async function verifyUser() {
         credentials: 'include',
         mode: 'cors',
     });
-    return await response.json();
+
+    console.log(response);
+    return response.status === 200 ? await response.json() : null;
 }
 
-export async function signUp() {
+export async function signUp(email, password) {
     const response = await fetch(`${process.env.API_URL}/api/v1/user/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         mode: 'cors',
+        body: JSON.stringify({ email, password }),
     });
     return await response.json();
 }
@@ -28,12 +31,13 @@ export async function signOut() {
     return await response.json();
 }
 
-export async function signIn() {
+export async function signIn(email, password) {
     const response = await fetch(`${process.env.API_URL}/api/v1/user/signin`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         mode: 'cors',
+        body: JSON.stringify({ email, password }),
     });
     return await response.json();
 }
