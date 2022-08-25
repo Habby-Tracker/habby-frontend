@@ -3,7 +3,12 @@ import { useUser } from '../../../State/Hooks/user';
 import Auth from './Auth';
 
 export default function UserAuth() {
-    const { user } = useUser();
+    const { user, checkedForUser } = useUser();
 
-    return user ? <Navigate to={'/'} /> : <Auth />;
+    return (
+        checkedForUser 
+            ? user ? <Navigate to={'/'} /> : <Auth /> 
+            // should be a loading page below while app checks for user after refresh
+            : <></>
+    );
 }
