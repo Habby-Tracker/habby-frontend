@@ -1,4 +1,3 @@
-import styles from './AuthForm.css';
 import { Link } from 'react-router-dom';
 import Section from '../Body/Global/Section/Section.jsx';
 import Button from '../Body/Global/Button/Button.jsx';
@@ -17,7 +16,7 @@ export default function AuthForm({ header, button, prompt, link, onSubmit }) {
 
     return (
         <Section header={header} width="40vw">
-            <form onSubmit={handleSubmit} className={styles.AuthForm}>
+            <form onSubmit={handleSubmit}>
                 <InputControl
                     label="Email"
                     name="email"
@@ -37,7 +36,7 @@ export default function AuthForm({ header, button, prompt, link, onSubmit }) {
 
                 <Button text={button} marginTop={'20px'}/>
 
-                <Link to={link} className={styles.SubHeader}>{prompt}</Link>
+                <Link to={link}>{prompt}</Link>
             </form>
         </Section>
     );

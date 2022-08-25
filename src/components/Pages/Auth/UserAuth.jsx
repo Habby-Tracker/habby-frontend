@@ -5,7 +5,5 @@ import Auth from './Auth';
 export default function UserAuth() {
     const { user } = useUser();
 
-    console.log('user in userAuth', user);
-
     return user ? <Navigate to={'/'} /> : <Auth />;
 }

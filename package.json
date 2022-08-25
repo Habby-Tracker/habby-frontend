@@ -21,9 +21,10 @@
     "test": "npm run lint",
     "lint": "eslint --ext js --ext jsx src",
     "test:watch": "npm run lint -- --watch",
-    "start": "webpack serve --hot --mode development --devtool eval-source-map --open",
+    "start": "webpack serve --hot --mode development --devtool eval-source-map --open npm run tailwind",
     "start:watch": "npm run start",
-    "build": "webpack --devtool source-map"
+    "build": "webpack --devtool source-map",
+    "tailwind": "tailwindcss -i ./src/App.css -o ./src/output.css --watch"
   },
   "keywords": [],
   "author": "",

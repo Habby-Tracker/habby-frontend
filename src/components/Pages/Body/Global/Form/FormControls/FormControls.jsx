@@ -1,10 +1,9 @@
-import styles from './FormControls.css';
 import { Children, cloneElement } from 'react';
 
 function FormControl({ label, children }) {
     return (
-        <label className={styles.FormControl}>
-            <Label text={label} className={styles.Label} />
+        <label>
+            <Label text={label} />
             {children}
         </label>
     );
@@ -16,7 +15,7 @@ function Label({ text }) {
 
 export function CheckboxControl({ label, text, ...rest }) {
     return (
-        <div className={styles.FormControl}>
+        <div>
             <Label text={label} />
             <CheckboxOption text={text} {...rest} />
         </div>
@@ -54,11 +53,10 @@ export function OptionGroupControl({
     children,
 }) {
     return (
-        <div className={styles.FormControl}>
+        <div>
             <fieldset>
                 <Label text={label} as="legend" />
                 <div
-                    className={styles.Options}
                     style={{
                         gridTemplateColumns: `repeat(
             auto-fill,
@@ -77,7 +75,7 @@ export function OptionGroupControl({
 
 function Option({ text, type, ...rest }) {
     return (
-        <label className={styles.CheckboxLabel}>
+        <label>
             <input type={type} {...rest} />
             {text}
         </label>
@@ -85,9 +83,9 @@ function Option({ text, type, ...rest }) {
 }
 
 export function CheckboxOption(props) {
-    return <Option type="checkbox" className={styles.CheckboxOption} {...props} />;
+    return <Option type="checkbox" {...props} />;
 }
 
 export function RadioOption(props) {
-    return <Option type="radio" className={styles.RadioOption} {...props} />;
+    return <Option type="radio" {...props} />;
 }
