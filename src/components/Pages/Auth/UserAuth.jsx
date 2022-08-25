@@ -1,14 +1,11 @@
+import { Navigate } from 'react-router-dom';
 import { useUser } from '../../../State/Hooks/user';
 import Auth from './Auth';
 
 export default function UserAuth() {
     const { user } = useUser();
 
-    console.log('auth user', user);
+    console.log('user in userAuth', user);
 
-    return (
-        <>
-            <Auth />
-        </>
-    );
+    return user ? <Navigate to={'/'} /> : <Auth />;
 }
