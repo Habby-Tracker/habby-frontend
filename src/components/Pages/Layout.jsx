@@ -4,9 +4,11 @@ import Header from './Header/Header.jsx';
 
 export default function Layout() {
     return (
-        <div>
+        <div className="container flex-col text-black 
+        bg-primaryOrange text-center justify-space 
+        mx-auto md:bg-transparent">
             <Header />
-            <main>
+            <main className="flex justify-center">
                 <Outlet />
             </main>
         </div>
