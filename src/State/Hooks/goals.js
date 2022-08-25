@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { DataContext, DataDispatchContext } from '../Context/dataContext';
-import { getGoals, createGoal } from '../Services/goals-service';
+import { getGoals, createGoal, deleteGoal, updateGoal } from '../Services/goals-service';
 import { showError } from '../Services/toaster';
 
 export function useGoals() {
@@ -44,23 +44,25 @@ export function goalActions() {
         }
     };
 
-    const remove = async (goal) => {
-        const { body, error } = await createGoal(goal);
+    const remove = async (id) => {
+        const { body, error } = await deleteGoal(id);
         if(body) {
-            dispatch({ type: 'add', payload: body });
+            dispatch({ type: 'remove', payload: body });
         }
         if(error){
             showError(error.message);
         }
     };
 
-    const update = async (goal) => {
-        const { body, error } = await createGoal(goal);
+    const update = async (id, goal) => {
+        const { body, error } = await updateGoal(id, goal);
         if(body) {
-            dispatch({ type: 'add', payload: body });
+            dispatch({ type: 'update', payload: body });
         }
         if(error){
             showError(error.message);
         }
     };
+    
+    return { create, remove, update };
 }
