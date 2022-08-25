@@ -10,11 +10,13 @@ function reducer(list, { type, payload }) {
         case 'remove':
             return list.filter((item) => item.id !== payload.id);
         case 'update':
-            return list.map((item) => (item.id === item.id ? item : item));
-        case 'set':
-            return list;
+            return list.map((item) =>
+                item.id === payload.id ? payload : item
+            );
+        case 'load':
+            return payload;
         default:
-            throw new Error();
+            throw new Error('Invalid action type');
     }
 }
 
