@@ -8,14 +8,13 @@ import { CheckboxControl,
     SelectControl, 
     TextAreaControl } 
     from './FormControls/FormControls.jsx';
-import styles from './Form.css';
 
 export default function Form() {
     return (
         <Section header="Sign Up" 
             subText="Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing."
             maxWidth={'800px'}>
-            <form className={styles.Form}>
+            <form>
                 <InputControl
                     label="email"
                     name="email"

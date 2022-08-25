@@ -6,7 +6,5 @@ import Profile from './Profile';
 export default function UserAuth() {
     const { user, profile } = useUser();
 
-    console.log('user in userAuth', user);
-
     return user ? <Navigate to={'/'} /> : <Auth />;
 }

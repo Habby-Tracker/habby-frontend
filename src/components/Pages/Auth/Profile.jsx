@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Section from '../Body/Global/Section/Section';
 import Button from '../Body/Global/Button/Button.jsx';
 import { InputControl } from '../Body/Global/Form/FormControls/FormControls';
-import styles from './Profile.css';
 import { verifyUser } from '../../../State/Services/user-service';
 
 export default function Profile() {
@@ -19,7 +18,7 @@ export default function Profile() {
     };
 
     return (
-        <div className={styles.Profile}>
+        <div>
             <Section header={'Create Profile'} width="50vw">
                 <form onSubmit={handleSubmit}>
                     <InputControl
