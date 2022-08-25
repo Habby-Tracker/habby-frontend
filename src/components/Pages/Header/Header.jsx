@@ -5,10 +5,8 @@ import User from './User';
 
 const nav = [
     { to: '/', label: 'Home' },
-    { to: 'list', label: 'List' },
-    { to: 'nba', label: 'NBA' },
     { to: 'about', label: 'About' },
-    { to: 'form', label: 'Form' },
+    { to: 'progress', label: 'Progress' },
 ];
 
 export default function Header() {

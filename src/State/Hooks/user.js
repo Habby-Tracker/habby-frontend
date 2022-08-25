@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { signInService, signUpService, signOutService, uploadAvatar, upsertProfile } from '../Services/user-service';
+import { signIn as signInService, signUp as signUpService, signOut as signOutService } from '../Services/user-service';
 import { showError, showSuccess } from '../Services/toaster';
 import { UserStateContext, UserActionContext } from '../Context/UserContext';
 
@@ -47,20 +47,3 @@ export function useAuthActions() {
     return { signIn, signUp, signOut };
 }
 
-export function useProfile() {
-    const { user, profile } = useContext(UserStateContext);
-    const { setProfile } = useContext(UserActionContext);
-
-    const updateProfile = async ({ avatar, ...profile }) => {
-
-        const { url, error } = await uploadAvatar(user.id, avatar);
-        if (error) showError(error.message);
-        if (url) showSuccess('Avatar uploaded successfully');
-
-        const { data, error2 } = await upsertProfile({ ...profile, avatar: url });
-        if (error2) showError(error2.message);
-        if (data) setProfile(data);
-    };
-
-    return [profile, updateProfile];
-}

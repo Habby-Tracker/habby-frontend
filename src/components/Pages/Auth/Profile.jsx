@@ -1,20 +1,16 @@
 import { useState } from 'react';
-import { useProfile } from '../../../State/Hooks/user';
 import Section from '../Body/Global/Section/Section';
 import Button from '../Body/Global/Button/Button.jsx';
 import { InputControl } from '../Body/Global/Form/FormControls/FormControls';
 import styles from './Profile.css';
-import { getUser } from '../../../State/Services/user-service';
+import { verifyUser } from '../../../State/Services/user-service';
 
 export default function Profile() {
-    const [profile, updateProfile] = useProfile();
-    const [user,] = useState(getUser());
+    const [user,] = useState(verifyUser());
     const [formProfile, setFormProfile] = useState({ id: user.id });
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        updateProfile(formProfile);
-    };
+        e.preventDefault();    };
 
     const handleChange = (e) => setFormProfile({ ...formProfile, [e.target.name]: e.target.value });
 
@@ -31,7 +27,6 @@ export default function Profile() {
                         name="username"
                         required
                         placeholder="Enter a User Name"
-                        defaultValue={profile && profile.username}
                         onChange={handleChange}
                     />
                     <InputControl
