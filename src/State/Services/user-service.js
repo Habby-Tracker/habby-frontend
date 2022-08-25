@@ -22,13 +22,12 @@ export async function signUp(email, password) {
 }
 
 export async function signOut() {
-    const response = await fetch(`${process.env.API_URL}/api/v1/user/signout`, {
+    await fetch(`${process.env.API_URL}/api/v1/user/signout`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         mode: 'cors',
     });
-    return await response.json();
 }
 
 export async function signIn(email, password) {
@@ -41,4 +40,3 @@ export async function signIn(email, password) {
     });
     return await response.json();
 }
-
