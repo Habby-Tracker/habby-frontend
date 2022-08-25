@@ -20,7 +20,7 @@ function reducer(list, { type, payload }) {
     }
 }
 
-export default function dataContext({ children }) {
+export default function dataContextProvider({ children }) {
     const [list, dispatch] = useReducer(reducer, null);
     return (
         <DataContext.Provider value={list}>
