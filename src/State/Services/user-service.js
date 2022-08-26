@@ -6,7 +6,6 @@ export async function verifyUser() {
         mode: 'cors',
     });
 
-    console.log(response);
     return response.status === 200 ? await response.json() : null;
 }
 

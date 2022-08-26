@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import Dates from './Header/Dates.jsx';
 import Header from './Header/Header.jsx';
 
 
@@ -8,6 +9,7 @@ export default function Layout() {
         bg-primaryOrange text-center justify-space 
         mx-auto md:bg-transparent">
             <Header />
+            <Dates />
             <main className="flex justify-center">
                 <Outlet />
             </main>
