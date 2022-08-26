@@ -1,7 +1,6 @@
 import About from './Body/About/About.jsx';
 import Home from './Body/Home/Home.jsx';
-import Progress from './Body/Progress/Progress.jsx';
-import GoalAdded from './Body/GoalAdded/GoalAdded';
+import Analytics from './Body/Analytics/Analytics.jsx';
 import Layout from './Layout';
 import { Routes as RRoutes, Route, Navigate } from 'react-router-dom';
 import ProtectRoutes from './Auth/ProtectRoutes.jsx';
@@ -15,9 +14,8 @@ export default function Routes() {
             <Route element={<Layout />}>
                 <Route element={<ProtectRoutes />}>
                     <Route index element={<Home />} />
-                    <Route path="progress" element={<Progress />} />
-                    <Route path="GoalAdded" element={<GoalAdded />} />
-                    <Route path="about" element={<About />} />
+                    <Route path="analytics" element={<Analytics />} />
+                    <Route path="settings" element={<About />} />
                     <Route path="user/profile" element={<Profile />} />
                 </Route>
                 <Route path="*" element={<Navigate to="/" replace />} />
