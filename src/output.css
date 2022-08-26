@@ -655,6 +655,20 @@ video {
   max-width: 48rem;
 }
 
+.w-auto {
+  width: auto;
+}
+
+.w-fit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -829,6 +843,11 @@ video {
 
 .text-right {
   text-align: right;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .text-\[12px\] {
