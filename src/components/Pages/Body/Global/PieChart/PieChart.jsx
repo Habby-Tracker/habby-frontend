@@ -20,7 +20,7 @@ function CircularProgressWithLabel(props) {
                     justifyContent: 'center',
                 }}
             >
-                <Typography variant="caption" component="div" color="text.secondary">
+                <Typography variant="caption" component="div" color="text.primary">
                     {`${Math.round(props.value)}%`}
                 </Typography>
             </Box>
@@ -37,23 +37,8 @@ CircularProgressWithLabel.propTypes = {
     value: PropTypes.number.isRequired,
 };
 
-export function CircularStatic() {
-    const [progress, setProgress] = useState(10);
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
-        }, 800);
-        return () => {
-            clearInterval(timer);
-        };
-    }, []);
-
-    return <CircularProgressWithLabel value={progress} />;
-}
-
-
-export default function PieChart(progress) {
+export default function PieChart({ progress }) {
     return (
         <div>
             <CircularProgressWithLabel value={progress} />

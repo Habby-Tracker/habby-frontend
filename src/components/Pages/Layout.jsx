@@ -13,6 +13,9 @@ export default function Layout() {
         { to: 'settings', label: 'settings' },
     ];
 
+    const value = (4 / 7) * 100 ;
+    
+
     return (
         <div className="container flex-col text-black 
         bg-purple text-center justify-space md:bg-transparent 
@@ -24,7 +27,7 @@ export default function Layout() {
             <footer className="container flex justify-center bg-white w-full md:hidden">
                 <div className="flex justify-between space-x-0 md:space-x-6">
                     <Navigation navigation={nav} />
-                    <PieChart progress={50}/>
+                    <PieChart progress={value}/>
                 </div>
             </footer>
         </div>
