@@ -2,7 +2,6 @@ import Button from '../Global/Button/Button';
 import HabitCard from '../Global/Card/HabitCard';
 import GoalCard from '../Global/Card/GoalCard';
 import Section from '../Global/Section/Section';
-import GoalAdded from '../GoalAdded/GoalAdded';
 
 export default function Home() {
     return (
@@ -17,7 +16,6 @@ export default function Home() {
                 <GoalCard goal="50 push ups" target="5 of 7 days target" freq="Everyday" width="100%" height="100px" id={1}/>
             </Section>
             <br></br>
-            <GoalAdded />
         </div>
     );
 }
