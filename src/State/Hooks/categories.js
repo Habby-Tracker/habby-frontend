@@ -5,7 +5,7 @@ import { showError } from '../Services/toaster';
 
 export function useCategories() {
     const { categories } = useContext(DataContext);
-    const { dispatch } = useContext(DataDispatchContext);
+    const { dispatchCategories } = useContext(DataDispatchContext);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export function useCategories() {
             const data = await getCategory();
             if (ignore) return;
             if (data.body) {
-                dispatch({ type: 'load', payload: data });
+                dispatchCategories({ type: 'load', payload: data });
             }
             if(data.error) {
                 setError(data.error);
@@ -32,12 +32,12 @@ export function useCategories() {
 }
 
 export function categoryActions() {
-    const { dispatch } = useContext(DataDispatchContext);
+    const { dispatchCategories } = useContext(DataDispatchContext);
 
     const create = async (category) => {
         const { body, error } = await createCategory(category);
         if(body) {
-            dispatch({ type: 'add', payload: body });
+            dispatchCategories({ type: 'add', payload: body });
         }
         if(error){
             showError(error.message);
@@ -47,7 +47,7 @@ export function categoryActions() {
     const remove = async (id) => {
         const { body, error } = await deleteCategory(id);
         if(body) {
-            dispatch({ type: 'remove', payload: body });
+            dispatchCategories({ type: 'remove', payload: body });
         }
         if(error){
             showError(error.message);
