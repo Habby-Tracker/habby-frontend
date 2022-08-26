@@ -6,7 +6,7 @@ export default function Menu() {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = (e) => {
-        if (e.target.className === 'something') {
+        if (e.target.className === 'menu') {
             e.stopPropagation();
             setIsOpen((isOpen) => !isOpen);
         }
@@ -24,7 +24,7 @@ export default function Menu() {
         if (!isOpen) return;
     
         const closeMenu = (e) => {
-            if (e.target.className !== 'menu-container') {
+            if (e.target.className !== 'menucontainer') {
                 setIsOpen(false);
             }
         };
@@ -51,8 +51,8 @@ export default function Menu() {
     }, [isOpen]);
     
     return (
-        <button className="" onClick={handleClick}>
-            <div className="">
+        <button className="menu" onClick={handleClick}>
+            <div className="menucontainer">
                 <Navigation navigation={nav}/>
                 <Logout />
             </div>

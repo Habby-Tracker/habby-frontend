@@ -30,9 +30,6 @@ export default function Header() {
                 </span>
             </div>
             <Menu className="px-4 py-1" />
-            <div className="px-4 py-1">
-                Profile Nav Stuff
-            </div>
         </header>
     );
 }
