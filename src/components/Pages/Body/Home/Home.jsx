@@ -13,7 +13,7 @@ export default function Home() {
             </Section>
             <br></br>
             <Section header = "Your Goals" seeAll={true} width="90vw">
-                <GoalCard goal="50 push ups" target="5 of 7 days target" freq="Everyday" width="100%" height="150px" id={1}/>
+                <GoalCard goal="50 push ups" target="5 of 7 days target" freq="Everyday" width="100%" height="100px" id={1}/>
             </Section>
         </div>
     );

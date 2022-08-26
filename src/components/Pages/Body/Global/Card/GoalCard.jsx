@@ -21,7 +21,7 @@ export default function HabitCard({ goal, target, freq, width, height, id }) {
             </div>
             <div className="w-full items-left "> 
                 <div>
-                progress bar
+                (progress bar)
                 </div>
                 <p className={targetDays}>{target}</p>
                 <p className={frequency}>{freq}</p>
