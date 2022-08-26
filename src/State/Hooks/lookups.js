@@ -3,14 +3,14 @@ import { DataContext, DataDispatchContext } from '../Context/dataContext';
 import { getHabitTypes, getStatuses, getTimePeriods } from '../Services/lookup-service';
 
 export default function useLookups() {
-    const { statuses, timePeriods, habitTypes } = useContext(DataContext);
-    const { dispatch } = useContext(DataDispatchContext);
+    const { status, timePeriods, habitTypes } = useContext(DataContext);
+    const { dispatchStatus, dispatchTimePeriods, dispatchHabitTypes } = useContext(DataDispatchContext);
     const [statusError, setStatusError] = useState(null);
     const [timePeriodError, setTimePeriodError] = useState(null);
     const [habitTypeError, setHabitTypeError] = useState(null);
 
     useEffect(() => {
-        if (statuses && timePeriods && habitTypes) return;
+        if (status && timePeriods && habitTypes) return;
 
         let ignore = false;
 
@@ -21,9 +21,9 @@ export default function useLookups() {
 
             if (ignore) return;
             
-            statusData.body && dispatch({ type: 'load', payload: statusData.body });
-            timePeriodData.body && dispatch({ type: 'load', payload: timePeriodData.body });
-            habitTypesData.body && dispatch({ type: 'load', payload: habitTypesData.body });
+            statusData.body && dispatchStatus({ type: 'load', payload: statusData.body });
+            timePeriodData.body && dispatchTimePeriods({ type: 'load', payload: timePeriodData.body });
+            habitTypesData.body && dispatchHabitTypes({ type: 'load', payload: habitTypesData.body });
 
             statusData.error && setStatusError(statusData.error);
             timePeriodData.error && setTimePeriodError(timePeriodData.error);
@@ -36,5 +36,5 @@ export default function useLookups() {
         };
     }, []);
 
-    return { statuses, timePeriods, habitTypes, statusError, timePeriodError, habitTypeError };
+    return { status, timePeriods, habitTypes, statusError, timePeriodError, habitTypeError };
 }

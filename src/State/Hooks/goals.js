@@ -5,7 +5,7 @@ import { showError } from '../Services/toaster';
 
 export function useGoals() {
     const { goals } = useContext(DataContext);
-    const { dispatch } = useContext(DataDispatchContext);
+    const { dispatchGoal } = useContext(DataDispatchContext);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export function useGoals() {
             const data = await getGoals();
             if (ignore) return;
             if (data.body) {
-                dispatch({ type: 'load', payload: data });
+                dispatchGoal({ type: 'load', payload: data });
             }
             if(data.error) {
                 setError(data.error);
@@ -32,12 +32,12 @@ export function useGoals() {
 }
 
 export function goalActions() {
-    const { dispatch } = useContext(DataDispatchContext);
+    const { dispatchGoal } = useContext(DataDispatchContext);
 
     const create = async (goal) => {
         const { body, error } = await createGoal(goal);
         if(body) {
-            dispatch({ type: 'add', payload: body });
+            dispatchGoal({ type: 'add', payload: body });
         }
         if(error){
             showError(error.message);
@@ -47,7 +47,7 @@ export function goalActions() {
     const remove = async (id) => {
         const { body, error } = await deleteGoal(id);
         if(body) {
-            dispatch({ type: 'remove', payload: body });
+            dispatchGoal({ type: 'remove', payload: body });
         }
         if(error){
             showError(error.message);
@@ -57,7 +57,7 @@ export function goalActions() {
     const update = async (id, goal) => {
         const { body, error } = await updateGoal(id, goal);
         if(body) {
-            dispatch({ type: 'update', payload: body });
+            dispatchGoal({ type: 'update', payload: body });
         }
         if(error){
             showError(error.message);
