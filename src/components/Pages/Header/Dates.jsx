@@ -26,7 +26,7 @@ export default function Dates() {
     function handleChangeDate(date) {
         setSelectedDate(new Date(date));
     }
-    return (<div className="flex flex-row justify-center align-center bg-white">
+    return (<div autoFocus={true} className="flex flex-row justify-center align-center bg-white">
         {dates.map((date, index) => {
             if (index === 2) { 
                 return (
@@ -37,7 +37,7 @@ export default function Dates() {
                 );
             } else {
                 return (
-                    <div key={index} className="flex flex-col pt-2 pb-4 px-4 m-1 bg-white border border-gray-200 rounded select-none hover:bg-primaryOrange/[.15] hover:border-primaryOrange/[.15] hover:cursor-pointer" onClick={() => handleChangeDate(date)}>
+                    <div key={index} className="flex flex-col pt-2 pb-4 px-4 m-1 bg-white border border-gray-200 rounded select-none sm:hover:bg-primaryOrange/[.15] sm:hover:border-primaryOrange/[.15] hover:cursor-pointer" onClick={() => handleChangeDate(date)}>
                         <span className="text-lg font-semibold">{date.getDate()}</span>
                         <span className="text-sm font-light leading-3">{getShortMonthName(date.getMonth())}</span>
                     </div>
