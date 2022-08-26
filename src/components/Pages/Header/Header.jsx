@@ -4,6 +4,8 @@
 // import Navigation from './Navigation';
 // import User from './User';
 
+import Menu from './Menu';
+
 // const nav = [
 //     { to: '/', label: 'Home' },
 //     { to: 'about', label: 'About' },
@@ -27,6 +29,7 @@ export default function Header() {
                     {user.firstName}!
                 </span>
             </div>
+            <Menu className="px-4 py-1" />
             <div className="px-4 py-1">
                 Profile Nav Stuff
             </div>
