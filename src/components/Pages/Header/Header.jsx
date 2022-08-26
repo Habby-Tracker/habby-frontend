@@ -6,6 +6,7 @@ const nav = [
     { to: '/', label: 'Home' },
     { to: 'about', label: 'About' },
     { to: 'progress', label: 'Progress' },
+    { to: 'GoalAdded', label: 'GoalAdded' },
 ];
 
 export default function Header() {
