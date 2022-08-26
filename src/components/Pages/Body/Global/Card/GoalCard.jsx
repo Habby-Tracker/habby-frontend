@@ -1,4 +1,5 @@
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import ProgressBar from '../ProgressBar/ProgressBar';
 // import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export default function HabitCard({ goal, target, freq, width, height, id }) {
@@ -6,7 +7,7 @@ export default function HabitCard({ goal, target, freq, width, height, id }) {
     const goalText = 'pl-4 w-2/3 text-left text-sm font-semibold';
     const targetDays = 'pl-4 w-2/3 text-left text-sm font-normal';
     const frequency = 'pl-4 w-2/3 text-left text-primaryOrange text-sm font-normal';
-
+    const progress = (5 / 7) * 100;
 
 
 
@@ -19,12 +20,12 @@ export default function HabitCard({ goal, target, freq, width, height, id }) {
                     <MoreVertIcon fontSize="small" />
                 </div>
             </div>
-            <div className="w-full items-left "> 
-                <div>
-                (progress bar)
+            <div className="w-full justify-center"> 
+                <ProgressBar progress={progress}/>
+                <div className="w-full items-left">
+                    <p className={targetDays}>{target}</p>
+                    <p className={frequency}>{freq}</p>
                 </div>
-                <p className={targetDays}>{target}</p>
-                <p className={frequency}>{freq}</p>
             </div>
         </div>
     );

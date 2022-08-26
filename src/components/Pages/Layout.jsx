@@ -30,7 +30,6 @@ export default function Layout() {
                 <div className="flex justify-between space-x-0 md:space-x-6">
                     <Navigation navigation={nav} />
                     <PieChart progress={value}/>
-                    <ProgressBar progress={value} />
                 </div>
             </footer>
         </div>
