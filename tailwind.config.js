@@ -3,8 +3,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primaryOrange: 'hsla(29, 96%, 56%, 1)',
-                darkOrange: 'hsla(29, 96%, 32%, 1)',
+                primaryOrange: 'hsla(21.6, 100%, 50%, 1)',
+                darkOrange: 'hsla(21.6, 100%, 20%, 1)',
                 lightOrange: 'hsla(29, 96%, 64%, 0.8)',
                 purple: 'hsla(315, 97%, 26%, 1)',
                 darkPurple: 'hsla(315, 97%, 17%, 1)',
@@ -12,7 +12,8 @@ module.exports = {
                 primaryBlack: 'hsla(330, 28%, 13%, 1)',
                 successGreen: 'hsla(162, 95%, 34%, 1)',
                 neonGreen: 'hsla(144, 82%, 47%, 1)',
-                darkGreen: 'hsla(162, 87%, 24%, 1)'
+                darkGreen: 'hsla(162, 87%, 24%, 1)',
+                lightGrey: 'hsla(100, 0%, 98%, 0.75)'
             },
         },
         screens: {

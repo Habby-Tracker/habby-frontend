@@ -5,7 +5,7 @@ import Header from './Header/Header.jsx';
 export default function Layout() {
     return (
         <div className="container flex-col text-black 
-        bg-primaryOrange text-center justify-space 
+        text-center justify-space 
         mx-auto md:bg-transparent">
             <Header />
             <main className="flex justify-center">
