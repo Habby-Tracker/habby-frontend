@@ -3,8 +3,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primaryOrange: 'hsla(29, 96%, 56%, 1)',
-                darkOrange: 'hsla(29, 96%, 32%, 1)',
+                primaryOrange: 'hsla(21.6, 100%, 50%, 1)',
+                darkOrange: 'hsla(21.6, 100%, 20%, 1)',
                 lightOrange: 'hsla(29, 96%, 64%, 0.8)',
                 purple: 'hsla(315, 97%, 26%, 1)',
                 darkPurple: 'hsla(315, 97%, 17%, 1)',
