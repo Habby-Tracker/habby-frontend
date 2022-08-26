@@ -1,15 +1,11 @@
-// import { useContext } from 'react';
-// import { UserStateContext } from '../../../State/Context/UserContext';
 // import Menu from './Menu';
 // import Navigation from './Navigation';
 // import User from './User';
 
-import Menu from './Menu';
-
 // const nav = [
 //     { to: '/', label: 'Home' },
-//     { to: 'about', label: 'About' },
-//     { to: 'progress', label: 'Progress' },
+//     { to: 'analytics', label: 'Analytics'  },
+//     { to: 'Settings', label: 'settings' },
 // ];
 
 export default function Header() {
@@ -22,14 +18,19 @@ export default function Header() {
     };
 
     return (
-        <header className="flex flex-row justify-between align-center bg-white">
-            <div className="px-4 py-1 text-lg">
+        <header className="flex justify-around space-x-6 sm:space-x-0">
+            {/* <div>
+                <Menu />
+            </div> */}
+
+            <h1 className="flex text-bold text-primaryOrange">Habby</h1>
+
+            <div className="flex justify-between space-x-0 md:space-x-6">
                 {'Hello, '}
                 <span className="text-primaryOrange">
                     {user.firstName}!
                 </span>
             </div>
-            <Menu className="px-4 py-1" />
         </header>
     );
 }
