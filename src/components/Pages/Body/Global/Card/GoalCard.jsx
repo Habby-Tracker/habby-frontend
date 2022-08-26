@@ -1,14 +1,10 @@
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-// import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-export default function HabitCard({ goal, target, freq, width, height, id }) {
+export default function GoalCard({ goal, target, freq, width, height, id }) {
 
     const goalText = 'pl-4 w-2/3 text-left text-sm font-semibold';
     const targetDays = 'pl-4 w-2/3 text-left text-sm font-normal';
     const frequency = 'pl-4 w-2/3 text-left text-primaryOrange text-sm font-normal';
-
-
-
 
     return (
         <div className="flex flex-col w-full h-10 items-center rounded-md bg-lightGrey my-2 shadow-md"
