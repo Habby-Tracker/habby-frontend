@@ -2,10 +2,9 @@ import { useState } from 'react';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export default function HabitCard({ text, completed, width, id }) {
-    const [completedState, setCompletedState] = useState(true);
+    const [completedState,] = useState(completed);
 
     const successText = 'pl-4 w-2/3 text-left text-successGreen font-bold line-through';
     const defaultText = 'pl-4 w-2/3 text-left';
