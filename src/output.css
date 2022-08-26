@@ -669,6 +669,20 @@ video {
   resize: both;
 }
 
+.w-auto {
+  width: auto;
+}
+
+.w-fit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -882,6 +896,11 @@ video {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .text-sm {
