@@ -1,4 +1,5 @@
 import Button from '../Global/Button/Button';
+import HabitCard from '../Global/Card/HabitCard';
 import Section from '../Global/Section/Section';
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
         <div>
             <p>Home Page</p>
             <Section header="Today's Habits" seeAll={true} width="90vw">
+                <HabitCard text="Go to the gym" completed={false} width="100%" height="100px" id={1}/>
                 <Button text="Button" width={'80%'}/>
             </Section>
         </div>

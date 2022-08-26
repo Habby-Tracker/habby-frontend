@@ -12,7 +12,8 @@ module.exports = {
                 primaryBlack: 'hsla(330, 28%, 13%, 1)',
                 successGreen: 'hsla(162, 95%, 34%, 1)',
                 neonGreen: 'hsla(144, 82%, 47%, 1)',
-                darkGreen: 'hsla(162, 87%, 24%, 1)'
+                darkGreen: 'hsla(162, 87%, 24%, 1)',
+                lightGrey: 'hsla(100, 0%, 98%, 0.75)'
             },
         },
         screens: {
