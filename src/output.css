@@ -669,20 +669,6 @@ video {
   resize: both;
 }
 
-.w-auto {
-  width: auto;
-}
-
-.w-fit {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.max-w-3xl {
-  max-width: 48rem;
-}
-
 .flex-row {
   flex-direction: row;
 }
@@ -903,11 +889,6 @@ video {
   line-height: 1.25rem;
 }
 
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 .text-\[12px\] {
   font-size: 12px;
 }
@@ -922,6 +903,10 @@ video {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-normal {
+  font-weight: 400;
 }
 
 .leading-3 {

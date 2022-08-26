@@ -1,4 +1,8 @@
-export default function DateCard({ date, index, setSelectedDate }) {
+import { calendarActions } from '../../../../State/Hooks/calendar';
+
+export default function DateCard({ date, index }) {
+    const { setSelectedDate } = calendarActions();
+
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     function getShortMonthName(monthIndex) {
