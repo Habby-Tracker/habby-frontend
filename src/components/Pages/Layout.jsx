@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import PieChart from './Body/Global/PieChart/PieChart.jsx';
-import ProgressBar from './Body/Global/ProgressBar/ProgressBar.jsx';
+import Dates from './Body/Dates/Dates.jsx';
 import Header from './Header/Header.jsx';
 import Navigation from './Header/Navigation.jsx';
 
@@ -23,6 +23,7 @@ export default function Layout() {
         bg-purple text-center justify-space md:bg-transparent 
         mx-auto w-fit">
             <Header />
+            <Dates />
             <main className="flex justify-center bg-white">
                 <Outlet />
             </main>

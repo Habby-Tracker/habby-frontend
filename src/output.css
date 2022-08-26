@@ -602,6 +602,15 @@ video {
   z-index: 50;
 }
 
+.m-1 {
+  margin: 0.25rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -610,11 +619,6 @@ video {
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .flex {
@@ -655,18 +659,14 @@ video {
   max-width: 48rem;
 }
 
-.w-auto {
-  width: auto;
+.select-none {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
-.w-fit {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.max-w-3xl {
-  max-width: 48rem;
+.resize {
+  resize: both;
 }
 
 .flex-row {
@@ -705,16 +705,16 @@ video {
   justify-content: space-around;
 }
 
-.space-x-0 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0px * var(--tw-space-x-reverse));
-  margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
-}
-
 .space-x-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.5rem * var(--tw-space-x-reverse));
   margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-0 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0px * var(--tw-space-x-reverse));
+  margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-x-12 > :not([hidden]) ~ :not([hidden]) {
@@ -753,6 +753,10 @@ video {
   border-bottom-left-radius: 0.25rem;
 }
 
+.border {
+  border-width: 1px;
+}
+
 .border-0 {
   border-width: 0px;
 }
@@ -769,18 +773,35 @@ video {
   border-style: solid;
 }
 
+.border-primaryOrange\/\[\.15\] {
+  border-color: hsl(21.6 100% 50% / .15);
+}
+
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
+
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.bg-primaryOrange\/\[\.15\] {
+  background-color: hsl(21.6 100% 50% / .15);
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-neonGreen {
   background-color: hsla(144, 82%, 47%, 1);
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+.bg-lightGrey {
+  background-color: hsla(100, 0%, 98%, 0.75);
 }
 
 .bg-purple {
@@ -808,7 +829,7 @@ video {
 }
 
 .to-primaryOrange {
-  --tw-gradient-to: hsla(29, 96%, 56%, 1);
+  --tw-gradient-to: hsla(21.6, 100%, 50%, 1);
 }
 
 .p-5 {
@@ -819,14 +840,27 @@ video {
   padding: 1.5rem;
 }
 
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
 }
 
 .pl-4 {
@@ -845,6 +879,11 @@ video {
   text-align: right;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -858,13 +897,20 @@ video {
   font-weight: 700;
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+.font-light {
+  font-weight: 300;
 }
 
-.text-successGreen {
-  color: hsla(162, 95%, 34%, 1);
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.leading-3 {
+  line-height: .75rem;
 }
 
 .text-black {
@@ -873,7 +919,16 @@ video {
 }
 
 .text-primaryOrange {
-  color: hsla(29, 96%, 56%, 1);
+  color: hsla(21.6, 100%, 50%, 1);
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-successGreen {
+  color: hsla(162, 95%, 34%, 1);
 }
 
 .line-through {
@@ -909,8 +964,16 @@ video {
 
 /* Any custom css needs to go here. We do not have nesting in tailwind so we need to use the class names to style the elements. */
 
+.hover\:cursor-default:hover {
+  cursor: default;
+}
+
+.hover\:cursor-pointer:hover {
+  cursor: pointer;
+}
+
 .hover\:bg-darkOrange:hover {
-  background-color: hsla(29, 96%, 32%, 1);
+  background-color: hsla(21.6, 100%, 20%, 1);
 }
 
 .hover\:underline:hover {
@@ -928,6 +991,14 @@ video {
     --tw-space-x-reverse: 0;
     margin-right: calc(0px * var(--tw-space-x-reverse));
     margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .sm\:hover\:border-primaryOrange\/\[\.15\]:hover {
+    border-color: hsl(21.6 100% 50% / .15);
+  }
+
+  .sm\:hover\:bg-primaryOrange\/\[\.15\]:hover {
+    background-color: hsl(21.6 100% 50% / .15);
   }
 }
 
