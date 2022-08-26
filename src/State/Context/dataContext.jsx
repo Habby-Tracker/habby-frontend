@@ -21,10 +21,17 @@ function reducer(list, { type, payload }) {
 }
 
 export default function dataContextProvider({ children }) {
-    const [list, dispatch] = useReducer(reducer, null);
+    const [goals, dispatchGoal] = useReducer(reducer, null);
+    const [habits, dispatchHabit] = useReducer(reducer, null);
+    const [moods, dispatchMoods] = useReducer(reducer, null);
+    const [categories, dispatchCategories] = useReducer(reducer, null);
+    const [status, dispatchStatus] = useReducer(reducer, null);
+    const [timePeriods, dispatchTimePeriods] = useReducer(reducer, null);
+    const [habitTypes, dispatchHabitTypes] = useReducer(reducer, null);
+
     return (
-        <DataContext.Provider value={list}>
-            <DataDispatchContext.Provider value={dispatch}>
+        <DataContext.Provider value={{ goals, habits, moods, categories, status, timePeriods, habitTypes }}>
+            <DataDispatchContext.Provider value={{ dispatchGoal, dispatchHabit, dispatchMoods, dispatchCategories, dispatchStatus, dispatchTimePeriods, dispatchHabitTypes }}>
                 {children}
             </DataDispatchContext.Provider>
         </DataContext.Provider>

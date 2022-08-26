@@ -1,8 +1,12 @@
-export default function Section({ header, subText, width, maxWidth, height, children }) {
+export default function Section({ header, seeAll, width, maxWidth, height, children }) {
     return (
-        <section style={{ width, maxWidth, height }}>
-            {header && <h1>{header}</h1>}
-            {subText && <h4>{subText}</h4>}
+        <section className="flex flex-col items-center bg-white
+        py-2 px-4 rounded shadow-lg"
+        style={{ width, maxWidth, height }}>
+            <div className="flex justify-between space-around w-full items-end">
+                {header && <h1 className="text-black font-bold">{header}</h1>}
+                {seeAll && <a className="text-primaryOrange font-bol text-[12px] no-underline hover:underline">{'See all'}</a>}
+            </div>
             {children}
         </section>
     );
