@@ -1,24 +1,25 @@
-import Menu from './Menu';
-import Navigation from './Navigation';
+// import Menu from './Menu';
+// import Navigation from './Navigation';
 import User from './User';
 
-const nav = [
-    { to: '/', label: 'Home' },
-    { to: 'about', label: 'About' },
-    { to: 'progress', label: 'Progress' },
-];
+// const nav = [
+//     { to: '/', label: 'Home' },
+//     { to: 'analytics', label: 'Analytics'  },
+//     { to: 'Settings', label: 'settings' },
+// ];
 
 export default function Header() {
     return (
-        <header>
-            <div>
+        <header className="flex justify-around space-x-6 sm:space-x-0">
+            {/* <div>
                 <Menu />
-            </div>
+            </div> */}
 
-            <h1>My React App</h1>
+            <h1 className="flex text-bold text-primaryOrange">Habby</h1>
+            <h6 className="text">habit tracker</h6>
 
-            <div>
-                <Navigation navigation={nav} />
+            <div className="flex justify-between space-x-0 md:space-x-6">
+                {/* <Navigation navigation={nav} /> */}
             </div>
 
             <User username={'Will'}/>

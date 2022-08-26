@@ -14,10 +14,8 @@ export default function Menu() {
 
     const nav = [
         { to: '/', label: 'Home' },
-        { to: 'list', label: 'List' },
-        { to: 'nba', label: 'NBA' },
-        { to: 'about', label: 'About' },
-        { to: 'form', label: 'Form' },
+        { to: 'analytics', label: 'Analytics' },
+        { to: 'settings', label: 'Settings' },
     ];
 
     return (
