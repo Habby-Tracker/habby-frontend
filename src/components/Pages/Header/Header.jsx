@@ -1,6 +1,6 @@
 // import Menu from './Menu';
 // import Navigation from './Navigation';
-import User from './User';
+// import User from './User';
 
 // const nav = [
 //     { to: '/', label: 'Home' },
@@ -9,6 +9,14 @@ import User from './User';
 // ];
 
 export default function Header() {
+    // const user = useContext(UserStateContext);
+    const user = {
+        firstName: 'Riley',
+        lastName: 'Hoffman',
+        email: 'rileyjhoff@gmail.com',
+        avatar: ''
+    };
+
     return (
         <header className="flex justify-around space-x-6 sm:space-x-0">
             {/* <div>
@@ -16,13 +24,13 @@ export default function Header() {
             </div> */}
 
             <h1 className="flex text-bold text-primaryOrange">Habby</h1>
-            <h6 className="text">habit tracker</h6>
 
             <div className="flex justify-between space-x-0 md:space-x-6">
-                {/* <Navigation navigation={nav} /> */}
+                {'Hello, '}
+                <span className="text-primaryOrange">
+                    {user.firstName}!
+                </span>
             </div>
-
-            <User username={'Will'}/>
         </header>
     );
 }
