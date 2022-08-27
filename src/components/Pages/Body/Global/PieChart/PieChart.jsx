@@ -2,12 +2,13 @@ import PropTypes from 'prop-types';
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { useEffect, useState } from 'react';
 
 function CircularProgressWithLabel(props) {
+
+    
     return (
         <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-            <CircularProgress variant="determinate" {...props} />
+            <CircularProgress variant="determinate" {...props} color="secondary" />
             <Box
                 sx={{
                     top: 0,
@@ -20,7 +21,7 @@ function CircularProgressWithLabel(props) {
                     justifyContent: 'center',
                 }}
             >
-                <Typography variant="caption" component="div" color="text.secondary">
+                <Typography variant="caption" component="div" className="text-primaryOrange">
                     {`${Math.round(props.value)}%`}
                 </Typography>
             </Box>
@@ -37,23 +38,8 @@ CircularProgressWithLabel.propTypes = {
     value: PropTypes.number.isRequired,
 };
 
-export function CircularStatic() {
-    const [progress, setProgress] = useState(10);
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
-        }, 800);
-        return () => {
-            clearInterval(timer);
-        };
-    }, []);
-
-    return <CircularProgressWithLabel value={progress} />;
-}
-
-
-export default function PieChart(progress) {
+export default function PieChart({ progress }) {
     return (
         <div>
             <CircularProgressWithLabel value={progress} />
