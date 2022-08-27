@@ -16,7 +16,7 @@ export default function Navigation({ navigation }) {
         }
     };
     return (
-        <nav className="container justify-between space-x-12 mx-auto
+        <nav className="container justify-between space-x-12 mx-auto w-100
         bg-gradient-to-r from-gray-300 to-primaryOrange">
             {navigation.map(({ to, label }) => (
                 <Link key={to} to={to}>

@@ -27,12 +27,9 @@ export default function Layout() {
             <main className="flex justify-center bg-white">
                 <Outlet />
             </main>
-            <footer className="container flex justify-center bg-white w-full md:hidden">
-                <div className="flex justify-between space-x-0 md:space-x-6">
-                    <Navigation navigation={nav} />
-                    <PieChart progress={value}/>
-                </div>
-            </footer>
+            <div className="flex justify-between space-x-0 md:space-x-">
+                <Navigation navigation={nav} />
+            </div>
         </div>
     );
 }
