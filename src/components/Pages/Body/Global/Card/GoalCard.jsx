@@ -2,7 +2,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ProgressBar from '../ProgressBar/ProgressBar';
 // import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-export default function HabitCard({ goal, target, freq, width, height, id }) {
+export default function GoalCard({ goal, target, freq, width, height, id }) {
 
     const goalText = 'pl-4 w-2/3 text-left text-sm font-semibold';
     const targetDays = 'pl-4 w-2/3 text-left text-sm font-normal';
