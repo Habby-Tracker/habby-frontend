@@ -1,7 +1,7 @@
 import { useCalendar } from '../../../../State/Hooks/calendar';
 import DateCard from './DateCard';
 
-export default function Dates() {
+export default function DateSlider() {
     const { dates } = useCalendar();
 
     return (
