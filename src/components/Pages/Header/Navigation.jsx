@@ -8,18 +8,18 @@ export default function Navigation({ navigation }) {
     const icon = (label) => {
         switch(label) {
             case 'home': 
-                return <HomeTwoToneIcon color="purple" />;
+                return <HomeTwoToneIcon fontSize="large"/>;
             case 'analytics':
-                return <ShowChartTwoToneIcon />;
+                return <ShowChartTwoToneIcon fontSize="large" />;
             case 'settings':
-                return <SettingsTwoToneIcon color="gray"/>;
+                return <SettingsTwoToneIcon fontSize="large"/>;
         }
     };
     return (
-        <nav className="container justify-between space-x-12 mx-auto w-100
-        bg-gradient-to-r from-gray-300 to-primaryOrange">
+        <nav className="container fixed bottom-0 py-1 w-full
+        bg-gradient-to-tr from-primaryOrange via-gray to-primary-orange h-12">
             {navigation.map(({ to, label }) => (
-                <Link key={to} to={to}>
+                <Link key={to} to={to} className="mx-10 ">
                     {icon(label)}
                 </Link>
             ))}

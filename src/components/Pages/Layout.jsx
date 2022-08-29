@@ -1,9 +1,8 @@
 import { Outlet } from 'react-router-dom';
-import PieChart from './Body/Global/PieChart/PieChart.jsx';
 import DateSlider from './Body/Dates/DateSlider.jsx';
 import Header from './Header/Header.jsx';
 import Navigation from './Header/Navigation.jsx';
-import Calendar from './Body/Dates/Calendar.jsx';
+// import Calendar from './Body/Dates/Calendar.jsx';
 
 
 
@@ -14,17 +13,13 @@ export default function Layout() {
         { to: 'analytics', label: 'analytics' },
         { to: 'settings', label: 'settings' },
     ];
-
-    const value = (4 / 7) * 100 ;
     
-    
-
     return (
         <div className="flex-col text-black 
         bg-purple text-center justify-space md:bg-transparent">
             <Header />
             <DateSlider />
-            <Calendar />
+            {/* <Calendar /> */}
             <main className="flex justify-center justify-items-center bg-white">
                 <Outlet />
             </main>

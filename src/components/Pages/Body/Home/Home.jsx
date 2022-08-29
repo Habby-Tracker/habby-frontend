@@ -5,11 +5,14 @@ import Modal from '../Global/Form/Modal';
 import Section from '../Global/Section/Section';
 import GoalAdded from '../GoalAdded/GoalAdded';
 import AddGoalButton from '../Global/Button/AddGoalButton';
+import Hero from '../Hero/Hero';
+
+
 
 export default function Home() {
     return (
         <div>
-            <p>Home Page</p>
+            <Hero />
             <AddGoalButton />
             <Section header="Today's Habits" seeAll={true} width="90vw">
                 <Modal />
@@ -24,8 +27,8 @@ export default function Home() {
                     id={1}
                 />
             </Section>
-            <br></br>
             <GoalAdded />
+            <Modal />
         </div>
     );
 }
