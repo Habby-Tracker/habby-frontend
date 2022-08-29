@@ -15,13 +15,12 @@ export default function Layout() {
     ];
     
     return (
-        <div className="container flex-col text-black 
-        bg-purple text-center justify-space md:bg-transparent 
-        mx-auto w-fit">
+        <div className="flex-col text-black 
+        bg-purple text-center justify-space md:bg-transparent">
             <Header />
             <DateSlider />
-            {/* <Calendar /> */}
-            <main className="flex justify-center bg-white">
+            <Calendar />
+            <main className="flex justify-center justify-items-center bg-white">
                 <Outlet />
             </main>
             <div className="flex justify-between space-x-0 md:space-x-">

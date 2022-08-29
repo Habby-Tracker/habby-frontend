@@ -4,6 +4,7 @@ import GoalCard from '../Global/Card/GoalCard';
 import Modal from '../Global/Form/Modal';
 import Section from '../Global/Section/Section';
 import GoalAdded from '../GoalAdded/GoalAdded';
+import AddGoalButton from '../Global/Button/AddGoalButton';
 import Hero from '../Hero/Hero';
 
 
@@ -12,6 +13,7 @@ export default function Home() {
     return (
         <div>
             <Hero />
+            <AddGoalButton />
             <Section header="Today's Habits" seeAll={true} width="90vw">
                 <Modal />
             </Section>
