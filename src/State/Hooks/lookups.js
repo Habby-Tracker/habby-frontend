@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { DataContext, DataDispatchContext } from '../Context/dataContext';
+import { DataContext, DataDispatchContext } from '../Context/DataContext';
 import { getHabitTypes, getStatuses, getTimePeriods } from '../Services/lookup-service';
 
 export default function useLookups() {

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { DataContext, DataDispatchContext } from '../Context/dataContext';
+import { DataContext, DataDispatchContext } from '../Context/DataContext';
 import { createCategory, deleteCategory, getCategory } from '../Services/category-service';
 import { showError } from '../Services/toaster';
 
