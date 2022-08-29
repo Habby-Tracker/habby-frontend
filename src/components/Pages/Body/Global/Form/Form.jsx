@@ -1,12 +1,14 @@
-import Button from '../Basic/Button/Button';
-import Section from '../Basic/Section/Section';
-import { CheckboxControl, 
-    CheckboxOption, 
+import Button from '../Button/Button';
+import Section from '../Section/Section';
+import { 
+    // CheckboxControl, 
+    // CheckboxOption, 
     InputControl, 
-    OptionGroupControl, 
-    RadioOption, 
+    // OptionGroupControl, 
+    // RadioOption, 
     SelectControl, 
-    TextAreaControl } 
+    // TextAreaControl 
+} 
     from './FormControls/FormControls.jsx';
 
 export default function Form() {
@@ -37,7 +39,7 @@ export default function Form() {
                     <option>C</option>
                 </SelectControl>
 
-                <OptionGroupControl
+                {/* <OptionGroupControl
                     label="Check all that apply"
                     size="125px"
                 >
@@ -59,11 +61,11 @@ export default function Form() {
                     <RadioOption value={2} text="Cat" />
                     <RadioOption value={3} text="Alpaca" />
                     <RadioOption value={4} text="Llama" />
-                </OptionGroupControl>
+                </OptionGroupControl> */}
 
-                <CheckboxControl label="Easy Mode?" text="Yes" />
+                {/* <CheckboxControl label="Easy Mode?" text="Yes" /> */}
 
-                <TextAreaControl label="bio" placeholder="tell us about yourself" />
+                {/* <TextAreaControl label="bio" placeholder="tell us about yourself" /> */}
 
                 <Button text="Submit" />
             </form>
