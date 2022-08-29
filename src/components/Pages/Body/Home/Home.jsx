@@ -3,6 +3,7 @@ import HabitCard from '../Global/Card/HabitCard';
 import GoalCard from '../Global/Card/GoalCard';
 import Section from '../Global/Section/Section';
 import GoalAdded from '../GoalAdded/GoalAdded';
+import Progress from '../Progress/Progress';
 
 export default function Home() {
     return (
@@ -17,6 +18,7 @@ export default function Home() {
             </Section>
             <br></br>
             <GoalAdded />
+            <Progress />
         </div>
     );
 }
