@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { DataContext, DataDispatchContext } from '../Context/dataContext';
+import { DataContext, DataDispatchContext } from '../Context/DataContext';
 import {
     getGoals,
     createGoal,
@@ -19,11 +19,11 @@ export function useGoals() {
         const fetchGoals = async () => {
             const data = await getGoals();
             if (ignore) return;
-            if (data.body) {
+            if (data) {
                 dispatchGoal({ type: 'load', payload: data });
             }
-            if (data.error) {
-                setError(data.error);
+            if (error) {
+                setError(error);
             }
         };
         fetchGoals();
