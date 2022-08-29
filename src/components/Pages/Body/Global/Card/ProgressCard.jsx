@@ -2,7 +2,7 @@ import CircularProgressWithLabel from '../PieChart/PieChart';
 import StatusPill from '../StatusPill/StatusPill';
 
 
-export default function ProgressCard({ goal, target, freq, width, height, id }) {
+export default function ProgressCard({ goal, target, width, height, id }) {
 
     const goalText = 'pl-2 w-full my-2 text-left text-m font-semibold';
     const targetDays = 'pl-2 w-full my-2 text-left text-sm font-normal';
