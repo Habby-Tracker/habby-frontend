@@ -21,7 +21,7 @@ export default function GoalCard({ goal, target, freq, width, height, id }) {
                 </div>
             </div>
             <div className="w-full justify-center"> 
-                <ProgressBar progress={progress}/>
+                <ProgressBar progress={progress} barColor={'hsla(144, 82%, 47%, 1)'} textColor={'hsla(100, 0%, 98%, 0.75)'}/>
                 <div className="w-full items-left">
                     <p className={targetDays}>{target}</p>
                     <p className={frequency}>{freq}</p>
