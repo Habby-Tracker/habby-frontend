@@ -8,6 +8,7 @@ import AddGoalButton from '../Global/Button/AddGoalButton';
 import Hero from '../Hero/Hero';
 
 
+import Progress from '../Progress/Progress';
 
 export default function Home() {
     return (
@@ -29,6 +30,7 @@ export default function Home() {
             </Section>
             <GoalAdded />
             <Modal />
+            <Progress />
         </div>
     );
 }
