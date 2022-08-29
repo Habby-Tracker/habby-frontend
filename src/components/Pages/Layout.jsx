@@ -19,7 +19,7 @@ export default function Layout() {
         bg-purple text-center justify-space md:bg-transparent">
             <Header />
             <DateSlider />
-            <Calendar />
+            {/* <Calendar /> */}
             <main className="flex justify-center justify-items-center bg-white">
                 <Outlet />
             </main>

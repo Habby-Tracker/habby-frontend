@@ -32,7 +32,7 @@ function CircularProgressWithLabel(props) {
     
     return (
         <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-            <CircularProgress variant="determinate" {...props} style={{ color: props.ringColor }} />
+            <CircularProgress variant="determinate" {...props} style={{ color: props.ringcolor }} />
             <Box
                 sx={{
                     top: 0,
@@ -45,7 +45,7 @@ function CircularProgressWithLabel(props) {
                     justifyContent: 'center',
                 }}
             >
-                <Typography variant="caption" component="div" style={{ color: props.textColor }}>
+                <Typography variant="caption" component="div" style={{ color: props.textcolor }}>
                     {`${Math.round(props.value)}%`}
                 </Typography>
             </Box>
@@ -63,12 +63,12 @@ CircularProgressWithLabel.propTypes = {
 };
 
 
-export default function PieChart({ progress, size, ringColor, textColor }) {
+export default function PieChart({ progress, size, ringcolor, textcolor }) {
     const success = 'hsla(144, 82%, 47%, 1)';
 
     return (
         <div>
-            <CircularProgressWithLabel value={progress} size={size} ringColor={progress >= 100 ? success : ringColor} textColor={progress >= 100 ? success : textColor}/>
+            <CircularProgressWithLabel value={progress} size={size} ringcolor={progress >= 100 ? success : ringcolor} textcolor={progress >= 100 ? success : textcolor}/>
         </div>
     );
 }
