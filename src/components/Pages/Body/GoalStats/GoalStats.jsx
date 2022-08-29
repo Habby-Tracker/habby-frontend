@@ -45,25 +45,26 @@ export default function GoalStats() {
     const createdAtDate = new Date(goal.created_at);
     // const { goals } = useGoals();
     // const { status, timePeriod, habitType } = useLookups();
-    // // need to get all habits by goal id
-    // const habits = [];
+    // // // need to get all habits by goal id
+    // const { habits } = useHabits();
     // const { id } = useParams();
-    // useEffect(() => {
-    //     const thisGoal = goals.filter(goal => goal.id === id);
-    //     const thisStatus = status.filter(status => status.id === thisGoal.statusID);
-    //     const thisHabitType = habitType.filter(type => type.id === thisGoal.habitTypeID);
-    //     const thisTimePeriod = timePeriod.filter(period => period.id === thisGoal.timePeriodID);
-    //     const completedCount = habits.filter(habit => habit.status === 'Completed');
-    //     const failedCount = habits.filter(habit => habit.status === 'Incomplete');
-    //     const createdAtDate = new Date(thisGoal[0].created_at);
-    //     if (thisHabitType === 'Daily') {
-    //         setGoal({ ...goal[0], created_at: createdAtDate.getDateString(), status: thisStatus[0].name, habitType: thisHabitType[0].name, dayCount: thisTimePeriod[0].dayCount });
-    //     } else if (thisHabitType === 'Weekly') {
-    //         setGoal({ ...goal[0], created_at: createdAtDate.getDateString(), status: thisStatus[0].name, habitType: thisHabitType[0].name, weekCount: thisTimePeriod[0].weekCount });
-    //     } else if (thisHabitType === 'Monthly') {
-    //         setGoal({ ...goal[0], created_at: createdAtDate.getDateString(), status: thisStatus[0].name, habitType: thisHabitType[0].name, monthCount: thisTimePeriod[0].monthCount });
-    //     }
-    // }, []);
+    // const thisGoal = goals.filter(goal => goal.id === id);
+    // const thisStatus = status.filter(status => status.id === thisGoal.statusID);
+    // const thisHabitType = habitType.filter(type => type.id === thisGoal.habitTypeID);
+    // const thisTimePeriod = timePeriod.filter(period => period.id === thisGoal.timePeriodID);
+    // const theseHabits = habits.filter(habit => habit.goalID = thisGoal.id);
+    // const completedCount = theseHabits.filter(habit => habit.status === 'Completed');
+    // const failedCount = theseHabits.filter(habit => habit.status === 'Incomplete');
+    // const createdAtDate = new Date(thisGoal[0].created_at);
+    // if (thisHabitType === 'Daily') {
+    //     setGoal({ ...goal[0], created_at: createdAtDate.getDateString(), status: thisStatus[0].name, habitType: thisHabitType[0].name, dayCount: thisTimePeriod[0].dayCount });
+    // } else if (thisHabitType === 'Weekly') {
+    //     setGoal({ ...goal[0], created_at: createdAtDate.getDateString(), status: thisStatus[0].name, habitType: thisHabitType[0].name, weekCount: thisTimePeriod[0].weekCount });
+    // } else if (thisHabitType === 'Monthly') {
+    //     setGoal({ ...goal[0], created_at: createdAtDate.getDateString(), status: thisStatus[0].name, habitType: thisHabitType[0].name, monthCount: thisTimePeriod[0].monthCount });
+    // }
+    // // useEffect(() => {
+    // // }, []);
 
     return (
         <Section>
