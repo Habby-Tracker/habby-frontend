@@ -7,7 +7,9 @@ export default function Progress() {
 
     return (
         <Section header = "Your Goals" seeAll={true} width="90vw">
-            <CircularProgressWithLabel progress={progress} />
+            <div className="py-10"> 
+                <CircularProgressWithLabel progress={progress} />
+            </div>
             <p className="text-primaryOrange">✓ 11 Habits goal has achieved</p>
             <p className="text-primaryOrange">✕ 6 Habits goal hasnt achieved</p>
             {/* darkGrey color needed */}
