@@ -4,7 +4,6 @@ import GoalCard from '../Global/Card/GoalCard';
 import Modal from '../Global/Form/Modal';
 import Section from '../Global/Section/Section';
 import GoalAdded from '../GoalAdded/GoalAdded';
-import Modal from '../Global/Form/Modal';
 import Hero from '../Hero/Hero';
 
 
