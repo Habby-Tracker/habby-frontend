@@ -1,3 +1,7 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+// import { useGoals } from '../../../../State/Hooks/goals';
+// import useLookups from '../../../../State/Hooks/lookups';
 import Section from '../Global/Section/Section';
 
 export default function GoalStats() {
@@ -5,7 +9,9 @@ export default function GoalStats() {
     // need to join time period table to get day_count
     // need to join habit type table to get habit type name (daily, weekly, monthly, etc.)
     // need to join status table to get status (active, inactive, completed)
-    const goal = {
+    // should probably have a days completed column in the habit/goal table - increases by 1 day for every day marked complete
+    // use goal id to get all of the habits with status completed
+    const [goal, setGoal] = useState({
         goalCategoryID: '1',
         categoryName: 'Mental Health',
         goalName: 'Journal everyday',
@@ -19,11 +25,29 @@ export default function GoalStats() {
         created_at: '2022-08-29',
         daysCompleted: 5,
         daysFailed: 1
-    };
-    // should probably have a days completed column in the habit/goal table - increases by 1 day for every day marked complete
-    // use goal id to get all of the habits with status completed
+    });
+    const { goals } = useGoals();
+    const { status, timePeriod, habitType } = useLookups();
+    // need to get all habits by goal id
+    const habits = [];
+    const { id } = useParams();
+    useEffect(() => {
+        const thisGoal = goals.filter(goal => goal.id === id);
+        const thisStatus = status.filter(status => status.id === thisGoal.statusID);
+        const thisHabitType = habitType.filter(type => type.id === thisGoal.habitTypeID);
+        const thisTimePeriod = timePeriod.filter(period => period.id === thisGoal.timePeriodID);
+        const completedCount = habits.filter(habit => habit.statusID === '1');
+        const createdAtDate = new Date(thisGoal[0].created_at);
+        if (thisHabitType === 'Daily') {
+            setGoal({ ...goal[0], created_at: createdAtDate.getDateString(), status: thisStatus[0].name, habitType: thisHabitType[0].name, dayCount: thisTimePeriod[0].dayCount });
+        } else if (thisHabitType === 'Weekly') {
+            setGoal({ ...goal[0], created_at: createdAtDate.getDateString(), status: thisStatus[0].name, habitType: thisHabitType[0].name, weekCount: thisTimePeriod[0].weekCount });
+        } else if (thisHabitType === 'Monthly') {
+            setGoal({ ...goal[0], created_at: createdAtDate.getDateString(), status: thisStatus[0].name, habitType: thisHabitType[0].name, monthCount: thisTimePeriod[0].monthCount });
+        }
 
-    const createdAtDate = new Date(goal.created_at);
+        console.log(goal);
+    }, []);
 
     return (
         <Section>

@@ -1,6 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import { DataContext, DataDispatchContext } from '../Context/dataContext';
-import { getGoals, createGoal, deleteGoal, updateGoal } from '../Services/goals-service';
+import {
+    getGoals,
+    createGoal,
+    deleteGoal,
+    updateGoal,
+} from '../Services/goal-service';
 import { showError } from '../Services/toaster';
 
 export function useGoals() {
@@ -17,14 +22,14 @@ export function useGoals() {
             if (data.body) {
                 dispatchGoal({ type: 'load', payload: data });
             }
-            if(data.error) {
+            if (data.error) {
                 setError(data.error);
             }
         };
         fetchGoals();
-        
+
         return () => {
-            ignore = true; 
+            ignore = true;
         };
     }, []);
 
@@ -36,33 +41,33 @@ export function goalActions() {
 
     const create = async (goal) => {
         const { body, error } = await createGoal(goal);
-        if(body) {
+        if (body) {
             dispatchGoal({ type: 'add', payload: body });
         }
-        if(error){
+        if (error) {
             showError(error.message);
         }
     };
 
     const remove = async (id) => {
         const { body, error } = await deleteGoal(id);
-        if(body) {
+        if (body) {
             dispatchGoal({ type: 'remove', payload: body });
         }
-        if(error){
+        if (error) {
             showError(error.message);
         }
     };
 
     const update = async (id, goal) => {
         const { body, error } = await updateGoal(id, goal);
-        if(body) {
+        if (body) {
             dispatchGoal({ type: 'update', payload: body });
         }
-        if(error){
+        if (error) {
             showError(error.message);
         }
     };
-    
+
     return { create, remove, update };
 }
