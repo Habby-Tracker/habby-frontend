@@ -24,7 +24,7 @@ export default function ProgressCard({ goal, target, width, height, id }) {
                 </div>
             </div>
             <div className="w-1/5 justify-center"> 
-                <StatusPill text="Achieved" width={'80%'} height={'40%'}/>            
+                <StatusPill width={'80%'} height={'40%'}/>            
             </div>
         </div>
     );
