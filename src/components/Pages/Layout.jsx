@@ -3,6 +3,7 @@ import DateSlider from './Body/Dates/DateSlider.jsx';
 import Header from './Header/Header.jsx';
 import Navigation from './Header/Navigation.jsx';
 // import Calendar from './Body/Dates/Calendar.jsx';
+import GoalStats from './Body/GoalStats/GoalStats.jsx';
 
 
 
@@ -20,6 +21,7 @@ export default function Layout() {
             <Header />
             <DateSlider />
             {/* <Calendar /> */}
+            <GoalStats />
             <main className="flex justify-center justify-items-center bg-white">
                 <Outlet />
             </main>
