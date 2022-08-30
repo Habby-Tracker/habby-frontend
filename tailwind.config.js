@@ -14,8 +14,12 @@ module.exports = {
                 successBackground: 'hsla(144, 57%, 72%, 1)',
                 neonGreen: 'hsla(144, 82%, 47%, 1)',
                 darkGreen: 'hsla(162, 87%, 24%, 1)',
-                lightGrey: 'hsla(100, 0%, 98%, 0.75)'
+                lightGrey: 'hsla(100, 0%, 98%, 0.75)',
+                orangeGrey: 'hsla(21, 60%, 50%, 1)'
             },
+            backgroundImage: {
+                heroImage: "url(/public/imgs/habbysvg.png)"
+            }
         },
         screens: {
             'sm': '480px',

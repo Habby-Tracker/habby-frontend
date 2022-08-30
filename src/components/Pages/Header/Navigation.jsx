@@ -16,10 +16,10 @@ export default function Navigation({ navigation }) {
         }
     };
     return (
-        <nav className="container fixed bottom-0 py-1 w-full
-        bg-gradient-to-tr from-primaryOrange via-gray to-primary-orange h-12">
+        <nav className="fixed bottom-0 py-1 mx-auto min-w-full 
+        bg-gradient-to-br from-orangeGrey to-gray-300 rounded h-12 md:hidden">
             {navigation.map(({ to, label }) => (
-                <Link key={to} to={to} className="mx-10 ">
+                <Link key={to} to={to} className="mx-10">
                     {icon(label)}
                 </Link>
             ))}
