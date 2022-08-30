@@ -11,12 +11,7 @@ export default function Header() {
         <>
             <header className="flex justify-left space-x-0 md:space-x-6 px-4 py-2 bg-gradient-to-br from-primaryOrange to-lightOrange">
                 <img src="/imgs/habbylogo.png" alt="Habby Logo" className="h-12"/>
-                <div className="flex space-x-0 md:space-x-6 pt-6">
-                    {'Welcome, '}
-                    <span className="text-darkPurple">
-                        {/* {user.email}! */}
-                    </span>
-                </div>
+                
                 <div className="text-purple hidden pt-6 text-xl absolute 
                 space-x-4 right-20 hover:cursor-pointer md:flex">
                     <Link to="/">Home</Link>
@@ -27,7 +22,12 @@ export default function Header() {
                     <Logout />
                 </div>
             </header>
-           
+            <div className="flex space-x-0 px-2 py-2 text-xl justify-start md:hidden">
+                {'Welcome, '}
+                <span className="text-darkPurple">
+                    Beau!
+                </span>
+            </div>
         </>
     );
 }
