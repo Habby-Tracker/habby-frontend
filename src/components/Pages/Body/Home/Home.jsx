@@ -7,13 +7,17 @@ import Hero from '../Hero/Hero';
 import DateSlider from '../Dates/DateSlider.jsx';
 import { useState } from 'react';
 import { useGoals } from '../../../../State/Hooks/goals';
-// import { useHabits } from '../../../../State/Hooks/habits';
+import { useHabits } from '../../../../State/Hooks/habits';
 import CreateGoalModal from './Modals/CreateGoalModal';
+import { useCalendar } from '../../../../State/Hooks/calendar';
 
 export default function Home() {
     const [modal, setModal] = useState(false);
     const { goals } = useGoals();
-    // const { habits } = useHabits();
+    const { habits } = useHabits();
+    const { selectedDate } = useCalendar();
+
+    const todaysHabits = habits && habits.filter(habit => new Date(habit.dueDate).toDateString() === selectedDate.toDateString());
 
     const openModal = () => {
         setModal(true);
@@ -24,11 +28,10 @@ export default function Home() {
             <DateSlider />
             <Hero />
             <Section header="Today's Habits" seeAll={true} width="90vw">
-                <HabitCard />
+                {habits && todaysHabits.map((habit) => <HabitCard key={habit.id} habit={habit} completed={false} />)}
             </Section>
             <Section header="Your Goals" seeAll={true} width="90vw">
-                {goals &&
-                    goals.map((goal) => <GoalCard key={goal.id} goal={goal} />)}
+                {goals && goals.map((goal) => <GoalCard key={goal.id} goal={goal} />)}
             </Section>
             {modal && <CreateGoalModal setModal={setModal} />}
             <AddGoalButton onClick={() => openModal()} />

@@ -3,7 +3,7 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
-export default function HabitCard({ text, completed, width, id }) {
+export default function HabitCard({ habit, completed, width }) {
     const [completedState, setCompletedState] = useState(completed);
 
     const successText = 'pl-4 w-2/3 text-left text-successGreen line-through';
@@ -15,8 +15,8 @@ export default function HabitCard({ text, completed, width, id }) {
 
     return (
         <div className={completedState ? successBackground : defaultBackground}
-            style={{ width }} value={id}>
-            <p className={completedState ? successText : defaultText}>{text}</p>
+            style={{ width }} value={habit.id}>
+            <p className={completedState ? successText : defaultText}>{habit.habitName}</p>
             <div className="w-1/3 text-right">
                 {completedState ? 
                     <CheckBoxIcon sx={{ color: 'hsla(144, 57%, 33%, 1)' }} onClick={() => setCompletedState(false)} />

@@ -19,10 +19,10 @@ export function useHabits() {
         const fetchHabits = async () => {
             const data = await getHabits();
             if (ignore) return;
-            if (data.body) {
+            if (data) {
                 dispatchHabit({ type: 'load', payload: data });
             }
-            if (data.error) {
+            if (!data) {
                 setError(data.error);
             }
         };
