@@ -11,19 +11,20 @@ export default function Hero() {
     const [current, setCurrent] = useState(6);
     const [goal, setGoal] = useState(7);
     const [value, setValue] = useState((current / goal) * 100);
-    useEffect(() => {
-        setSelectedDayHabits(habits.filter(habit => {
-            selectedDate.toDateString() === habit.dueDate.toDateString();
-        }));
-    }, [habits, selectedDate]);
 
-    useEffect(() => {
-        const totalHabits = selectedDayHabits.length;
-        const completedHabits = selectedDayHabits.filter(habit => habit.completedDate);
-        setCurrent(completedHabits);
-        setGoal(totalHabits);
-        setValue((completedHabits / totalHabits) * 100);
-    }, [selectedDayHabits]);
+    // useEffect(() => {
+    //     setSelectedDayHabits(habits.filter(habit => {
+    //         selectedDate.toDateString() === habit.dueDate.toDateString();
+    //     }));
+    // }, [habits, selectedDate]);
+
+    // useEffect(() => {
+    //     const totalHabits = selectedDayHabits.length;
+    //     const completedHabits = selectedDayHabits.filter(habit => habit.completedDate);
+    //     setCurrent(completedHabits);
+    //     setGoal(totalHabits);
+    //     setValue((completedHabits / totalHabits) * 100);
+    // }, [selectedDayHabits]);
 
     return (
         <div className="container flex justify-start w-full bg-gradient-to-b from-primaryOrange via-lightOrange to-lightGrey rounded-lg max-h-2/6 py-6 px-10 shadow-lg">

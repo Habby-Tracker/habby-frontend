@@ -62,7 +62,7 @@ export default function Home() {
             </Section>
             <Section header="Your Goals" seeAll={true} width="90vw">
                 {goals &&
-                    goals.map((goal) => <GoalCard key={goal.id} goal={goal} />)}
+                    goals.map((goal) => <GoalCard key={`goal card${goal.id}`} goal={goal} />)}
             </Section>
             {modal && (
                 <Modal setShowModal={setModal}>
@@ -125,7 +125,7 @@ export default function Home() {
                                         timePeriodCount: e.target.value,
                                     })
                                 } className="bg-gray-300 rounded flex justify-end my-2 w-10">
-                                    {maxTimePeriodCount.map((empty, index) => <option key={index} value={index + 1}>{index + 1}</option>)}
+                                    {maxTimePeriodCount.map((empty, index) => <option key={`option${index}`} value={index + 1}>{index + 1}</option>)}
                                 </select>
                                 <select defaultValue={'1'} onChange={(e) =>
                                     setGoalInForm({
