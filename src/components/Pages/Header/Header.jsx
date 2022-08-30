@@ -1,33 +1,26 @@
-// import Menu from './Menu';
-// import Navigation from './Navigation';
-// import User from './User';
 
-// const nav = [
-//     { to: '/', label: 'Home' },
-//     { to: 'analytics', label: 'Analytics'  },
-//     { to: 'Settings', label: 'settings' },
-// ];
+import { useUser } from '../../../State/Hooks/user';
+import Logout from './Logout';
 
 export default function Header() {
-    // const user = useContext(UserStateContext);
-    const user = {
-        firstName: 'Riley',
-        lastName: 'Hoffman',
-        email: 'rileyjhoff@gmail.com',
-        avatar: ''
-    };
+    const { user } = useUser();
+    console.log('user', user);
 
     return (
-        <header className="flex justify-around space-x-6 sm:space-x-0">
-            img.
-            <h1 className="flex text-bold text-primaryOrange">Habby</h1>
-
-            <div className="flex justify-between space-x-0 md:space-x-6">
-                {'Hello, '}
-                <span className="text-primaryOrange">
-                    {user.firstName}!
-                </span>
-            </div>
-        </header>
+        <>
+            <header className="flex justify-left space-x-0 md:space-x-6 px-4 py-2 bg-gradient-to-br from-primaryOrange to-lightOrange">
+                <img src="/imgs/habbylogo.png" alt="Habby Logo" className="h-12"/>
+                <div className="flex space-x-0 md:space-x-6 pt-6">
+                    {'Welcome, '}
+                    <span className="text-darkPurple">
+                        {/* {user.email}! */}
+                    </span>
+                </div> 
+                <div className="flex pt-4 absolute right-4">
+                    <Logout />
+                </div>
+            </header>
+           
+        </>
     );
 }
