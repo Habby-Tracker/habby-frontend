@@ -28,7 +28,7 @@ export default function Home() {
             <DateSlider />
             <Hero />
             <Section header="Today's Habits" seeAll={true} width="90vw">
-                {habits && todaysHabits.map((habit) => <HabitCard key={habit.id} habit={habit} completed={false} />)}
+                {habits && todaysHabits.map((habit) => <HabitCard key={habit.id} habit={habit} completed={habit.statusID === '3' ? true : false} />)}
             </Section>
             <Section header="Your Goals" seeAll={true} width="90vw">
                 {goals && goals.map((goal) => <GoalCard key={goal.id} goal={goal} />)}

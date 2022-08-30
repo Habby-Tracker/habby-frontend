@@ -7,7 +7,7 @@ import Modal from '../../Global/Form/Modal';
 import { useState } from 'react';
 import { goalActions } from '../../../../../State/Hooks/goals';
 
-export default function CreateGoalModal({ setModal}) {
+export default function CreateGoalModal({ setModal }) {
     const [goalInForm, setGoalInForm] = useState({
         statusID: 1,
         goalCategoryID: 1,

@@ -52,7 +52,7 @@ export function habitActions() {
     const remove = async (id) => {
         const data = await deleteHabit(id);
         if (data) {
-            dispatchHabit({ type: 'add', payload: data });
+            dispatchHabit({ type: 'remove', payload: data });
         }
         if (data) {
             showError(data.message);
@@ -61,8 +61,9 @@ export function habitActions() {
 
     const update = async (id, updatedHabit) => {
         const data = await updateHabit(id, updatedHabit);
+        console.log(data);
         if (data) {
-            dispatchHabit({ type: 'add', payload: data });
+            dispatchHabit({ type: 'update', payload: data });
         }
         if (!data) {
             showError(data.message);
