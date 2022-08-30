@@ -14,10 +14,12 @@ import {
 import Button from '../Global/Button/Button';
 import { goalActions } from '../../../../State/Hooks/goals';
 import { useEffect } from 'react';
+// import useLookups from '../../../../State/Hooks/lookups';
 
 export default function Home() {
     const [modal, setModal] = useState(false);
     const { goals } = useGoals();
+    // const { timePeriods } = useLookups();
     const timePeriods = [{
         id: '1',
         name: 'Days',
@@ -48,11 +50,13 @@ export default function Home() {
         create(goalInForm);
         setModal(false);
     }
+
     useEffect(() => {
         if (goalInForm.timePeriodID === '1') setMaxTimePeriodCount(new Array(90).fill());
         if (goalInForm.timePeriodID === '2') setMaxTimePeriodCount(new Array(52).fill());
         if (goalInForm.timePeriodID === '3') setMaxTimePeriodCount(new Array(12).fill());
     }, [goalInForm.timePeriodID]);
+
     return (
         <div className="flex flex-col justify-center items-center">
             <DateSlider />
