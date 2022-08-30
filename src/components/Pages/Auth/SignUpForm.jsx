@@ -4,7 +4,7 @@ import Button from '../Body/Global/Button/Button.jsx';
 import { InputControl } from '../Body/Global/Form/FormControls/FormControls';
 import { useState } from 'react';
 
-export default function AuthForm({ header, button, prompt, link, onSubmit }) {
+export default function SignUpForm({ header, button, prompt, link, onSubmit }) {
     const [credentials, setCredentials] = useState({ firstName: '', lastName: '', email: '', password: '' });
 
     const handleSubmit = (e) => {
@@ -22,7 +22,6 @@ export default function AuthForm({ header, button, prompt, link, onSubmit }) {
                     name="first_name"
                     type="first_name"
                     required
-                    placeholder="first name"
                     onChange={handleChange}
                 />
                 <InputControl
@@ -30,7 +29,6 @@ export default function AuthForm({ header, button, prompt, link, onSubmit }) {
                     name="last_name"
                     type="last_name"
                     required
-                    placeholder="last name"
                     onChange={handleChange}
                 />
                 <InputControl
