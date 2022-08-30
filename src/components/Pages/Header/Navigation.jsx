@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import InsightsIcon from '@mui/icons-material/Insights';
-import SettingsIcon from '@mui/icons-material/Settings';;
+import SettingsIcon from '@mui/icons-material/Settings';
 
 export default function Navigation({ navigation }) {
 
