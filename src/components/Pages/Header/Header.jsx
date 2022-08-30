@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import { useUser } from '../../../State/Hooks/user';
 import Logout from './Logout';
 
@@ -16,10 +17,11 @@ export default function Header() {
                         {/* {user.email}! */}
                     </span>
                 </div>
-                <div className="text-purple hidden pt-6 text-xl absolute space-x-4 right-20 md:flex">
-                    <a >Home</a>
-                    <a >Analytics</a>
-                    <a >Settings</a>
+                <div className="text-purple hidden pt-6 text-xl absolute 
+                space-x-4 right-20 hover:cursor-pointer md:flex">
+                    <Link to="/">Home</Link>
+                    <Link to="analytics">Analytics</Link>
+                    <Link to="settings">Settings</Link>
                 </div>
                 <div className="flex pt-4 absolute right-4">
                     <Logout />
