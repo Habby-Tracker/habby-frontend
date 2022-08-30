@@ -39,14 +39,6 @@ export default function Account() {
                         })
                     }
                 />
-                <InputControl
-                    label="email"
-                    name="{email}"
-                    type="email"
-                    onChange={(e) =>
-                        setUserInForm({ ...userInForm, email: e.target.value })
-                    }
-                />
                 <Button onClick={handleSubmit} text="Submit" />
             </form>
         </>
