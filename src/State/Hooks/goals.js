@@ -37,12 +37,14 @@ export function useGoals() {
 }
 
 export function goalActions() {
-    const { dispatchGoal } = useContext(DataDispatchContext);
+    const { dispatchGoal, dispatchHabit } = useContext(DataDispatchContext);
 
     const create = async (goal) => {
         const data = await createGoal(goal);
+        console.log('data in goals', data);
         if (data) {
-            dispatchGoal({ type: 'add', payload: data });
+            dispatchGoal({ type: 'add', payload: data.goal });
+            dispatchHabit({ type: 'add', payload: data.habits });
         }
         if (!data) {
             showError(data);
