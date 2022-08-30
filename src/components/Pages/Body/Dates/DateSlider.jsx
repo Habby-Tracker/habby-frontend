@@ -6,7 +6,7 @@ export default function DateSlider() {
 
     return (
         <div className="flex flex-row justify-center align-center bg-white">
-            {dates.map((date, index) => <DateCard key={index} date={date} index={index} />)
+            {dates.map((date, index) => <DateCard key={`dateSlider${index}`} date={date} index={index} />)
             }
         </div>
     );
