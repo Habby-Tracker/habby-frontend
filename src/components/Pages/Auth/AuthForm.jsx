@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Section from '../Body/Global/Section/Section.jsx';
+import AuthSection from '../Body/Global/Section/AuthSection';
 import Button from '../Body/Global/Button/Button.jsx';
 import { InputControl } from '../Body/Global/Form/FormControls/FormControls';
 import { useState } from 'react';
@@ -15,7 +15,11 @@ export default function AuthForm({ header, button, prompt, link, onSubmit }) {
     const handleChange = (e) => setCredentials({ ...credentials, [e.target.name]: e.target.value });
 
     return (
-        <Section header={header} width="40vw">
+        <AuthSection width="100%" height="100%">
+            <div className="flex flex-row">
+                <p>{header}</p>
+                <Link to={link}>{prompt}</Link>
+            </div>
             <form onSubmit={handleSubmit}>
                 <InputControl
                     label="Email"
@@ -34,8 +38,7 @@ export default function AuthForm({ header, button, prompt, link, onSubmit }) {
 
                 <Button text={button} marginTop={'20px'}/>
 
-                <Link to={link}>{prompt}</Link>
             </form>
-        </Section>
+        </AuthSection>
     );
 }

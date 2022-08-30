@@ -8,17 +8,17 @@ export default function Auth() {
     const { signIn, signUp } = useAuthActions();
     
     const signInData = {
-        header: 'Sign in to your account',
-        button: 'Sign In',
-        prompt: 'Need to create an account?',
+        header: 'Log In',
+        button: 'Log In',
+        prompt: 'Sign Up  〉',
         link: 'sign-up',
         onSubmit: signIn
     };
     
     const signUpData = {
-        header: 'Create a new account',
+        header: 'Sign Up',
         button: 'Sign Up',
-        prompt: 'Already have an account?',
+        prompt: 'Log In  〉',
         link: '../',
         onSubmit: signUp
     };
