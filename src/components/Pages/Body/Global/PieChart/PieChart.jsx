@@ -49,7 +49,7 @@ function CircularProgressWithLabel(props) {
                     justifyContent: 'center',
                 }}
             >
-                <Typography variant={'h4'} component="div" style={{ color: props.textcolor }}>
+                <Typography variant={props.textvariant} component="div" style={{ color: props.textcolor }}>
                     {`${Math.round(props.value)}%`}
                 </Typography>
             </Box>
@@ -77,7 +77,7 @@ export default function PieChart({ progress, size, ringcolor, textcolor, textvar
                 size={size} 
                 ringcolor={progress >= 100 ? success : ringcolor} 
                 textcolor={progress >= 100 ? success : textcolor} 
-                textVariant={textvariant}
+                textvariant={textvariant}
             />
         </div>
     );
