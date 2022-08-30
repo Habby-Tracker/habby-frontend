@@ -48,9 +48,9 @@ export default function Home() {
             {modal && (
                 <Modal setShowModal={setModal}>
                     <form className="flex flex-col">
-                        <h1>Add Goal</h1>
+                        <h1 className="text-bold text-primaryOrange text-xl">Add Goal</h1>
                         <InputControl
-                            label="Goal Name"
+                            label="Goal"
                             name="goalName"
                             placeholder="Enter a goal name"
                             type="text"
