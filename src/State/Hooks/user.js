@@ -3,6 +3,7 @@ import {
     signIn as signInService,
     signUp as signUpService,
     signOut as signOutService,
+    updateUser,
 } from '../Services/user-service';
 import { showError, showSuccess } from '../Services/toaster';
 import { UserStateContext, UserActionContext } from '../Context/UserContext';
@@ -41,5 +42,15 @@ export function useAuthActions() {
         showSuccess('Signed out successfully');
     };
 
-    return { signIn, signUp, signOut };
+    const update = async ({ first_name, last_name, email }) => {
+        const updatedUser = await updateUser(first_name, last_name, email);
+        if (updatedUser.message) {
+            showError(updatedUser.message);
+        } else {
+            setUser(updatedUser);
+            showSuccess('Updated user successfully');
+        }
+    };
+
+    return { update, signIn, signUp, signOut };
 }
