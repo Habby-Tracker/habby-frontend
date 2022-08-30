@@ -22,7 +22,6 @@ export default function AuthForm({ header, button, prompt, link, onSubmit }) {
                     name="email"
                     type="email"
                     required
-                    placeholder="email"
                     onChange={handleChange}
                 />
                 <InputControl
@@ -30,7 +29,6 @@ export default function AuthForm({ header, button, prompt, link, onSubmit }) {
                     name="password"
                     type="password"
                     required
-                    placeholder="password"
                     onChange={handleChange}
                 />
 
