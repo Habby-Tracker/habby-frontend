@@ -8,8 +8,6 @@ export async function getCategory() {
             mode: 'cors',
         }
     );
-
-    console.log(response);
     return response.status === 200 ? await response.json() : null;
 }
 
@@ -24,8 +22,6 @@ export async function getCategoryById(id) {
             body: JSON.stringify({ id }),
         }
     );
-
-    console.log(response);
     return response.status === 200 ? await response.json() : null;
 }
 
@@ -40,8 +36,6 @@ export async function createCategory(category) {
             body: JSON.stringify(category),
         }
     );
-
-    console.log(response);
     return response.status === 200 ? await response.json() : null;
 }
 
@@ -57,6 +51,5 @@ export async function deleteCategory(id) {
         }
     );
 
-    console.log(response);
     return response.status === 200 ? await response.json() : null;
 }
