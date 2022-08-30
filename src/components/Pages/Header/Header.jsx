@@ -19,10 +19,7 @@ export default function Header() {
 
     return (
         <header className="flex justify-around space-x-6 sm:space-x-0">
-            {/* <div>
-                <Menu />
-            </div> */}
-
+            img.
             <h1 className="flex text-bold text-primaryOrange">Habby</h1>
 
             <div className="flex justify-between space-x-0 md:space-x-6">
