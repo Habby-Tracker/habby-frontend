@@ -1,4 +1,6 @@
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useEffect, useState } from 'react';
+import { useHabits } from '../../../../../State/Hooks/habits';
 import ProgressBar from '../ProgressBar/ProgressBar';
 // import { ThemeProvider, createTheme } from '@mui/material/styles';
 
@@ -8,6 +10,15 @@ export default function GoalCard({ goal, width, height }) {
     const targetDays = 'pl-4 w-2/3 text-left text-sm font-normal';
     const frequency = 'pl-4 w-2/3 text-left text-primaryOrange text-sm font-normal';
     const progress = (5 / 7) * 100;
+
+    const { habits } = useHabits();
+    const [goalHabits, setGoalHabits] = useState();
+    
+    useEffect(() => {
+        if (habits) {
+            setGoalHabits(habits.filter(habit => habit.goalID === goal.id));
+        }
+    }, [habits]);
 
 
 

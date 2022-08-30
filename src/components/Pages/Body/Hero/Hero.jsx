@@ -5,7 +5,7 @@ import PieChart from '../Global/PieChart/PieChart';
 
 export default function Hero() {
     const textColor = 'hsla(315, 97%, 17%, 1)';
-    const [current, setCurrent] = useState(.000001);
+    const [current, setCurrent] = useState();
     const [goal, setGoal] = useState(7);
     const [value, setValue] = useState((current / goal) * 100);
     const { habits } = useHabits();
@@ -18,6 +18,10 @@ export default function Hero() {
             setCurrent(completedHabits);
             setGoal(totalHabits);
             setValue((completedHabits / totalHabits) * 100);
+        } else {
+            setCurrent(0);
+            setGoal(0);
+            setValue(0);
         }
     }, [habits, selectedDateHabits]);
 
