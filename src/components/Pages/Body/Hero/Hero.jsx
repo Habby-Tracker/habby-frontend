@@ -5,27 +5,28 @@ import PieChart from '../Global/PieChart/PieChart';
 
 export default function Hero() {
     const textColor = 'hsla(315, 97%, 17%, 1)';
-    const { habits } = useHabits();
-    // console.log(habits);
-    // const { selectedDate } = useCalendar();
-    // const [selectedDayHabits, setSelectedDayHabits] = useState();
     const [current, setCurrent] = useState(6);
     const [goal, setGoal] = useState(7);
     const [value, setValue] = useState((current / goal) * 100);
+    const { habits } = useHabits();
+    const { selectedDate } = useCalendar();
+    const [selectedDayHabits, setSelectedDayHabits] = useState();
 
-    // useEffect(() => {
-    //     setSelectedDayHabits(habits.filter(habit => {
-    //         selectedDate.toDateString() === habit.dueDate.toDateString();
-    //     }));
-    // }, [habits, selectedDate]);
+    useEffect(() => {
+        if (habits) {
+            setSelectedDayHabits(habits.filter(habit => selectedDate.toDateString() === new Date(habit.dueDate).toDateString()));
+        }
+    }, [habits, selectedDate]);
 
-    // useEffect(() => {
-    //     const totalHabits = selectedDayHabits.length;
-    //     const completedHabits = selectedDayHabits.filter(habit => habit.completedDate);
-    //     setCurrent(completedHabits);
-    //     setGoal(totalHabits);
-    //     setValue((completedHabits / totalHabits) * 100);
-    // }, [selectedDayHabits]);
+    useEffect(() => {
+        if (selectedDayHabits) {
+            const totalHabits = selectedDayHabits.length;
+            const completedHabits = selectedDayHabits.filter(habit => habit.status === 'Completed').length;
+            setCurrent(completedHabits);
+            setGoal(totalHabits);
+            setValue((completedHabits / totalHabits) * 100);
+        }
+    }, [selectedDayHabits]);
 
     return (
         <div className="container flex justify-start w-full bg-gradient-to-b from-primaryOrange via-lightOrange to-lightGrey rounded-lg max-h-2/6 py-6 px-10 shadow-lg">
