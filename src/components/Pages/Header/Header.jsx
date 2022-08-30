@@ -15,7 +15,12 @@ export default function Header() {
                     <span className="text-darkPurple">
                         {/* {user.email}! */}
                     </span>
-                </div> 
+                </div>
+                <div className="text-purple hidden pt-6 text-xl absolute space-x-4 right-20 md:flex">
+                    <a >Home</a>
+                    <a >Analytics</a>
+                    <a >Settings</a>
+                </div>
                 <div className="flex pt-4 absolute right-4">
                     <Logout />
                 </div>

@@ -20,7 +20,7 @@ export default function Navigation({ navigation }) {
         bg-gradient-to-br from-lightOrange to-primaryOrange rounded-t-lg h-12 md:hidden">
             {navigation.map(({ to, label }) => (
                 <Link key={to} to={to} className="mx-10">
-                    {icon(label)}
+                    {icon(label) ? icon(label) : label}
                 </Link>
             ))}
         </nav>
