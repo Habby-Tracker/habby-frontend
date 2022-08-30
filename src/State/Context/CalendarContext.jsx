@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { createContext, useState } from 'react';
+import { useHabits } from '../Hooks/habits';
 
 export const CalendarStateContext = createContext();
 export const CalendarActionContext = createContext();
@@ -7,8 +8,16 @@ export const CalendarActionContext = createContext();
 export default function CalendarProvider({ children }) {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [dates, setDates] = useState([]);
-    const state = { selectedDate, dates };
-    const actions = { setSelectedDate, setDates };
+    const [selectedDateHabits, setSelectedDateHabits] = useState();
+    const { habits } = useHabits();
+    const state = { selectedDate, dates, selectedDateHabits };
+    const actions = { setSelectedDate, setDates, setSelectedDateHabits };
+
+    useEffect(() => {
+        if (habits) {
+            setSelectedDateHabits(habits.filter(habit => selectedDate.toDateString() === new Date(habit.dueDate).toDateString()));
+        }
+    }, [habits, selectedDate]);
 
     useEffect(() => {
         setDates([]);

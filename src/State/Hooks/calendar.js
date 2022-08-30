@@ -5,11 +5,14 @@ import {
 } from '../Context/CalendarContext';
 
 export function useCalendar() {
-    const { selectedDate, dates } = useContext(CalendarStateContext);
-    return { selectedDate, dates };
+    const { selectedDate, dates, selectedDateHabits } =
+        useContext(CalendarStateContext);
+    return { selectedDate, dates, selectedDateHabits };
 }
 
 export function calendarActions() {
-    const { setSelectedDate, setDates } = useContext(CalendarActionContext);
-    return { setSelectedDate, setDates };
+    const { setSelectedDate, setDates, setSelectedDateHabits } = useContext(
+        CalendarActionContext
+    );
+    return { setSelectedDate, setDates, setSelectedDateHabits };
 }
