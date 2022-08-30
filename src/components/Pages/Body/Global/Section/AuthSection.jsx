@@ -8,8 +8,7 @@ export default function AuthSection({
 }) {
     return (
         <section
-            className="flex flex-col items-center bg-white
-        py-2 px-4 rounded shadow-lg"
+            className=" bg-lightGrey rounded shadow-lg"
             style={{ width, maxWidth, height }}
         >
             <div className="flex justify-between space-around w-full items-end">

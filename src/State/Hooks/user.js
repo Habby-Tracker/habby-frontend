@@ -25,8 +25,8 @@ export function useAuthActions() {
         }
     };
 
-    const signUp = async (email, password) => {
-        const response = await signUpService(email, password);
+    const signUp = async (firstName, lastName, email, password) => {
+        const response = await signUpService(firstName, lastName, email, password);
         if (response.message) {
             showError(response.message);
         } else {

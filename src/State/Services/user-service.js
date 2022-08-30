@@ -9,13 +9,13 @@ export async function verifyUser() {
     return response.status === 200 ? await response.json() : null;
 }
 
-export async function signUp(email, password) {
+export async function signUp(firstName, lastName, email, password) {
     const response = await fetch(`${process.env.API_URL}/api/v1/user/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         mode: 'cors',
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ firstName, lastName, email, password }),
     });
     return await response.json();
 }
@@ -36,6 +36,17 @@ export async function signIn(email, password) {
         credentials: 'include',
         mode: 'cors',
         body: JSON.stringify({ email, password }),
+    });
+    return await response.json();
+}
+
+export async function updateUser(first_name, last_name, email) {
+    const response = await fetch(`${process.env.API_URL}/api/v1/user/update`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        mode: 'cors',
+        body: JSON.stringify({ first_name, last_name, email }),
     });
     return await response.json();
 }
