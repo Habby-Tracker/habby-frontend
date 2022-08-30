@@ -20,6 +20,7 @@ export default function Home() {
     const [goalInForm, setGoalInForm] = useState({
         statusID: 1,
         goalCategoryID: 1,
+        timePeriodCount: 5
     });
     const { create } = goalActions();
 
