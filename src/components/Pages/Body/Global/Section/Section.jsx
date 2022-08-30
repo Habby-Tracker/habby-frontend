@@ -1,6 +1,6 @@
 export default function Section({ header, seeAll, width, maxWidth, height, children }) {
     return (
-        <section className="flex flex-col items-center bg-white
+        <section className="container flex flex-col items-center bg-white
         py-2 px-4 rounded shadow-lg my-3"
         style={{ width, maxWidth, height }}>
             <div className="flex justify-between space-around w-full items-end">

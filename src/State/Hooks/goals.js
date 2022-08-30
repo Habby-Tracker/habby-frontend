@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { DataContext, DataDispatchContext } from '../Context/dataContext';
+import { DataContext, DataDispatchContext } from '../Context/DataContext';
 import {
     getGoals,
     createGoal,
@@ -12,18 +12,18 @@ export function useGoals() {
     const { goals } = useContext(DataContext);
     const { dispatchGoal } = useContext(DataDispatchContext);
     const [error, setError] = useState(null);
-
+    
     useEffect(() => {
         if (goals) return;
         let ignore = false;
         const fetchGoals = async () => {
             const data = await getGoals();
             if (ignore) return;
-            if (data.body) {
+            if (data) {
                 dispatchGoal({ type: 'load', payload: data });
             }
-            if (data.error) {
-                setError(data.error);
+            if (error) {
+                setError(error);
             }
         };
         fetchGoals();
@@ -40,32 +40,32 @@ export function goalActions() {
     const { dispatchGoal } = useContext(DataDispatchContext);
 
     const create = async (goal) => {
-        const { body, error } = await createGoal(goal);
-        if (body) {
-            dispatchGoal({ type: 'add', payload: body });
+        const data = await createGoal(goal);
+        if (data) {
+            dispatchGoal({ type: 'add', payload: data });
         }
-        if (error) {
-            showError(error.message);
+        if (!data) {
+            showError(data);
         }
     };
 
     const remove = async (id) => {
-        const { body, error } = await deleteGoal(id);
-        if (body) {
-            dispatchGoal({ type: 'remove', payload: body });
+        const data = await deleteGoal(id);
+        if (data) {
+            dispatchGoal({ type: 'remove', payload: data });
         }
-        if (error) {
-            showError(error.message);
+        if (!data) {
+            showError(data.message);
         }
     };
 
     const update = async (id, goal) => {
-        const { body, error } = await updateGoal(id, goal);
-        if (body) {
-            dispatchGoal({ type: 'update', payload: body });
+        const data = await updateGoal(id, goal);
+        if (data) {
+            dispatchGoal({ type: 'update', payload: data });
         }
-        if (error) {
-            showError(error.message);
+        if (!data) {
+            showError(data.message);
         }
     };
 

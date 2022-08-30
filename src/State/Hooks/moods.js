@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { DataContext, DataDispatchContext } from '../Context/dataContext';
+import { DataContext, DataDispatchContext } from '../Context/DataContext';
 import {
     createMood,
     getAllMoodsByUser,
@@ -40,32 +40,32 @@ export function moodActions() {
     const { dispatchMoods } = useContext(DataDispatchContext);
 
     const create = async (mood) => {
-        const { body, error } = await createMood(mood);
-        if (body) {
-            dispatchMoods({ type: 'add', payload: body });
+        const data = await createMood(mood);
+        if (data) {
+            dispatchMoods({ type: 'add', payload: data });
         }
-        if (error) {
-            showError(error.message);
+        if (data) {
+            showError(data.message);
         }
     };
 
     const update = async (id, mood) => {
-        const { body, error } = await updateMood(id, mood);
-        if (body) {
-            dispatchMoods({ type: 'update', payload: body });
+        const data = await updateMood(id, mood);
+        if (data) {
+            dispatchMoods({ type: 'update', payload: data });
         }
-        if (error) {
-            showError(error.message);
+        if (data) {
+            showError(data.message);
         }
     };
 
     const remove = async (id) => {
-        const { body, error } = await deleteMood(id);
-        if (body) {
-            dispatchMoods({ type: 'remove', payload: body });
+        const data = await deleteMood(id);
+        if (data) {
+            dispatchMoods({ type: 'remove', payload: data });
         }
-        if (error) {
-            showError(error.message);
+        if (data) {
+            showError(data.message);
         }
     };
 

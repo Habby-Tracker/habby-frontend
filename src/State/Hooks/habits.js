@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { DataContext, DataDispatchContext } from '../Context/dataContext';
+import { DataContext, DataDispatchContext } from '../Context/DataContext';
 import {
     createHabit,
     getHabits,
@@ -40,32 +40,32 @@ export function habitActions() {
     const { dispatchHabit } = useContext(DataDispatchContext);
 
     const create = async (newHabit) => {
-        const { body, error } = await createHabit(newHabit);
-        if (body) {
-            dispatchHabit({ type: 'add', payload: body });
+        const data = await createHabit(newHabit);
+        if (data) {
+            dispatchHabit({ type: 'add', payload: data });
         }
-        if (error) {
-            showError(error.message);
+        if (data) {
+            showError(data.message);
         }
     };
 
     const remove = async (id) => {
-        const { body, error } = await deleteHabit(id);
-        if (body) {
-            dispatchHabit({ type: 'add', payload: body });
+        const data = await deleteHabit(id);
+        if (data) {
+            dispatchHabit({ type: 'add', payload: data });
         }
-        if (error) {
-            showError(error.message);
+        if (data) {
+            showError(data.message);
         }
     };
 
     const update = async (id, updatedHabit) => {
-        const { body, error } = await updateHabit(id, updatedHabit);
-        if (body) {
-            dispatchHabit({ type: 'add', payload: body });
+        const data = await updateHabit(id, updatedHabit);
+        if (data) {
+            dispatchHabit({ type: 'add', payload: data });
         }
-        if (error) {
-            showError(error.message);
+        if (!data) {
+            showError(data.message);
         }
     };
 
