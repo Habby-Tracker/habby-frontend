@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 function CircularProgressWithLabel(props) {
 
 
-    //wanted to create a custom theme in MUI but need syntax for variant
     // const theme = createTheme({
     //     status: {
     //         success: 'hsla(144, 82%, 47%, 1)',
@@ -27,6 +26,11 @@ function CircularProgressWithLabel(props) {
     //             main: 'hsla(100, 0%, 98%, 0.75)',
     //             contrastText: 'hsla(330, 28%, 13%, 1)'
     //         }
+    //     },
+    //     variant: {
+    //         determinate: 'determinate',
+    //         h4: 'h4',
+    //         caption: 'caption'
     //     }
     // });
     
@@ -45,7 +49,7 @@ function CircularProgressWithLabel(props) {
                     justifyContent: 'center',
                 }}
             >
-                <Typography variant="caption" component="div" style={{ color: props.textcolor }}>
+                <Typography variant={'h4'} component="div" style={{ color: props.textcolor }}>
                     {`${Math.round(props.value)}%`}
                 </Typography>
             </Box>
@@ -63,12 +67,18 @@ CircularProgressWithLabel.propTypes = {
 };
 
 
-export default function PieChart({ progress, size, ringcolor, textcolor }) {
+export default function PieChart({ progress, size, ringcolor, textcolor, textvariant }) {
     const success = 'hsla(144, 82%, 47%, 1)';
 
     return (
         <div>
-            <CircularProgressWithLabel value={progress} size={size} ringcolor={progress >= 100 ? success : ringcolor} textcolor={progress >= 100 ? success : textcolor}/>
+            <CircularProgressWithLabel 
+                value={progress} 
+                size={size} 
+                ringcolor={progress >= 100 ? success : ringcolor} 
+                textcolor={progress >= 100 ? success : textcolor} 
+                textVariant={textvariant}
+            />
         </div>
     );
 }
