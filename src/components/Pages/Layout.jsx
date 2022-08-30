@@ -13,8 +13,7 @@ export default function Layout() {
     ];
     
     return (
-        <div className="flex-col text-black 
-        bg-purple text-center justify-space md:bg-transparent">
+        <div className="flex-col text-black text-center justify-space md:bg-transparent">
             <Header />
             <main className="flex justify-center bg-white">
                 <Outlet />

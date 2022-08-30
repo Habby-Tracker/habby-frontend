@@ -18,7 +18,8 @@ module.exports = {
                 orangeGrey: 'hsla(21, 60%, 50%, 1)'
             },
             backgroundImage: {
-                heroImage: "url(/public/imgs/habbysvg.png)"
+                netSVG: "url(/public/imgs/habbysvg.png)",
+                logo: "url(/imgs/habbyLogo.png)"
             }
         },
         screens: {
