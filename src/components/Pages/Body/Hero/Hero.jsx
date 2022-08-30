@@ -6,8 +6,9 @@ import PieChart from '../Global/PieChart/PieChart';
 export default function Hero() {
     const textColor = 'hsla(315, 97%, 17%, 1)';
     const { habits } = useHabits();
-    const { selectedDate } = useCalendar();
-    const [selectedDayHabits, setSelectedDayHabits] = useState();
+    // console.log(habits);
+    // const { selectedDate } = useCalendar();
+    // const [selectedDayHabits, setSelectedDayHabits] = useState();
     const [current, setCurrent] = useState(6);
     const [goal, setGoal] = useState(7);
     const [value, setValue] = useState((current / goal) * 100);
