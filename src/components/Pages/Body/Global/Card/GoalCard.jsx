@@ -1,6 +1,5 @@
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ProgressBar from '../ProgressBar/ProgressBar';
-// import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export default function GoalCard({ goal, width, height }) {
 

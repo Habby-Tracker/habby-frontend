@@ -15,30 +15,34 @@ export default function AuthForm({ header, button, prompt, link, onSubmit }) {
     const handleChange = (e) => setCredentials({ ...credentials, [e.target.name]: e.target.value });
 
     return (
-        <AuthSection width="100%" height="100%">
-            <div className="flex flex-row">
-                <p>{header}</p>
-                <Link to={link}>{prompt}</Link>
-            </div>
-            <form onSubmit={handleSubmit}>
-                <InputControl
-                    label="Email"
-                    name="email"
-                    type="email"
-                    required
-                    onChange={handleChange}
-                />
-                <InputControl
-                    label="Password"
-                    name="password"
-                    type="password"
-                    required
-                    onChange={handleChange}
-                />
-
-                <Button text={button} marginTop={'20px'}/>
-
-            </form>
-        </AuthSection>
+        <div className="flex absolute inset-0 justify-center items-center">
+            <AuthSection width="90%" height="95%">
+                <div className="flex flex-col items-center">
+                    <div className="flex flex-row w-full items-center">
+                        <p>{header}</p>
+                        <div>
+                            <Link to={link}>{prompt}</Link>
+                        </div>
+                    </div>
+                    <form className="flex flex-col justify-center items-center" onSubmit={handleSubmit}>
+                        <InputControl
+                            label="Email"
+                            name="email"
+                            type="email"
+                            required
+                            onChange={handleChange}
+                        />
+                        <InputControl
+                            label="Password"
+                            name="password"
+                            type="password"
+                            required
+                            onChange={handleChange}
+                        />
+                        <Button text={button} marginTop={'20px'}/>
+                    </form>
+                </div>
+            </AuthSection>
+        </div>
     );
 }
