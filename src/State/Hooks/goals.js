@@ -44,7 +44,9 @@ export function goalActions() {
         console.log('data in goals', data);
         if (data) {
             dispatchGoal({ type: 'add', payload: data.goal });
-            dispatchHabit({ type: 'add', payload: data.habits });
+            data.habits.forEach((habit) => {
+                dispatchHabit({ type: 'add', payload: habit });
+            });
         }
         if (!data) {
             showError(data);

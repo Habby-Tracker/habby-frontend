@@ -19,6 +19,8 @@ export default function CalendarProvider({ children }) {
         }
     }, [habits, selectedDate]);
 
+    console.log('habits in context', habits);
+
     useEffect(() => {
         setDates([]);
         const prevDate1 = new Date(selectedDate);
