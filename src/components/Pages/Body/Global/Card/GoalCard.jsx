@@ -1,15 +1,18 @@
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useHabits } from '../../../../../State/Hooks/habits';
 import ProgressBar from '../ProgressBar/ProgressBar';
 // import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export default function GoalCard({ goal, width, height }) {
-
     const goalText = 'pl-4 w-2/3 text-left text-sm font-semibold';
     const targetDays = 'pl-4 w-2/3 text-left text-sm font-normal';
     const frequency = 'pl-4 w-2/3 text-left text-primaryOrange text-sm font-normal';
-    const progress = (5 / 7) * 100;
 
-
+    const { habits } = useHabits();
+    const goalHabits = (habits && habits.length) ? habits.filter(habit => habit.goalID === Number(goal.id)) : null;
+    const totalHabits = goalHabits && goalHabits.length;
+    const completedHabits = goalHabits && goalHabits.filter(habit => habit.statusID === '3').length;
+    const progress = totalHabits > 0 ? (completedHabits / totalHabits) * 100 : 0; 
 
     return (
         <div className="flex flex-col w-full py-1 items-center rounded-md bg-lightGrey my-2 shadow-md"
