@@ -42,7 +42,7 @@ export default function List() {
             <Section
                 header="Current Goals"  
                 maxWidth="90%" >
-                {goals && goals.map((goal) => <ProgressCard key={`goal card${goal.id}`} goal={goal.goalName} target={50} />)}
+                {goals && goals.map((goal) => <ProgressCard key={`goal card${goal.id}`} goal={goal} target={50} />)}
             </Section>
             <Section 
                 header="Your Stats"
