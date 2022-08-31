@@ -6,7 +6,7 @@ import { useHabits } from '../../../../../State/Hooks/habits';
 import ProgressBar from '../ProgressBar/ProgressBar';
 // import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-export default function GoalCard({ goal, width, height, setEditModal, setDeleteModal }) {
+export default function GoalCard({ goal, width, height, setEditModal, setDeleteModal, setActiveGoal }) {
     const [isOpen, setIsOpen] = useState(false);
 
     const useOutsideClick = (callback) => {
@@ -40,7 +40,12 @@ export default function GoalCard({ goal, width, height, setEditModal, setDeleteM
     const goalHabits = (habits && habits.length) ? habits.filter(habit => habit.goalID === Number(goal.id)) : null;
     const totalHabits = goalHabits && goalHabits.length;
     const completedHabits = goalHabits && goalHabits.filter(habit => habit.statusID === '3').length;
-    const progress = totalHabits > 0 ? (completedHabits / totalHabits) * 100 : 0; 
+    const progress = totalHabits > 0 ? (completedHabits / totalHabits) * 100 : 0;
+
+    function openModal(modalFunction) {
+        modalFunction(true);
+        setActiveGoal(goal);
+    }
 
     return (
         <div className="flex flex-col w-full py-1 items-center rounded-md bg-lightGrey my-2 shadow-md"
@@ -52,8 +57,8 @@ export default function GoalCard({ goal, width, height, setEditModal, setDeleteM
                     {isOpen &&
                         <div ref={ref} className="absolute z-10">
                             <div className="flex flex-col w-24 bg-white rounded-md shadow-md">
-                                <p onClick={() => setEditModal(true)} className="text-sm text-center text-primaryOrange h-10 font-semibold">Edit</p>
-                                <p onClick={() => setDeleteModal(true)} className="text-sm text-center text-primaryOrange h-10 font-semibold">Delete</p>
+                                <p onClick={() => openModal(setEditModal)} className="text-sm text-center text-primaryOrange h-10 font-semibold">Edit</p>
+                                <p onClick={() => openModal(setDeleteModal)} className="text-sm text-center text-primaryOrange h-10 font-semibold">Delete</p>
                             </div>
                         </div>}
                 </div>

@@ -14,13 +14,14 @@ export default function Home() {
     const [modal, setModal] = useState(false);
     const [editModal, setEditModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
+    const [activeGoal, setActiveGoal] = useState(null);
 
     const { selectedDateHabits, selectedDateGoals } = useCalendar();
 
     const openModal = () => {
         setModal(true);
     };
-
+    
     return (
         <div className="flex flex-col justify-center items-center py-4">
             <DateSlider />
@@ -32,11 +33,11 @@ export default function Home() {
                 {selectedDateGoals && selectedDateGoals.map((goal) => 
                     <GoalCard 
                         key={`goal card${goal.id}`} goal={goal} 
-                        setEditModal={setEditModal} setDeleteModal={setDeleteModal} />)}
+                        setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveGoal={setActiveGoal} />)}
             </Section>
             {modal && <CreateGoalModal setModal={setModal} />}
-            {editModal && <EditGoalModal setEditModal={setEditModal} />}
-            {deleteModal && <DeleteGoalModal setDeleteModal={setDeleteModal} />}
+            {editModal && <EditGoalModal setEditModal={setEditModal} activeGoal={activeGoal} />}
+            {deleteModal && <DeleteGoalModal setDeleteModal={setDeleteModal} activeGoal={activeGoal}/>}
             <AddGoalButton onClick={() => openModal()} />
         </div>
     );
