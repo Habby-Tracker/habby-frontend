@@ -6,7 +6,7 @@ export default function Hero() {
     const { selectedDateHabits } = useCalendar();
     const current = selectedDateHabits ? selectedDateHabits.filter(habit => habit.statusID === '3').length : 0;
     const goal = selectedDateHabits ? selectedDateHabits.length : 0;
-    const value = current > 0 ? (current / goal) * 100 : 5;
+    const value = current > 0 ? (current / goal) * 100 : 1.99;
 
 
     return (

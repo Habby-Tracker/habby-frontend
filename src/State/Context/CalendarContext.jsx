@@ -19,6 +19,15 @@ export default function CalendarProvider({ children }) {
     useEffect(() => {
         if (habits && habits.length && goals && goals.length) {
             const selectedDateHabits = habits.filter(habit => selectedDate.toDateString() === new Date(habit.dueDate).toDateString());
+            selectedDateHabits.sort((a, b) => {
+                if (a.statusID < b.statusID){
+                    return -1;
+                }
+                if (a.statusID > b.statusID){
+                    return 1;
+                }
+                return 0;
+            });
             setSelectedDateHabits(selectedDateHabits);
             const idsObj = selectedDateHabits.reduce((acc, curr) => {acc[curr.goalID] = true; return acc;}, {});
             const selectedDateGoals = goals.filter(goal => idsObj[goal.id]);
