@@ -9,7 +9,6 @@ import CreateGoalModal from './Modals/CreateGoalModal';
 import EditGoalModal from './Modals/EditGoalModal';
 import DeleteGoalModal from './Modals/DeleteGoalModal';
 import { useCalendar } from '../../../../State/Hooks/calendar';
-import GoalStats from '../GoalStats/GoalStats';
 
 export default function Home() {
     const [modal, setModal] = useState(false);
@@ -27,7 +26,6 @@ export default function Home() {
         <div className="flex flex-col justify-center items-center py-4">
             <DateSlider />
             <Hero />
-            <GoalStats />
             <Section header="Today's Habits" seeAll={true} width="90vw">
                 {selectedDateHabits && selectedDateHabits.map((habit) => <HabitCard key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} />)}
             </Section>
