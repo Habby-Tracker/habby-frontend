@@ -23,9 +23,9 @@ export default function Header() {
                 </div>
             </header>
             <div className="flex space-x-0 px-2 py-2 text-xl justify-start md:hidden">
-                {'Welcome, '}
+                {'Welcome,' + '   '}
                 <span className="text-darkPurple">
-                    Beau!
+                    {user ? `  ${user.email}`  : 'user'}
                 </span>
             </div>
         </>
