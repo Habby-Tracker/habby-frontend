@@ -6,23 +6,28 @@ export default function ProgressCard({ goal, target, width, height, id }) {
 
     const goalText = 'pl-2 w-full my-2 text-left text-m font-semibold';
     const targetDays = 'pl-2 w-full my-2 text-left text-sm font-normal';
-    const progress = (7 / 7) * 100;
+    const progress = (6 / 7) * 100;
 
 
 
     return (
-        <div className="flex flex-row w-full items-center rounded-md bg-lightGrey shadow-md"
+        <div className="flex flex-row w-full items-center rounded-md bg-lightGrey shadow-md py-4"
             style={{ width, height }} value={id}>
             <div className="w-1/5">
-                <CircularProgressWithLabel progress={progress} />
+                <CircularProgressWithLabel 
+                    progress={progress} 
+                    size={'48px'} 
+                    textvariant={'caption'}
+                    ringcolor={'hsla(315, 97%, 42%, 0.81)'} 
+                />
             </div>    
             <div className="flex flex-row w-3/5 items-center">
                 <div className="w-full items-left">
                     <p className={goalText}>{goal}</p>
-                    <p className={targetDays}>{target}</p>
+                    <p className={targetDays}>{target} days</p>
                 </div>
             </div>
-            <div className="w-1/5 justify-center"> 
+            <div className="w-1/5 justify-center px-2"> 
                 <StatusPill width={'100%'} />            
             </div>
         </div>
