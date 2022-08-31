@@ -4,12 +4,16 @@ import Section from '../Global/Section/Section';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import ProgressCard from '../Global/Card/ProgressCard';
+import { useHabits } from '../../../../State/Hooks/habits';
 
 export default function List() {
     const { goals } = useGoals();
-    const complete = 50;
-    const goal = 60;
-    const progress = (complete / goal) * 100;
+    const { habits } = useHabits();
+    const current = habits ? habits.filter(habit => habit.statusID === '3').length : 0;
+    const nonComplete = habits ? habits.filter(habit => habit.statusID !== '3').length : 0;
+    const goal = habits ? habits.length : 0;
+    const value = current > 0 ? (current / goal) * 100 : 5;
+
 
     return (
         <div className="flex flex-col min-w-full">
@@ -19,17 +23,17 @@ export default function List() {
                 maxWidth="100%">
                 <div className="container flex justify-center items-center flex-col mx-auto">
                     <PieChart
-                        progress={progress}
+                        progress={value}
                         size={'150px'}
                         ringcolor={'hsla(21.6, 100%, 50%, 1)'}
                         textcolor={'hsla(315, 97%, 26%, 1)'}
                         textvariant={'h3'}
                     />
                     <p className="text-primaryOrange text-sm text-bold flex">
-                        <CheckIcon /> {`${complete} Habits have been completed!`}
+                        <CheckIcon /> {`${current} Habits have been completed!`}
                     </p>
                     <p className="text-orangeGrey text-sm text-bold flex">
-                        <CloseIcon /> {`You are still working on ${goal - complete} Habits!`}
+                        <CloseIcon /> {`You are still working on ${nonComplete} Habits!`}
                     </p>
                 </div>
                 
