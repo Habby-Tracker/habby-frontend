@@ -54,8 +54,13 @@ export function goalActions() {
 
     const remove = async (id) => {
         const data = await deleteGoal(id);
+        console.log('data from goals hook', data);
         if (data) {
-            dispatchGoal({ type: 'remove', payload: data });
+            dispatchGoal({ type: 'remove', payload: data.goal });
+            data.habits.forEach((habit) => {
+                console.log('habit', habit);
+                dispatchHabit({ type: 'remove', payload: habit });
+            });
         }
         if (!data) {
             showError(data.message);
