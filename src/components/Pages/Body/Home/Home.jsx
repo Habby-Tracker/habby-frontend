@@ -9,6 +9,7 @@ import CreateGoalModal from './Modals/CreateGoalModal';
 import EditGoalModal from './Modals/EditGoalModal';
 import DeleteGoalModal from './Modals/DeleteGoalModal';
 import { useCalendar } from '../../../../State/Hooks/calendar';
+import GoalDetail from '../GoalDetail/GoalDetail';
 
 export default function Home() {
     const [modal, setModal] = useState(false);
@@ -34,6 +35,9 @@ export default function Home() {
                     <GoalCard 
                         key={`goal card${goal.id}`} goal={goal} 
                         setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveGoal={setActiveGoal} />)}
+            </Section>
+            <Section header="Goal Detail">
+                <GoalDetail />
             </Section>
             {modal && <CreateGoalModal setModal={setModal} />}
             {editModal && <EditGoalModal setEditModal={setEditModal} activeGoal={activeGoal} />}
