@@ -21,7 +21,7 @@ export default function Home() {
     console.log(selectedDateHabits);
 
     return (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center py-4">
             <DateSlider />
             <Hero />
             <Section header="Today's Habits" seeAll={true} width="90vw">

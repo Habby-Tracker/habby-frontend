@@ -15,7 +15,7 @@ module.exports = {
                 neonGreen: 'hsla(144, 82%, 47%, 1)',
                 darkGreen: 'hsla(162, 87%, 24%, 1)',
                 lightGrey: 'hsla(100, 0%, 98%, 0.75)',
-                orangeGrey: 'hsla(21, 60%, 50%, 1)'
+                orangeGrey: 'hsla(21, 46%, 36%, 0.86)'
             },
             backgroundImage: {
                 netSVG: "url(/public/imgs/habbysvg.png)",
