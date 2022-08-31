@@ -31,6 +31,19 @@ export default function CalendarProvider({ children }) {
             setSelectedDateHabits(selectedDateHabits);
             const idsObj = selectedDateHabits.reduce((acc, curr) => {acc[curr.goalID] = true; return acc;}, {});
             const selectedDateGoals = goals.filter(goal => idsObj[goal.id]);
+            selectedDateGoals.sort((a, b) => {
+                const aHabits = habits.filter(habit => habit.goalID === Number(a.id));
+                const bHabits = habits.filter(habit => habit.goalID === Number(b.id));
+                const aProgress = aHabits.filter(habit => habit.statusID === '3').length / aHabits.length;
+                const bProgress = bHabits.filter(habit => habit.statusID === '3').length / bHabits.length;
+                if (aProgress < bProgress) {
+                    return 1;
+                }
+                if (aProgress > bProgress) {
+                    return -1;
+                }
+                return 0;
+            });
             setSelectedDateGoals(selectedDateGoals);
         }
     }, [habits, selectedDate, goals]);
