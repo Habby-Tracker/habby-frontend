@@ -21,9 +21,9 @@ export default function GoalStats() {
     return (
         thisGoal && <Section>
             <div className="select-none border rounded p-4 w-full">
-                <div className="flex flex-row justify-between mb-4 font-bold">
+                <div className="flex flex-row justify-between mb-4 font-bold mx-2">
                     <h3>{thisGoal.goalName}</h3>
-                    <StatusPill />
+                    <StatusPill progress={completedHabits / totalHabits} width={'70px'}/>
                 </div>
                 <div className="flex flex-row justify-between text-sm mb-3 font-semibold">
                     <span>Habit Name:</span>

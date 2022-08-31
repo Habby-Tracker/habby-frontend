@@ -32,7 +32,7 @@ export default function ProgressCard({ goal, width, height }) {
                 </div>
             </div>
             <div className="w-1/5 justify-center px-2"> 
-                <StatusPill width={'100%'} />            
+                <StatusPill width={'70px'} progress={completedHabits / totalHabits} />            
             </div>
         </div>
     );
