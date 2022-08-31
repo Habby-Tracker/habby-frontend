@@ -18,6 +18,8 @@ export default function CalendarProvider({ children }) {
             setSelectedDateHabits(habits.filter(habit => selectedDate.toDateString() === new Date(habit.dueDate).toDateString()));
         }
     }, [habits, selectedDate]);
+    
+    console.log('habits in context', habits);
 
     useEffect(() => {
         setDates([]);
