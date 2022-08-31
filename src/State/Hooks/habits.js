@@ -9,7 +9,7 @@ import {
 import { showError } from '../Services/toaster';
 
 export function useHabits() {
-    const { habits } = useContext(DataContext);
+    const { habits, goals } = useContext(DataContext);
     const { dispatchHabit } = useContext(DataDispatchContext);
     const [error, setError] = useState(null);
 
@@ -31,7 +31,7 @@ export function useHabits() {
         return () => {
             ignore = true;
         };
-    }, []);
+    }, [goals]);
 
     return { habits, error };
 }
