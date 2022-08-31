@@ -1,13 +1,13 @@
 import Section from '../Global/Section/Section';
-import Calendar from '../Dates/Calendar';
-import GoalStats from '../Analytics/GoalStats';
+import GoalCalendar from './GoalCalendar';
+import GoalStats from './GoalStats';
 
 export default function GoalDetail() {
 
     return (
         <div>
             <Section width="100%">
-                <Calendar />
+                <GoalCalendar />
             </Section>
             <Section>
                 <GoalStats />

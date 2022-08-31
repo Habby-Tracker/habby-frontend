@@ -7,6 +7,7 @@ import { Routes as RRoutes, Route, Navigate } from 'react-router-dom';
 import ProtectRoutes from './Auth/ProtectRoutes.jsx';
 import UserAuth from './Auth/UserAuth.jsx';
 import Profile from './Auth/Profile.jsx';
+import GoalDetail from './Body/GoalDetail/GoalDetail.jsx';
 
 export default function Routes() {
     return (
@@ -16,6 +17,7 @@ export default function Routes() {
                 <Route element={<ProtectRoutes />}>
                     <Route index element={<Home />} />
                     <Route path="analytics" element={<Analytics />} />
+                    <Route path="analytics/goal/:id" element={<GoalDetail />} />
                     <Route path="settings" element={<Settings />} />
                     <Route path="account" element={<Account />} />
                     <Route path="user/profile" element={<Profile />} />

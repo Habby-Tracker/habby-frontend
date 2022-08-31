@@ -1,17 +1,16 @@
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useGoals } from '../../../../State/Hooks/goals';
 import { useHabits } from '../../../../State/Hooks/habits';
 import Section from '../Global/Section/Section';
 import StatusPill from '../Global/StatusPill/StatusPill';
 
 export default function GoalStats() {
-    // const { id } = useParams();
+    const { id } = useParams();
     const { goals } = useGoals();
     const { habits } = useHabits();
     const today = new Date();
-    // const thisGoal = goals ? goals.filter(goal => goal.id === String(id))[0] : null;
-    const thisGoal = goals ? goals.filter(goal => goal.id === '8')[0] : null;
-    const goalHabits = (habits && habits.length) ? habits.filter(habit => habit.goalID === Number(thisGoal.id)) : null;
+    const thisGoal = (goals && goals.length) ? goals.filter(goal => goal.id === String(id))[0] : null;
+    const goalHabits = (thisGoal && habits && habits.length) ? habits.filter(habit => habit.goalID === Number(thisGoal.id)) : null;
     const totalHabits = goalHabits && goalHabits.length;
     const completedHabits = goalHabits && goalHabits.filter(habit => habit.statusID === '3').length;
     const failedHabits = goalHabits && goalHabits.filter(habit => habit.statusID !== '3' && new Date(habit.dueDate) < today).length;
