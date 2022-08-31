@@ -5,40 +5,61 @@ import {
     PointElement,
     LineElement,
     Filler,
-    Tooltip,
     Legend,
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
 
 export default function RadarGraph() {
     const { categories } = useCategories();
+    console.log('categories', categories);
 
     ChartJS.register(
         RadialLinearScale,
         PointElement,
         LineElement,
         Filler,
-        Tooltip,
         Legend
     );
     
     const data = {
-        labels: categories.map(category => category.name),
+        labels: [
+            'Health',
+            'Fitness',
+            'Nutrition',
+            'Mental Health',
+            'Social',
+            'Career',
+            'Finance',
+            'Education',
+            'Spiritual',
+            'Other'],
         datasets: [
             {
-                label: '# of Votes',
-                data: [2, 9, 3, 5, 2, 3],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1,
+                label: 'Completed Goal Categories',
+                data: [6, 9, 8, 5, 6, 6, 6, 7, 8, 5],
+                fill: true,
+                spanGaps: true,
+                backgroundColor: 'hsla(21.6, 100%, 50%, 0.4)',
+                borderColor: 'hsla(315, 97%, 26%, 1)',
+                borderWidth: 2,
             },
+            {
+                label: '',
+                data: [0],
+                fill: false,
+                z: -100,
+                spanGaps: true,
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 2,
+            }
         ],
     };
    
     return (
-        <>
+        <div className="flex justify-center w-full mb-4 items-center">
             <Radar data={data} />
-        </>
+        </div>
         
     );
 }

@@ -17,7 +17,7 @@ export default function List() {
 
 
     return (
-        <div className="flex flex-col min-w-full">
+        <div className="flex flex-col min-w-full items-center">
             <h1 className="text-purple text-bold text-3xl flex justify-start px-6">Analytics</h1>
             
             <Section
