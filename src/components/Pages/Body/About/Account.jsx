@@ -14,12 +14,15 @@ export default function Account() {
         update(userInForm);
     }
     return (
-        <>
-            <h1>Account</h1>
-            <form>
+        <div className="flex flex-col min-w-full">
+            <h1 className="text-purple text-bold text-3xl flex justify-start px-6">
+                {user.firstName}'s Account
+            </h1>
+            <form className="flex flex-col mx-4">
                 <InputControl
                     label="First Name"
-                    name="{fname}"
+                    name={user.firstName}
+                    placeholder={user.firstName}
                     type="text"
                     onChange={(e) =>
                         setUserInForm({
@@ -27,10 +30,12 @@ export default function Account() {
                             first_name: e.target.value,
                         })
                     }
+                    className="my-2 border-b-primaryBlack border h-10 max-w-full rounded px-2"
                 />
                 <InputControl
                     label="Last Name"
-                    name="{lname}"
+                    name={user.lastName}
+                    placeholder={user.lastName}
                     type="text"
                     onChange={(e) =>
                         setUserInForm({
@@ -38,9 +43,13 @@ export default function Account() {
                             last_name: e.target.value,
                         })
                     }
+                    className="my-2 border-b-primaryBlack border h-10 max-w-full rounded px-2"
                 />
-                <Button onClick={handleSubmit} text="Submit" />
+                <span className="flex flex-col justify-center items-end my-4">
+                    <Button onClick={handleSubmit} text="Submit" width={'40%'}/>
+                </span>
+                
             </form>
-        </>
+        </div>
     );
 }
