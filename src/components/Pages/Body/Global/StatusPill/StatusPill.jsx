@@ -1,16 +1,16 @@
 export default function StatusPill({ progress, width, height, marginTop }) {
     return (
         progress === 1 ?
-            <button className="rounded-full text-xs bg-neonGreen
-        text-successGreen font-bold py-.7 hover:bg-darkGreen" 
+            <div className="rounded-full text-xs bg-neonGreen
+        text-successGreen font-bold py-.7 mx-auto select-none" 
             style={{ width, height, marginTop }}>
                 Achieved
-            </button>
+            </div>
             :
-            <button className="rounded-full text-xs
-        text-darkGrey font-bold py-.7" 
+            <div className="rounded-full text-xs
+        text-darkGrey font-bold py-.7 mx-auto select-none" 
             style={{ width, height, marginTop }}>
                 Unachieved
-            </button>
+            </div>
     );
 }

@@ -31,7 +31,7 @@ export default function ProgressCard({ goal, width, height }) {
                     <p className={targetDays}>{completedHabits} from {totalHabits} days target</p>
                 </div>
             </div>
-            <div className="w-1/5 justify-center px-2"> 
+            <div className="ml-auto px-2 mr-4"> 
                 <StatusPill width={'70px'} progress={completedHabits / totalHabits} />            
             </div>
         </div>

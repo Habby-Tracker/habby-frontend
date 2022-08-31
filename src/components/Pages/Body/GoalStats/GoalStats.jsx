@@ -23,7 +23,9 @@ export default function GoalStats() {
             <div className="select-none border rounded p-4 w-full">
                 <div className="flex flex-row justify-between mb-4 font-bold mx-2">
                     <h3>{thisGoal.goalName}</h3>
-                    <StatusPill progress={completedHabits / totalHabits} width={'70px'}/>
+                    <div> 
+                        <StatusPill progress={completedHabits / totalHabits} width={'70px'}/>
+                    </div>
                 </div>
                 <div className="flex flex-row justify-between text-sm mb-3 font-semibold">
                     <span>Habit Name:</span>
