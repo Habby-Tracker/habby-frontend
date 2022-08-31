@@ -13,12 +13,13 @@ export default function List() {
     const current = habits ? habits.filter(habit => habit.statusID === '3').length : 0;
     const nonComplete = habits ? habits.filter(habit => habit.statusID !== '3').length : 0;
     const goal = habits ? habits.length : 0;
-    const value = current > 0 ? (current / goal) * 100 : 5;
+    const value = current > 0 ? (current / goal) * 100 : 2;
 
 
     return (
-        <div className="flex flex-col min-w-full">
+        <div className="flex flex-col min-w-full items-center">
             <h1 className="text-purple text-bold text-3xl flex justify-start px-6">Analytics</h1>
+            
             <Section
                 subText="A section to detail the users progress"  
                 maxWidth="100%">
@@ -41,8 +42,8 @@ export default function List() {
             </Section>
             <Section
                 header="Current Goals"  
-                maxWidth="90%" >
-                {goals && goals.map((goal) => <ProgressCard key={`goal card${goal.id}`} goal={goal} target={50} />)}
+                maxWidth="100%" >
+                {goals && goals.map((goal) => <ProgressCard key={`goal card${goal.id}`} goal={goal.goalName} target={50} />)}
             </Section>
             <Section 
                 header="Your Stats"

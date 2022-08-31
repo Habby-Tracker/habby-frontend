@@ -1,28 +1,55 @@
-// import Utils from 'chart.js';
+import { useCategories } from '../../../../State/Hooks/categories';
+import {
+    Chart as ChartJS,
+    RadialLinearScale,
+    PointElement,
+    LineElement,
+    Filler,
+    Legend,
+} from 'chart.js';
+import { Radar } from 'react-chartjs-2';
 
 export default function RadarGraph() {
-    // const DATA_COUNT = 7;
-    // const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
+    const { categories } = useCategories();
+    
 
-    // const labels = Utils.months({ count: 7 });
-    // const data = {
-    //     labels,
-    //     datasets: [
-    //         {
-    //             label: 'Dataset 1',
-    //             data: Utils.numbers(NUMBER_CFG),
-    //             borderColor: Utils.CHART_COLORS.red,
-    //             backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
-    //         },
-    //         {
-    //             label: 'Dataset 2',
-    //             data: Utils.numbers(NUMBER_CFG),
-    //             borderColor: Utils.CHART_COLORS.blue,
-    //             backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
-    //         }
-    //     ]
-    // };
+    ChartJS.register(
+        RadialLinearScale,
+        PointElement,
+        LineElement,
+        Filler,
+        Legend
+    );
+    
+    const data = {
+        labels: categories ? categories.map(category => category.name) : null,
+        datasets: [
+            {
+                label: 'Completed Goal Categories',
+                data: [6, 9, 8, 5, 6, 6, 6, 7, 8, 5],
+                fill: true,
+                spanGaps: true,
+                backgroundColor: 'hsla(21.6, 100%, 50%, 0.4)',
+                borderColor: 'hsla(315, 97%, 26%, 1)',
+                borderWidth: 2,
+            },
+            {
+                label: '',
+                data: [0],
+                fill: false,
+                z: -100,
+                spanGaps: true,
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 2,
+            }
+        ],
+    };
+   
     return (
-        <canvas id="myChart" width="400" height="400"></canvas>
+        <div className="flex justify-center w-full mb-4 items-center">
+            <Radar data={data} />
+        </div>
+        
     );
 }
