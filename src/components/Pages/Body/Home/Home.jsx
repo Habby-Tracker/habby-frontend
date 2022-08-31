@@ -26,7 +26,7 @@ export default function Home() {
             <DateSlider />
             <Hero />
             <Section header="Today's Habits" seeAll={true} width="90vw">
-                {selectedDateHabits && selectedDateHabits.map((habit) => <HabitCard key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} />)}
+                {selectedDateHabits && selectedDateHabits.map((habit) => <HabitCard key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} setEditModal={setEditModal} setDeleteModal={setDeleteModal} />)}
             </Section>
             <Section header="Your Goals" seeAll={true} width="90vw">
                 {selectedDateGoals && selectedDateGoals.map((goal) => 
