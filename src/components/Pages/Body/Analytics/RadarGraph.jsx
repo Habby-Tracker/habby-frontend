@@ -11,7 +11,7 @@ import { Radar } from 'react-chartjs-2';
 
 export default function RadarGraph() {
     const { categories } = useCategories();
-    console.log('categories', categories);
+    
 
     ChartJS.register(
         RadialLinearScale,
@@ -22,17 +22,7 @@ export default function RadarGraph() {
     );
     
     const data = {
-        labels: [
-            'Health',
-            'Fitness',
-            'Nutrition',
-            'Mental Health',
-            'Social',
-            'Career',
-            'Finance',
-            'Education',
-            'Spiritual',
-            'Other'],
+        labels: categories ? categories.map(category => category.name) : null,
         datasets: [
             {
                 label: 'Completed Goal Categories',

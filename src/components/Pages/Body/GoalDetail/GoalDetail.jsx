@@ -1,6 +1,6 @@
 import Section from '../Global/Section/Section';
 import Calendar from '../Dates/Calendar';
-import GoalStats from '../GoalStats/GoalStats';
+import GoalStats from '../Analytics/GoalStats';
 
 export default function GoalDetail() {
 
