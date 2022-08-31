@@ -1,3 +1,4 @@
+//Comment to pull down
 export async function verifyUser() {
     const response = await fetch(`${process.env.API_URL}/api/v1/user/verify`, {
         method: 'GET',
