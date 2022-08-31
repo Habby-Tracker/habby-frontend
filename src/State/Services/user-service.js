@@ -1,3 +1,4 @@
+//Comment to pull down
 export async function verifyUser() {
     const response = await fetch(`${process.env.API_URL}/api/v1/user/verify`, {
         method: 'GET',
@@ -41,6 +42,7 @@ export async function signIn(email, password) {
 }
 
 export async function updateUser(first_name, last_name, email) {
+    console.log(first_name + last_name + email);
     const response = await fetch(`${process.env.API_URL}/api/v1/user/update`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
