@@ -18,14 +18,14 @@ export default function AuthForm({ header, button, prompt, link, onSubmit }) {
     return (
         <div className="flex absolute inset-0 justify-center items-center">
             <AuthSection width="90%" height="95%">
-                <div className="flex border-2 border-neonGreen flex-col items-center">
-                    <div className="flex border-2 border-darkOrange flex-row w-full items-end mb-10">
+                <div className="flex flex-col items-center">
+                    <div className="flex flex-row w-full items-end mb-10">
                         <p className="w-2/3 text-left text-2xl font-semibold">{header}</p>
                         <div className="w-1/3 text-right text-xs text-primaryOrange">
                             <Link to={link}>{prompt}</Link>
                         </div>
                     </div>
-                    <form className="flex flex-col w-full justify-center place-items-stretch border-2 border-successGreen mb-10" onSubmit={handleSubmit}>
+                    <form className="flex flex-col w-full justify-center place-items-stretch mb-10" onSubmit={handleSubmit}>
                         <div className="mb-10 w-full text-xs">
                             <InputControl
                                 label="Email"
