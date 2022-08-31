@@ -16,7 +16,7 @@ export default function Account() {
     return (
         <div className="flex flex-col min-w-full">
             <h1 className="text-purple text-bold text-3xl flex justify-start px-6">
-                {user.firstName}'s Account
+                {`${user.firstName}'s Account`}
             </h1>
             <form className="flex flex-col mx-4">
                 <InputControl
