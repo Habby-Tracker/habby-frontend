@@ -5,34 +5,6 @@ import Box from '@mui/material/Box';
 // import { createTheme } from '@mui/system';
 
 function CircularProgressWithLabel(props) {
-
-
-    // const theme = createTheme({
-    //     status: {
-    //         success: 'hsla(144, 82%, 47%, 1)',
-    //         pending: 'hsla(100, 0%, 98%, 0.75)',
-    //         failed: 'hsla(330, 28%, 13%, 1)'
-    //     },
-    //     palette: {
-    //         primary: {
-    //             main: 'hsla(21.6, 100%, 50%, 1)',
-    //             darker: 'hsla(21.6, 100%, 20%, 1)'
-    //         },
-    //         secondary: {
-    //             main: 'hsla(315, 97%, 26%, 1)',
-    //             lighter: 'hsla(315, 97%, 42%, 0.81)'
-    //         },
-    //         neutral: {
-    //             main: 'hsla(100, 0%, 98%, 0.75)',
-    //             contrastText: 'hsla(330, 28%, 13%, 1)'
-    //         }
-    //     },
-    //     variant: {
-    //         determinate: 'determinate',
-    //         h4: 'h4',
-    //         caption: 'caption'
-    //     }
-    // });
     
     return (
         <Box sx={{ position: 'relative', display: 'inline-flex' }}>

@@ -13,8 +13,8 @@ export default function List() {
 
     return (
         <div className="flex flex-col min-w-full">
+            <h1 className="text-purple text-bold text-3xl flex justify-start px-6">Analytics</h1>
             <Section
-                header="Analytics"
                 subText="A section to detail the users progress"  
                 maxWidth="100%">
                 <div className="container flex justify-center items-center flex-col mx-auto">
@@ -28,7 +28,7 @@ export default function List() {
                     <p className="text-primaryOrange text-sm text-bold flex">
                         <CheckIcon /> {`${complete} Habits have been completed!`}
                     </p>
-                    <p className="text-primaryBlack text-sm text-bold flex">
+                    <p className="text-orangeGrey text-sm text-bold flex">
                         <CloseIcon /> {`You are still working on ${goal - complete} Habits!`}
                     </p>
                 </div>
