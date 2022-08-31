@@ -1,101 +1,55 @@
-// import { useEffect, useState } from 'react';
 // import { useParams } from 'react-router-dom';
-// import { useGoals } from '../../../../State/Hooks/goals';
-// import useLookups from '../../../../State/Hooks/lookups';
+import { useGoals } from '../../../../State/Hooks/goals';
+import { useHabits } from '../../../../State/Hooks/habits';
 import Section from '../Global/Section/Section';
+import StatusPill from '../Global/StatusPill/StatusPill';
 
 export default function GoalStats() {
-    // need to join categories table to get category name
-    // need to join time period table to get day_count
-    // need to join habit type table to get habit type name (daily, weekly, monthly, etc.)
-    // need to join status table to get status (active, inactive, completed)
-    // should probably have a days completed column in the habit/goal table - increases by 1 day for every day marked complete
-    // use goal id to get all of the habits with status completed
-    // const [goal, setGoal] = useState({
-    //     goalCategoryID: '1',
-    //     categoryName: 'Mental Health',
-    //     goalName: 'Journal everyday',
-    //     timePeriodID: '1',
-    //     dayCount: 7,
-    //     habitTypeID: '1',
-    //     habitType: 'Daily',
-    //     habitName: 'Journaling',
-    //     statusID: '1',
-    //     statusName: 'Active',
-    //     created_at: '2022-08-29',
-    //     daysCompleted: 5,
-    //     daysFailed: 1
-    // });
-
-    const goal = {
-        goalCategoryID: '1',
-        categoryName: 'Mental Health',
-        goalName: 'Journal everyday',
-        timePeriodID: '1',
-        dayCount: 7,
-        habitTypeID: '1',
-        habitType: 'Daily',
-        habitName: 'Journaling',
-        statusID: '1',
-        statusName: 'Active',
-        created_at: '2022-08-29',
-        daysCompleted: 5,
-        daysFailed: 1
-    };
-    const createdAtDate = new Date(goal.created_at);
-    // const { goals } = useGoals();
-    // const { status, timePeriod, habitType } = useLookups();
-    // // // need to get all habits by goal id
-    // const { habits } = useHabits();
     // const { id } = useParams();
-    // const thisGoal = goals.filter(goal => goal.id === id);
-    // const thisStatus = status.filter(status => status.id === thisGoal.statusID);
-    // const thisHabitType = habitType.filter(type => type.id === thisGoal.habitTypeID);
-    // const thisTimePeriod = timePeriod.filter(period => period.id === thisGoal.timePeriodID);
-    // const theseHabits = habits.filter(habit => habit.goalID = thisGoal.id);
-    // const completedCount = theseHabits.filter(habit => habit.status === 'Completed');
-    // const failedCount = theseHabits.filter(habit => habit.status === 'Incomplete');
-    // const createdAtDate = new Date(thisGoal[0].created_at);
-    // if (thisHabitType === 'Daily') {
-    //     setGoal({ ...goal[0], created_at: createdAtDate.getDateString(), status: thisStatus[0].name, habitType: thisHabitType[0].name, dayCount: thisTimePeriod[0].dayCount });
-    // } else if (thisHabitType === 'Weekly') {
-    //     setGoal({ ...goal[0], created_at: createdAtDate.getDateString(), status: thisStatus[0].name, habitType: thisHabitType[0].name, weekCount: thisTimePeriod[0].weekCount });
-    // } else if (thisHabitType === 'Monthly') {
-    //     setGoal({ ...goal[0], created_at: createdAtDate.getDateString(), status: thisStatus[0].name, habitType: thisHabitType[0].name, monthCount: thisTimePeriod[0].monthCount });
-    // }
-    // // useEffect(() => {
-    // // }, []);
+    const { goals } = useGoals();
+    const { habits } = useHabits();
+    const today = new Date();
+    // const thisGoal = goals ? goals.filter(goal => goal.id === String(id))[0] : null;
+    const thisGoal = goals ? goals.filter(goal => goal.id === '8')[0] : null;
+    const goalHabits = (habits && habits.length) ? habits.filter(habit => habit.goalID === Number(thisGoal.id)) : null;
+    const totalHabits = goalHabits && goalHabits.length;
+    const completedHabits = goalHabits && goalHabits.filter(habit => habit.statusID === '3').length;
+    const failedHabits = goalHabits && goalHabits.filter(habit => habit.statusID !== '3' && new Date(habit.dueDate) < today).length;
+    const remainingHabits = goalHabits && goalHabits.filter(habit => habit.statusID !== '3' && new Date(habit.dueDate) > today).length;
+    const createdAtDate = thisGoal && new Date(thisGoal.createdAt).toDateString();
 
     return (
-        <Section>
+        thisGoal && <Section>
             <div className="select-none border rounded p-4 w-full">
-                <div className="flex flex-row justify-between mb-4 font-bold">
-                    <h3>{goal.goalName}</h3>
-                    <span>StatusPill</span>
+                <div className="flex flex-row justify-between mb-4 font-bold mx-2">
+                    <h3>{thisGoal.goalName}</h3>
+                    <div> 
+                        <StatusPill progress={completedHabits / totalHabits} width={'70px'}/>
+                    </div>
                 </div>
                 <div className="flex flex-row justify-between text-sm mb-3 font-semibold">
                     <span>Habit Name:</span>
-                    <span>{goal.habitName}</span>
+                    <span>{thisGoal.habitName}</span>
                 </div>
                 <div className="flex flex-row justify-between text-sm mb-3">
                     <span>Target:</span>
-                    <span>{goal.dayCount} from {goal.dayCount} Days</span>
+                    <span>{totalHabits} from {totalHabits} Days</span>
                 </div>
                 <div className="flex flex-row justify-between text-sm mb-3">
                     <span>Days Completed:</span>
-                    <span>{goal.daysCompleted} from {goal.dayCount} Days</span>
+                    <span>{completedHabits} from {totalHabits} Days</span>
                 </div>
                 <div className="flex flex-row justify-between text-sm mb-3">
                     <span>Days Failed:</span>
-                    <span>{goal.daysFailed} Days</span>
+                    <span>{failedHabits} Days</span>
                 </div>
                 <div className="flex flex-row justify-between text-sm mb-3">
-                    <span>Habit Type:</span>
-                    <span>{goal.habitType}</span>
+                    <span>Days Remaining:</span>
+                    <span>{remainingHabits} Days</span>
                 </div>
                 <div className="flex flex-row justify-between text-sm">
                     <span>Created On:</span>
-                    <span>{createdAtDate.toDateString()}</span>
+                    <span>{createdAtDate}</span>
                 </div>
             </div>
         </Section>
