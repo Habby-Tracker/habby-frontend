@@ -32,6 +32,7 @@ export default function SignUpForm({ header, button, prompt, link, onSubmit }) {
                                 type="first_name"
                                 required
                                 onChange={handleChange}
+                                className="w-full"
                             />
                         </div>
                         <div className="mb-10 w-full text-xs">
@@ -41,6 +42,7 @@ export default function SignUpForm({ header, button, prompt, link, onSubmit }) {
                                 type="last_name"
                                 required
                                 onChange={handleChange}
+                                className="w-full"
                             />
                         </div>
                         <div className="mb-10 w-full text-xs">
@@ -50,6 +52,7 @@ export default function SignUpForm({ header, button, prompt, link, onSubmit }) {
                                 type="email"
                                 required
                                 onChange={handleChange}
+                                className="w-full"
                             />
                         </div>
                         <div className="mb-10 w-full text-xs">
@@ -59,10 +62,11 @@ export default function SignUpForm({ header, button, prompt, link, onSubmit }) {
                                 type="password"
                                 required
                                 onChange={handleChange}
+                                className="w-full"
                             />                       
                         </div>
                         <div>
-                            <Button text={button}/> 
+                            <Button text={button} width={'100%'}/> 
                         </div>
                     </form>
                 </div>
