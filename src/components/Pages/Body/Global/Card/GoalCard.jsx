@@ -1,8 +1,35 @@
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useEffect } from 'react';
+import { useRef } from 'react';
+import { useState } from 'react';
 import ProgressBar from '../ProgressBar/ProgressBar';
 // import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-export default function GoalCard({ goal, width, height }) {
+export default function GoalCard({ goal, width, height, setEditModal, setDeleteModal }) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const useOutsideClick = (callback) => {
+        const ref = useRef();
+      
+        useEffect(() => {
+            const handleClick = (e) => {
+                if (ref.current && !ref.current.contains(e.target)) {
+                    callback();
+                }
+            };
+      
+            document.addEventListener('click', handleClick, true);
+      
+            return () => {
+                document.removeEventListener('click', handleClick, true);
+            };
+        }, []);
+      
+        return ref;
+    };
+
+    const ref = useOutsideClick(() => setIsOpen(false));
+
 
     const goalText = 'pl-4 w-2/3 text-left text-sm font-semibold';
     const targetDays = 'pl-4 w-2/3 text-left text-sm font-normal';
@@ -17,7 +44,14 @@ export default function GoalCard({ goal, width, height }) {
             <div className="flex flex-row w-full items-center">
                 <p className={goalText}>{goal.goalName}</p>
                 <div className="w-1/3 text-right">
-                    <MoreVertIcon fontSize="small" />
+                    <MoreVertIcon fontSize="small" onClick={() => setIsOpen(true)} />
+                    {isOpen &&
+                        <div ref={ref} className="absolute z-10">
+                            <div className="flex flex-col w-24 bg-white rounded-md shadow-md">
+                                <p onClick={() => setEditModal(true)} className="text-sm text-center text-primaryOrange h-10 font-semibold">Edit</p>
+                                <p onClick={() => setDeleteModal(true)} className="text-sm text-center text-primaryOrange h-10 font-semibold">Delete</p>
+                            </div>
+                        </div>}
                 </div>
             </div>
             <div className="w-full justify-center"> 

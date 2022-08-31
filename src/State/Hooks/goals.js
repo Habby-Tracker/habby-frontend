@@ -41,7 +41,6 @@ export function goalActions() {
 
     const create = async (goal) => {
         const data = await createGoal(goal);
-        console.log('data in goals', data);
         if (data) {
             dispatchGoal({ type: 'add', payload: data.goal });
             data.habits.forEach((habit) => {
