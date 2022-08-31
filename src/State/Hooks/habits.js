@@ -61,7 +61,6 @@ export function habitActions() {
 
     const update = async (id, updatedHabit) => {
         const data = await updateHabit(id, updatedHabit);
-        console.log(data);
         if (data) {
             dispatchHabit({ type: 'update', payload: data });
         }

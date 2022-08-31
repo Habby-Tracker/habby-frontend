@@ -21,9 +21,7 @@ export default function Home() {
     const openModal = () => {
         setModal(true);
     };
-
-    console.log('goals', goals);
-
+    
     return (
         <div className="flex flex-col justify-center items-center py-4">
             <DateSlider />
