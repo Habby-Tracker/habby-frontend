@@ -16,7 +16,7 @@ export default function HabitCard({ habit, completed, width }) {
     const defaultBackground = 'flex flex-row w-full h-10 items-center rounded-md bg-lightGrey my-2 shadow-md';
 
     function updateHabit(value) {
-        update(habit.id, { statusID: value });
+        update(habit.id, { statusID: value, completedDate: new Date() });
         setCompletedState(!completedState);
     }
 
