@@ -13,7 +13,7 @@ export default function List() {
     const current = habits ? habits.filter(habit => habit.statusID === '3').length : 0;
     const nonComplete = habits ? habits.filter(habit => habit.statusID !== '3').length : 0;
     const goal = habits ? habits.length : 0;
-    const value = current > 0 ? (current / goal) * 100 : 5;
+    const value = current > 0 ? (current / goal) * 100 : 2;
 
 
     return (
