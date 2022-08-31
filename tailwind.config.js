@@ -14,22 +14,23 @@ module.exports = {
                 successBackground: 'hsla(144, 57%, 72%, 1)',
                 neonGreen: 'hsla(144, 82%, 47%, 1)',
                 darkGreen: 'hsla(162, 87%, 24%, 1)',
-                lightGrey: 'hsla(100, 0%, 98%, 0.75)',
                 grey: 'hsla(100, 0%, 90%, 0.75)',
-                orangeGrey: 'hsla(21, 46%, 36%, 0.86)'
+                darkGrey: 'hsla(100, 0%, 20%, 0.75)',
+                lightGrey: 'hsla(100, 0%, 98%, 0.75)',
+                orangeGrey: 'hsla(21, 46%, 36%, 0.86)',
             },
             backgroundImage: {
-                netSVG: "url(/public/imgs/habbysvg.png)",
-                logo: "url(/imgs/habbyLogo.png)",
-                heroPattern: "url('/public/imgs/hero-pattern.png')"
-            }
+                netSVG: 'url(/public/imgs/habbysvg.png)',
+                logo: 'url(/imgs/habbyLogo.png)',
+                heroPattern: "url('/public/imgs/hero-pattern.png')",
+            },
         },
         screens: {
-            'sm': '480px',
-            'md': '768px',
-            'lg': '976px',
-            'xl': '1440px',
-        }
+            sm: '480px',
+            md: '768px',
+            lg: '976px',
+            xl: '1440px',
+        },
     },
     plugins: [],
 };
