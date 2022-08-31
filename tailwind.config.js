@@ -20,7 +20,8 @@ module.exports = {
             },
             backgroundImage: {
                 netSVG: "url(/public/imgs/habbysvg.png)",
-                logo: "url(/imgs/habbyLogo.png)"
+                logo: "url(/imgs/habbyLogo.png)",
+                heroPattern: "url('/public/imgs/hero-pattern.png')"
             }
         },
         screens: {

@@ -17,7 +17,7 @@ export default function CalendarProvider({ children }) {
     const actions = { setSelectedDate, setDates, setSelectedDateHabits, setSelectedDateGoals };
 
     useEffect(() => {
-        if (habits && habits.length && goals && goals.length) {
+        if (habits && habits.length >= 0 && goals && goals.length >= 0) {
             const selectedDateHabits = habits.filter(habit => selectedDate.toDateString() === new Date(habit.dueDate).toDateString());
             selectedDateHabits.sort((a, b) => {
                 if (a.statusID < b.statusID){

@@ -6,7 +6,7 @@ import {
     deleteGoal,
     updateGoal,
 } from '../Services/goal-service';
-import { showError } from '../Services/toaster';
+import { showError, showSuccess } from '../Services/toaster';
 
 export function useGoals() {
     const { goals } = useContext(DataContext);
@@ -55,7 +55,11 @@ export function goalActions() {
     const remove = async (id) => {
         const data = await deleteGoal(id);
         if (data) {
-            dispatchGoal({ type: 'remove', payload: data });
+            await dispatchGoal({ type: 'remove', payload: data.goal });
+            data.habits.forEach(async (habit) => {
+                await dispatchHabit({ type: 'remove', payload: habit });
+            });
+            showSuccess('Goal deleted');
         }
         if (!data) {
             showError(data.message);

@@ -7,7 +7,7 @@ import Modal from '../../Global/Form/Modal';
 import { useState } from 'react';
 import { goalActions } from '../../../../../State/Hooks/goals';
 import { useEffect } from 'react';
-// import useLookups from '../../../../State/Hooks/lookups';
+import { useCategories } from '../../../../../State/Hooks/categories';
 
 export default function CreateGoalModal({ setModal }) {
     const [goalInForm, setGoalInForm] = useState({
@@ -32,12 +32,15 @@ export default function CreateGoalModal({ setModal }) {
     }];
     const [maxTimePeriodCount, setMaxTimePeriodCount] = useState(new Array(90).fill());
     const { create } = goalActions();
+    const { categories } = useCategories();
     
     function createGoal(e) {
         e.preventDefault();
         create(goalInForm);
         setModal(false);
     }
+
+    console.log('categories', categories);
 
     useEffect(() => {
         if (goalInForm.timePeriodID === '1') setMaxTimePeriodCount(new Array(90).fill());
@@ -93,6 +96,19 @@ export default function CreateGoalModal({ setModal }) {
                             })
                         } className="bg-gray-300 rounded flex justify-end my-2">
                             {timePeriods.map(timePeriod => <option key={timePeriod.name} value={timePeriod.id}>{timePeriod.name}</option>)}
+                        </select>
+                    </div>
+                </label>
+                <label>
+                    <span className="label-text flex justify-start text-darkPurple my-2">Goal Category</span>
+                    <div className="flex flex-row gap-2">
+                        <select defaultValue={1} onChange={(e) =>
+                            setGoalInForm({
+                                ...goalInForm,
+                                timePeriodCount: e.target.value,
+                            })
+                        } className="bg-gray-300 rounded flex justify-end my-2 w-10">
+                            {maxTimePeriodCount.map((empty, index) => <option key={`option${index}`} value={index + 1}>{index + 1}</option>)}
                         </select>
                     </div>
                 </label>
