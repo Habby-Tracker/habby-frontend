@@ -686,6 +686,10 @@ video {
   margin-bottom: 0.75rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -708,6 +712,10 @@ video {
 
 .h-16 {
   height: 4rem;
+}
+
+.h-8 {
+  height: 2rem;
 }
 
 .w-2\/3 {
@@ -1119,6 +1127,11 @@ video {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .font-semibold {
