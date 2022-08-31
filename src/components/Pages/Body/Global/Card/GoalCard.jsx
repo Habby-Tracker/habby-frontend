@@ -1,7 +1,6 @@
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useHabits } from '../../../../../State/Hooks/habits';
 import ProgressBar from '../ProgressBar/ProgressBar';
-// import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export default function GoalCard({ goal, width, height }) {
     const goalText = 'pl-4 w-2/3 text-left text-sm font-semibold';

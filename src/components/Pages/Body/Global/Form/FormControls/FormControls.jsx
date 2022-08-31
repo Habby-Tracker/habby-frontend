@@ -14,7 +14,7 @@ function Label({ text }) {
 export function InputControl({ label, value, ...rest }) {
     return (
         <FormControl label={label}>
-            <input defaultValue={value || ''} {...rest} className="border-b-2 border-black " />
+            <input defaultValue={value || ''} {...rest} />
         </FormControl>
     );
 }
