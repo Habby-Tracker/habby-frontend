@@ -45,8 +45,8 @@ export default function Account() {
                     }
                     className="my-2 border-b-primaryBlack border h-10 max-w-full rounded px-2"
                 />
-                <span className="flex flex-col justify-center items-end my-4">
-                    <Button onClick={handleSubmit} text="Submit" width={'40%'}/>
+                <span className="flex flex-col justify-center items-center my-4">
+                    <Button onClick={handleSubmit} text="Update" width={'30%'}/>
                 </span>
                 
             </form>
