@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { createContext, useState } from 'react';
+import { useGoals } from '../Hooks/goals';
 import { useHabits } from '../Hooks/habits';
 
 export const CalendarStateContext = createContext();
@@ -9,15 +10,21 @@ export default function CalendarProvider({ children }) {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [dates, setDates] = useState([]);
     const [selectedDateHabits, setSelectedDateHabits] = useState();
+    const [selectedDateGoals, setSelectedDateGoals] = useState();
     const { habits } = useHabits();
-    const state = { selectedDate, dates, selectedDateHabits };
-    const actions = { setSelectedDate, setDates, setSelectedDateHabits };
+    const { goals } = useGoals();
+    const state = { selectedDate, dates, selectedDateHabits, selectedDateGoals };
+    const actions = { setSelectedDate, setDates, setSelectedDateHabits, setSelectedDateGoals };
 
     useEffect(() => {
-        if (habits && habits.length) {
-            setSelectedDateHabits(habits.filter(habit => selectedDate.toDateString() === new Date(habit.dueDate).toDateString()));
+        if (habits && habits.length && goals && goals.length) {
+            const selectedDateHabits = habits.filter(habit => selectedDate.toDateString() === new Date(habit.dueDate).toDateString());
+            setSelectedDateHabits(selectedDateHabits);
+            const idsObj = selectedDateHabits.reduce((acc, curr) => {acc[curr.goalID] = true; return acc;}, {});
+            const selectedDateGoals = goals.filter(goal => idsObj[goal.id]);
+            setSelectedDateGoals(selectedDateGoals);
         }
-    }, [habits, selectedDate]);
+    }, [habits, selectedDate, goals]);
 
     useEffect(() => {
         setDates([]);
