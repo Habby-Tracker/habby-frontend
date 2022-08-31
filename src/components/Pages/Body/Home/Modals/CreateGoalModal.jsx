@@ -40,8 +40,6 @@ export default function CreateGoalModal({ setModal }) {
         setModal(false);
     }
 
-    console.log('categories', categories);
-
     useEffect(() => {
         if (goalInForm.timePeriodID === '1') setMaxTimePeriodCount(new Array(90).fill());
         if (goalInForm.timePeriodID === '2') setMaxTimePeriodCount(new Array(52).fill());
@@ -105,10 +103,10 @@ export default function CreateGoalModal({ setModal }) {
                         <select defaultValue={1} onChange={(e) =>
                             setGoalInForm({
                                 ...goalInForm,
-                                timePeriodCount: e.target.value,
+                                goalCategoryID: e.target.value,
                             })
-                        } className="bg-gray-300 rounded flex justify-end my-2 w-10">
-                            {maxTimePeriodCount.map((empty, index) => <option key={`option${index}`} value={index + 1}>{index + 1}</option>)}
+                        } className="bg-gray-300 rounded flex justify-end my-2 w-full">
+                            {categories && categories.map((category, index) => <option key={`option${index}`} value={category.id}>{category.name}</option>)}
                         </select>
                     </div>
                 </label>
