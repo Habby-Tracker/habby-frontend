@@ -14,7 +14,7 @@ export function useCategories() {
         const fetchCategories = async () => {
             const data = await getCategory();
             if (ignore) return;
-            if (data.body) {
+            if (data) {
                 dispatchCategories({ type: 'load', payload: data });
             }
             if(data.error) {
