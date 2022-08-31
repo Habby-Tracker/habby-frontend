@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { createContext, useState } from 'react';
+import { useGoals } from '../Hooks/goals';
 import { useHabits } from '../Hooks/habits';
 
 export const CalendarStateContext = createContext();
@@ -9,15 +10,43 @@ export default function CalendarProvider({ children }) {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [dates, setDates] = useState([]);
     const [selectedDateHabits, setSelectedDateHabits] = useState();
+    const [selectedDateGoals, setSelectedDateGoals] = useState();
     const { habits } = useHabits();
-    const state = { selectedDate, dates, selectedDateHabits };
-    const actions = { setSelectedDate, setDates, setSelectedDateHabits };
+    const { goals } = useGoals();
+    const state = { selectedDate, dates, selectedDateHabits, selectedDateGoals };
+    const actions = { setSelectedDate, setDates, setSelectedDateHabits, setSelectedDateGoals };
 
     useEffect(() => {
-        if (habits && habits.length) {
-            setSelectedDateHabits(habits.filter(habit => selectedDate.toDateString() === new Date(habit.dueDate).toDateString()));
+        if (habits && habits.length && goals && goals.length) {
+            const selectedDateHabits = habits.filter(habit => selectedDate.toDateString() === new Date(habit.dueDate).toDateString());
+            selectedDateHabits.sort((a, b) => {
+                if (a.statusID < b.statusID){
+                    return -1;
+                }
+                if (a.statusID > b.statusID){
+                    return 1;
+                }
+                return 0;
+            });
+            setSelectedDateHabits(selectedDateHabits);
+            const idsObj = selectedDateHabits.reduce((acc, curr) => {acc[curr.goalID] = true; return acc;}, {});
+            const selectedDateGoals = goals.filter(goal => idsObj[goal.id]);
+            selectedDateGoals.sort((a, b) => {
+                const aHabits = habits.filter(habit => habit.goalID === Number(a.id));
+                const bHabits = habits.filter(habit => habit.goalID === Number(b.id));
+                const aProgress = aHabits.filter(habit => habit.statusID === '3').length / aHabits.length;
+                const bProgress = bHabits.filter(habit => habit.statusID === '3').length / bHabits.length;
+                if (aProgress < bProgress) {
+                    return 1;
+                }
+                if (aProgress > bProgress) {
+                    return -1;
+                }
+                return 0;
+            });
+            setSelectedDateGoals(selectedDateGoals);
         }
-    }, [habits, selectedDate]);
+    }, [habits, selectedDate, goals]);
 
     useEffect(() => {
         setDates([]);

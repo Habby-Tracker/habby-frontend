@@ -28,7 +28,7 @@ export default function SignUpForm({ header, button, prompt, link, onSubmit }) {
                         <div className="mb-10 w-full text-xs">
                             <InputControl
                                 label="First Name"
-                                name="first_name"
+                                name="firstName"
                                 type="first_name"
                                 required
                                 onChange={handleChange}
@@ -38,7 +38,7 @@ export default function SignUpForm({ header, button, prompt, link, onSubmit }) {
                         <div className="mb-10 w-full text-xs">
                             <InputControl
                                 label="Last Name"
-                                name="last_name"
+                                name="lastName"
                                 type="last_name"
                                 required
                                 onChange={handleChange}
