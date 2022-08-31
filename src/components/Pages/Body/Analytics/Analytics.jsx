@@ -5,6 +5,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import ProgressCard from '../Global/Card/ProgressCard';
 import { useHabits } from '../../../../State/Hooks/habits';
+import RadarGraph from './RadarGraph';
 
 export default function List() {
     const { goals } = useGoals();
@@ -40,8 +41,14 @@ export default function List() {
             </Section>
             <Section
                 header="Current Goals"  
-                maxWidth="100%" >
+                maxWidth="90%" >
                 {goals && goals.map((goal) => <ProgressCard key={`goal card${goal.id}`} goal={goal.goalName} target={50} />)}
+            </Section>
+            <Section 
+                header="Your Stats"
+                maxWidth="90%"
+            >
+                <RadarGraph />
             </Section>
         </div>
     );

@@ -5,7 +5,6 @@ import Logout from './Logout';
 
 export default function Header() {
     const { user } = useUser();
-    console.log('user', user);
 
     return (
         <>
@@ -23,9 +22,9 @@ export default function Header() {
                 </div>
             </header>
             <div className="flex space-x-0 px-2 py-2 text-xl justify-start md:hidden">
-                {'Welcome, '}
-                <span className="text-darkPurple">
-                    Beau!
+                {'Welcome,'}
+                <span className="text-purple pl-1">
+                    {user ? `${user.firstName}`  : 'user'}
                 </span>
             </div>
         </>
