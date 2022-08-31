@@ -8,7 +8,7 @@ export default function AuthSection({
 }) {
     return (
         <section
-            className="bg-lightGrey px-4 border-2 border-black rounded shadow-lg"
+            className="bg-lightGrey px-4 py-20 border-2 border-black rounded shadow-lg"
             style={{ width, maxWidth, height }}
         >
             <div className="flex justify-between space-around w-full ">
