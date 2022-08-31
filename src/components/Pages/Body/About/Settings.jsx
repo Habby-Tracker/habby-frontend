@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
+
 export default function Settings() {
     return (
         <div>
             <h1>Settings</h1>
-            <a href="/account">Account</a>
+            <Link to={'/account'}>Account</Link>
             <a href="/about-us">About Us</a>
         </div>
     );

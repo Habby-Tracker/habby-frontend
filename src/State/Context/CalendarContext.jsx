@@ -14,10 +14,12 @@ export default function CalendarProvider({ children }) {
     const actions = { setSelectedDate, setDates, setSelectedDateHabits };
 
     useEffect(() => {
-        if (habits) {
+        if (habits && habits.length) {
             setSelectedDateHabits(habits.filter(habit => selectedDate.toDateString() === new Date(habit.dueDate).toDateString()));
         }
     }, [habits, selectedDate]);
+    
+    console.log('habits in context', habits);
 
     useEffect(() => {
         setDates([]);
