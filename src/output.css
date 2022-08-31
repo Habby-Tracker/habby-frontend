@@ -655,6 +655,10 @@ video {
   margin-bottom: 0.75rem;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -739,6 +743,10 @@ video {
 
 .flex-col {
   flex-direction: column;
+}
+
+.place-items-stretch {
+  place-items: stretch;
 }
 
 .items-end {
@@ -1003,6 +1011,10 @@ video {
 
 .pl-2 {
   padding-left: 0.5rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
 }
 
 .text-left {
