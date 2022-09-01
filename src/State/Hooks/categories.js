@@ -13,7 +13,6 @@ export function useCategories() {
         let ignore = false;
         const fetchCategories = async () => {
             const data = await getCategory();
-            console.log(data);
             if (ignore) return;
             if (data) {
                 dispatchCategories({ type: 'load', payload: data });
