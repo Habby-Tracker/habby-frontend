@@ -1,10 +1,9 @@
 import LinearProgress from '@mui/material/LinearProgress';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { createTheme, ThemeProvider } from '@mui/system';
 
 
-export default function ProgressBar({ progress, textColor }) {
+export default function ProgressBar({ progress }) {
 
     const theme = createTheme({
         status: {
@@ -36,16 +35,11 @@ export default function ProgressBar({ progress, textColor }) {
     return (
         <div>
             <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: '15px' }}>
-                <Box sx={{ width: '85%', mr: 1 }}>
+                <Box sx={{ width: '100%', mr: 1 }}>
                     <ThemeProvider theme={theme}>
                         <LinearProgress variant="determinate" value={progress} color={'secondary'} sx={{ height: '10px', borderRadius: '10px' }} />
                     </ThemeProvider>
                     
-                </Box>
-                <Box sx={{ minWidth: 35 }}>
-                    <Typography variant="body2" style={{ color: textColor }}>
-                        {`${Math.round(progress)}%`}
-                    </Typography>
                 </Box>
             </Box>
         </div>
