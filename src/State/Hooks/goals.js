@@ -7,13 +7,19 @@ import {
     updateGoal,
 } from '../Services/goal-service';
 import { showError, showSuccess } from '../Services/toaster';
+import { useUser } from './user';
 
 export function useGoals() {
     const { goals } = useContext(DataContext);
     const { dispatchGoal } = useContext(DataDispatchContext);
     const [error, setError] = useState(null);
-    
+    const { user } = useUser();
+
     useEffect(() => {
+        if (!user) {
+            dispatchGoal({ type: 'load', payload: null });
+            return;
+        }
         if (goals) return;
         let ignore = false;
         const fetchGoals = async () => {
@@ -31,7 +37,7 @@ export function useGoals() {
         return () => {
             ignore = true;
         };
-    }, []);
+    }, [user]);
 
     return { goals, error };
 }
@@ -41,38 +47,35 @@ export function goalActions() {
 
     const create = async (goal) => {
         const data = await createGoal(goal);
-        if (data) {
+        if (data.message) {
+            showError(data.message);
+        } else {
             dispatchGoal({ type: 'add', payload: data.goal });
             data.habits.forEach((habit) => {
                 dispatchHabit({ type: 'add', payload: habit });
             });
         }
-        if (!data) {
-            showError(data);
-        }
     };
 
     const remove = async (id) => {
         const data = await deleteGoal(id);
-        if (data) {
+        if (data.message) {
+            showError(data.message);
+        } else {
             await dispatchGoal({ type: 'remove', payload: data.goal });
             data.habits.forEach(async (habit) => {
                 await dispatchHabit({ type: 'remove', payload: habit });
             });
             showSuccess('Goal deleted');
         }
-        if (!data) {
-            showError(data.message);
-        }
     };
 
     const update = async (id, goal) => {
         const data = await updateGoal(id, goal);
-        if (data) {
-            dispatchGoal({ type: 'update', payload: data });
-        }
-        if (!data) {
+        if (data.message) {
             showError(data.message);
+        } else {
+            dispatchGoal({ type: 'update', payload: data });
         }
     };
 

@@ -1,25 +1,18 @@
-import {
-    InputControl,
-    // SelectControl,
-} from '../../Global/Form/FormControls/FormControls';
+import { InputControl } from '../../Global/Form/FormControls/FormControls';
 import Button from '../../Global/Button/Button';
 import Modal from '../../Global/Form/Modal';
 import { useState } from 'react';
 import { goalActions } from '../../../../../State/Hooks/goals';
-// import useLookups from '../../../../State/Hooks/lookups';
+import { useCategories } from '../../../../../State/Hooks/categories';
 
-export default function EditGoalModal({ setEditModal }) {
-    const [goalInForm, setGoalInForm] = useState({
-        statusID: 1,
-        goalCategoryID: 1,
-        timePeriodCount: 1,
-        timePeriodID: '1'
-    });
+export default function EditGoalModal({ setEditModal, activeGoal }) {
+    const [goalInForm, setGoalInForm] = useState(activeGoal);
     const { update } = goalActions();
+    const { categories } = useCategories();
     
-    function createGoal(e) {
+    function updateGoal(e) {
         e.preventDefault();
-        update(goalInForm);
+        update(activeGoal.id, goalInForm);
         setEditModal(false);
     }
 
@@ -30,7 +23,7 @@ export default function EditGoalModal({ setEditModal }) {
                 <InputControl
                     label="Goal"
                     name="goalName"
-                    placeholder="Enter a goal name"
+                    value={activeGoal.goalName}
                     type="text"
                     onChange={(e) =>
                         setGoalInForm({
@@ -40,23 +33,20 @@ export default function EditGoalModal({ setEditModal }) {
                     }
                     required
                 />
-                <InputControl
-                    label="Habit Name"
-                    name="habitName"
-                    placeholder="Enter a habit name"
-                    type="text"
-                    onChange={(e) =>
-                        setGoalInForm({
-                            ...goalInForm,
-                            habitName: e.target.value,
-                        })
-                    }
-                    required
-                />
                 <label>
-
+                    <span className="label-text flex justify-start text-darkPurple my-2">Goal Category</span>
+                    <div className="flex flex-row gap-2">
+                        <select defaultValue={activeGoal.goalCategoryID} onChange={(e) =>
+                            setGoalInForm({
+                                ...goalInForm,
+                                goalCategoryID: e.target.value,
+                            })
+                        } className="bg-gray-300 rounded flex justify-end my-2 w-full">
+                            {categories && categories.map((category, index) => <option key={`option${index}`} value={category.id}>{category.name}</option>)}
+                        </select>
+                    </div>
                 </label>
-                <Button text="Submit" onClick={createGoal} />
+                <Button text="Submit" onClick={updateGoal} />
             </form>
         </Modal>
     );

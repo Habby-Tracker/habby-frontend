@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useUser } from '../../../State/Hooks/user';
 import Logout from './Logout';
 
 export default function Header() {
-    const { user } = useUser();
 
     return (
         <>
@@ -11,7 +9,6 @@ export default function Header() {
                 <div data-tour="step-7">
                     <img src="/imgs/habbylogo.png" alt="Habby Logo" className="h-12" />   
                 </div>
-
                 <div className="text-purple hidden pt-6 text-xl absolute 
                 space-x-4 right-20 hover:cursor-pointer md:flex">
                     <Link to="/">Home</Link>
@@ -22,14 +19,6 @@ export default function Header() {
                     <Logout />
                 </div>
             </header>
-            <div className="flex justify-between space-around w-full items-end">
-                <div className="flex space-x-0 px-2 py-2 text-xl justify-start md:hidden">
-                    {'Welcome,'}
-                    <span className="text-purple pl-1">
-                        {user ? `${user.firstName}`  : 'user'}
-                    </span>
-                </div>
-            </div>
         </>
     );
 }

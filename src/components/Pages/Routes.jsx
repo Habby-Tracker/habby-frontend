@@ -49,7 +49,7 @@ export default function Routes() {
                 <Route element={<ProtectRoutes />}>
                     <Route index element={<Home />} />
                     <Route path="analytics" element={<Analytics />} />
-                    <Route path="analytics/goal/:id" element={<GoalDetail />} />
+                    <Route path="goal/:id" element={<GoalDetail />} />
                     <Route path="settings" element={<Settings />} />
                     <Route path="account" element={<Account />} />
                     <Route path="user/profile" element={<Profile />} />
