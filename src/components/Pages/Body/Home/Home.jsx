@@ -9,7 +9,6 @@ import CreateGoalModal from './Modals/CreateGoalModal';
 import EditGoalModal from './Modals/EditGoalModal';
 import DeleteGoalModal from './Modals/DeleteGoalModal';
 import { useCalendar } from '../../../../State/Hooks/calendar';
-import GoalDetail from '../GoalDetail/GoalDetail';
 
 export default function Home() {
     const [modal, setModal] = useState(false);
@@ -30,14 +29,11 @@ export default function Home() {
             <Section header="Today's Habits" seeAll={true} width="90vw">
                 {selectedDateHabits && selectedDateHabits.map((habit) => <HabitCard key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} setEditModal={setEditModal} setDeleteModal={setDeleteModal} />)}
             </Section>
-            <Section header="Your Goals" seeAll={true} width="90vw">
+            <Section header="Your Goals" seeAll={true} width="90vw" marginBottom={'7vh'}>
                 {selectedDateGoals && selectedDateGoals.map((goal) => 
                     <GoalCard 
                         key={`goal card${goal.id}`} goal={goal} 
                         setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveGoal={setActiveGoal} />)}
-            </Section>
-            <Section header="Goal Detail">
-                <GoalDetail />
             </Section>
             {modal && <CreateGoalModal setModal={setModal} />}
             {editModal && <EditGoalModal setEditModal={setEditModal} activeGoal={activeGoal} />}
