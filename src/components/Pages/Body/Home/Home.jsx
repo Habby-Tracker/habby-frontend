@@ -26,15 +26,15 @@ export default function Home() {
     
     return (
         <div className="flex flex-col justify-center items-center py-4">
-            <button onClick={() => setIsOpen(true)}>Tour</button>
+            <button data-tour="step-1" onClick={() => setIsOpen(true)}>Tour</button>
             <DateSlider />
             <Hero />
-            <div data-tour="step-3">
+            <div data-tour="step-4">
                 <Section header="Today's Habits" seeAll={true} width="90vw">
                     {selectedDateHabits && selectedDateHabits.map((habit) => <HabitCard key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} setEditModal={setEditModal} setDeleteModal={setDeleteModal} />)}
                 </Section>
             </div>
-            <div  data-tour="step-2">
+            <div  data-tour="step-3">
                 <Section header="Your Goals" seeAll={true} width="90vw" marginBottom={'7vh'}>
                     {selectedDateGoals && selectedDateGoals.map((goal) => 
                         <GoalCard 

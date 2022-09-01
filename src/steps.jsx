@@ -1,19 +1,27 @@
 const steps = [
     {
         selector: '[data-tour="step-1"]',
-        content: 'Welcome to Habby! Lets get started by adding your first goal.'
+        content: 'First time here? Lets have a look around!'
     },
     {
         selector: '[data-tour="step-2"]',
-        content: 'Once your goal has been added, it will appear here.'
+        content: 'Get started by adding a new goal.'
     },
     {
         selector: '[data-tour="step-3"]',
-        content: 'Your habits are the actions you will take to help you achieve your goal.'
+        content: 'You can keep tabs on all of your goals here.'
     },
     {
         selector: '[data-tour="step-4"]',
-        content: 'This nifty chart will show you your progress.'
+        content: 'Your habits are the actions you will take to help you achieve your goal.'
+    },
+    {
+        selector: '[data-tour="step-5"]',
+        content: 'Dont forget to sign in and check them off each day!'
+    },
+    {
+        selector: '[data-tour="step-6"]',
+        content: 'This nifty chart will track your progress.'
     }
 ];
   
