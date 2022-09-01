@@ -49,7 +49,7 @@ export default function CreateGoalModal({ setModal }) {
     return (
         <Modal setShowModal={setModal}>
             <form className="flex flex-col rounded w-40% bg-lightGrey md:items-center">
-                <h1 className="text-bold text-primaryOrange text-xl">Add Goal</h1>
+                <h1 className="text-bold text-primaryOrange text-xl md:text-3xl">Add Goal</h1>
                 <InputControl
                     label="Goal"
                     name="goalName"

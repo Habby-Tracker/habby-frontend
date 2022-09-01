@@ -1352,6 +1352,10 @@ video {
     width: 100%;
   }
 
+  .md\:w-20 {
+    width: 5rem;
+  }
+
   .md\:flex-row {
     flex-direction: row;
   }
@@ -1393,5 +1397,15 @@ video {
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
