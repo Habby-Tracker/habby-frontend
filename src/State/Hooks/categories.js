@@ -1,6 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { DataContext, DataDispatchContext } from '../Context/DataContext';
-import { createCategory, deleteCategory, getCategory } from '../Services/category-service';
+import {
+    createCategory,
+    deleteCategory,
+    getCategory,
+} from '../Services/category-service';
 import { showError } from '../Services/toaster';
 
 export function useCategories() {
@@ -18,14 +22,14 @@ export function useCategories() {
             if (data) {
                 dispatchCategories({ type: 'load', payload: data });
             }
-            if(data) {
+            if (data) {
                 setError(data.error);
             }
         };
         fetchCategories();
-        
+
         return () => {
-            ignore = true; 
+            ignore = true;
         };
     }, []);
 
@@ -37,23 +41,21 @@ export function categoryActions() {
 
     const create = async (category) => {
         const data = await createCategory(category);
-        if(data) {
-            dispatchCategories({ type: 'add', payload: data });
-        }
-        if(!data){
+        if (data.message) {
             showError(data.message);
+        } else {
+            dispatchCategories({ type: 'add', payload: data });
         }
     };
 
     const remove = async (id) => {
         const data = await deleteCategory(id);
-        if(data) {
+        if (data.message) {
+            showError(data.message);
+        } else {
             dispatchCategories({ type: 'remove', payload: data });
         }
-        if(!data){
-            showError(data.message);
-        }
     };
-    
+
     return { create, remove };
 }
