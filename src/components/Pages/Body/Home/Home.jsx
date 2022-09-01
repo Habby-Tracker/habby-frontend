@@ -15,6 +15,8 @@ import { useTour } from '@reactour/tour';
 
 export default function Home() {
     const [modal, setModal] = useState(false);
+    const [seeAllHabits, setSeeAllHabits] = useState(false);
+    const [seeAllGoals, setSeeAllGoals] = useState(false);
     const [editModal, setEditModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
     const [activeGoal, setActiveGoal] = useState(null);
@@ -24,7 +26,17 @@ export default function Home() {
     const openModal = () => {
         setModal(true);
     };
+
+    const openAllHabits = () => {
+        setSeeAllHabits(false);
+    };
     
+    const openAllGoals = () => {
+        setSeeAllGoals(false);
+    };
+
+    console.log(seeAllHabits, seeAllGoals);
+
     return (
         <>
             <button className="flex absolute top-20 right-4" data-tour="step-1" onClick={() => setIsOpen(true)}>
@@ -33,12 +45,12 @@ export default function Home() {
                 <DateSlider />
                 <Hero />
                 <div data-tour="step-4">
-                    <Section header="Today's Habits" seeAll={true} width="90vw">
+                    <Section header="Today's Habits" seeAll={true} width="90vw" open={openAllHabits}>
                         {selectedDateHabits && selectedDateHabits.map((habit) => <HabitCard key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} setEditModal={setEditModal} setDeleteModal={setDeleteModal} />)}
                     </Section>
                 </div>
                 <div data-tour="step-3">
-                    <Section header="Your Goals" seeAll={true} width="90vw" marginBottom={'7vh'}>
+                    <Section header="Your Goals" seeAll={true} width="90vw" marginBottom={'7vh'} open={openAllGoals}>
                         {selectedDateGoals && selectedDateGoals.map((goal) => <GoalCard
                             key={`goal card${goal.id}`} goal={goal}
                             setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveGoal={setActiveGoal} />)}
