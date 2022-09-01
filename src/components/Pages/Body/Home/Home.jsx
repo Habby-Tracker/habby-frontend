@@ -9,14 +9,14 @@ import CreateGoalModal from './Modals/CreateGoalModal';
 import EditGoalModal from './Modals/EditGoalModal';
 import DeleteGoalModal from './Modals/DeleteGoalModal';
 import { useCalendar } from '../../../../State/Hooks/calendar';
-import { useTour } from '@reactour/tour';
+// import { Popover } from '@reactour/popover';
 
 export default function Home() {
     const [modal, setModal] = useState(false);
     const [editModal, setEditModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
     const [activeGoal, setActiveGoal] = useState(null);
-    const { setIsOpen } = useTour();
+    // const sizes = { padding: 100 };
 
     const { selectedDateHabits, selectedDateGoals } = useCalendar();
 
@@ -26,7 +26,7 @@ export default function Home() {
     
     return (
         <div className="flex flex-col justify-center items-center py-4">
-            <button data-tour="step-1" onClick={() => setIsOpen(true)}>Tour</button>
+            {/* <Popover /> */}
             <DateSlider />
             <Hero />
             <div data-tour="step-4">

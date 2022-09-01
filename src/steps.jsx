@@ -23,10 +23,10 @@ const steps = [
         selector: '[data-tour="step-6"]',
         content: 'This nifty chart will track your progress. More detailed stats can be found on the analytics page.'
     },
-    // {
-    //     selector: '[data-tour="step-7]',
-    //     content: 'And here youll find all your most recent stats.'
-    // }
+    {
+        selector: '[data-tour="step-7]',
+        content: 'Now youre ready to get started. Habby tracking!'
+    }
 ];
   
 export default steps;
