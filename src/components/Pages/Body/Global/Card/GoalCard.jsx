@@ -83,12 +83,12 @@ export default function GoalCard({
                     <p className={frequency}>{goal.habitName}</p>
                 </div>
             </div>
-            <div className="w-fit text-right pr-1 pb-1">
+            <div className="w-fit text-right pr-1 pb-1 relative">
                 <MoreVertIcon
                     fontSize="small"
                     onClick={() => setIsOpen(true)}/>
                 {isOpen && (
-                    <div ref={ref} className="absolute z-10">
+                    <div ref={ref} className="absolute z-10 right-0">
                         <div className="flex flex-col w-24 bg-white rounded-md shadow-md">
                             <p className="text-sm text-center text-primaryOrange h-10 font-semibold mt-4">
                                 <Link to={`../goal/${goal.id}`} >Details</Link>
