@@ -817,6 +817,10 @@ video {
   width: 12rem;
 }
 
+.w-3\/4 {
+  width: 75%;
+}
+
 .min-w-full {
   min-width: 100%;
 }
@@ -1251,6 +1255,10 @@ video {
 
 .font-light {
   font-weight: 300;
+}
+
+.font-extrabold {
+  font-weight: 800;
 }
 
 .leading-3 {
