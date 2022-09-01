@@ -7,14 +7,21 @@ import {
     deleteHabit,
 } from '../Services/habit-service';
 import { showError } from '../Services/toaster';
+import { useUser } from './user';
 
 export function useHabits() {
     const { habits, goals } = useContext(DataContext);
     const { dispatchHabit } = useContext(DataDispatchContext);
     const [error, setError] = useState(null);
+    const { user } = useUser();
 
     useEffect(() => {
+        if (!user) {
+            dispatchHabit({ type: 'load', payload: null });
+            return;
+        }
         if (habits) return;
+
         let ignore = false;
         const fetchHabits = async () => {
             const data = await getHabits();
@@ -31,7 +38,7 @@ export function useHabits() {
         return () => {
             ignore = true;
         };
-    }, [goals]);
+    }, [goals, user]);
 
     return { habits, error };
 }
