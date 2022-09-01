@@ -11,6 +11,7 @@ import DeleteGoalModal from './Modals/DeleteGoalModal';
 import { useCalendar } from '../../../../State/Hooks/calendar';    
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useTour } from '@reactour/tour';
+import Calendar from '../Dates/Calendar';
 // import { Popover } from '@reactour/popover';
 
 export default function Home() {
@@ -26,28 +27,35 @@ export default function Home() {
     };
     
     return (
-        <>
+        <div className="flex md:flex-row">
             <button className="flex absolute top-20 right-4" data-tour="step-1" onClick={() => setIsOpen(true)}>
                 <HelpOutlineIcon />
-            </button><div className="flex flex-col justify-center items-center py-4">
-                <DateSlider />
-                <Hero />
-                <div data-tour="step-4">
-                    <Section header="Today's Habits" seeAll={true} width="90vw">
-                        {selectedDateHabits && selectedDateHabits.map((habit) => <HabitCard key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} setEditModal={setEditModal} setDeleteModal={setDeleteModal} />)}
-                    </Section>
-                </div>
-                <div data-tour="step-3">
-                    <Section header="Your Goals" seeAll={true} width="90vw" marginBottom={'7vh'}>
-                        {selectedDateGoals && selectedDateGoals.map((goal) => <GoalCard
-                            key={`goal card${goal.id}`} goal={goal}
-                            setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveGoal={setActiveGoal} />)}
-                    </Section>
+            </button>
+            <div className="flex flex-col justify-center items-center py-4 max-w-1/4">
+                <div className="flex flex-col justify-center items-center">
+                    <DateSlider />
+                    <Hero />
+                    <div data-tour="step-4">
+                        <Section header="Today's Habits" seeAll={true} width="90vw">
+                            {selectedDateHabits && selectedDateHabits.map((habit) => <HabitCard key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} setEditModal={setEditModal} setDeleteModal={setDeleteModal} />)}
+                        </Section>
+                    </div>
+                    <div data-tour="step-3">
+                        <Section header="Your Goals" seeAll={true} width="90vw" marginBottom={'7vh'}>
+                            {selectedDateGoals && selectedDateGoals.map((goal) => <GoalCard
+                                key={`goal card${goal.id}`} goal={goal}
+                                setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveGoal={setActiveGoal} />)}
+                        </Section>
+                    </div>
                 </div>
                 {modal && <CreateGoalModal setModal={setModal} />}
                 {editModal && <EditGoalModal setEditModal={setEditModal} activeGoal={activeGoal} />}
                 {deleteModal && <DeleteGoalModal setDeleteModal={setDeleteModal} activeGoal={activeGoal} />}
                 <AddGoalButton onClick={() => openModal()} />
-            </div></>
+            </div>
+            <div className="hidden md:flex">
+                <Calendar />
+            </div>
+        </div>
     );
 }
