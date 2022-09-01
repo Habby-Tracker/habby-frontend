@@ -44,9 +44,9 @@ export default function List() {
         py-2 px-4 rounded shadow-lg my-3 md:flex-row md:flex-wrap md:flex" >
                     <div className="hidden  mx-6 md:items-center md:flex ">
                         <p>
-                            "Keep track of all your habits and goals!
+                            {`"Keep track of all your habits and goals!
                             Studies show people who do stuff are happier!"
-                            -Ghandi                       
+                            -Ghandi`}                       
                         </p>
                     
                     </div> 

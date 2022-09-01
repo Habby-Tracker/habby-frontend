@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useUser } from '../../../State/Hooks/user';
 import Logout from './Logout';
-import { useTour } from '@reactour/tour';
-
 
 export default function Header() {
     const { user } = useUser();
-
 
     return (
         <>
