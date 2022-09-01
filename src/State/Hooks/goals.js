@@ -42,7 +42,7 @@ export function goalActions() {
     const create = async (goal) => {
         const data = await createGoal(goal);
         if (data.message) {
-            showError(data);
+            showError(data.message);
         } else {
             dispatchGoal({ type: 'add', payload: data.goal });
             data.habits.forEach((habit) => {
