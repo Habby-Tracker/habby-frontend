@@ -29,12 +29,7 @@ export default function RadarGraph() {
             acc[goal.category] ? acc[goal.category] += 1 : acc[goal.category] = 1;
             return acc;
         }, {});
-    const compData = Object.values(completedData);
-
-    console.log('completedData', completedData);
-    console.log('goals', goals);
-    console.log('compData', compData);
-    
+    const compData = Object.values(completedData);  
 
     ChartJS.register(
         RadialLinearScale,
