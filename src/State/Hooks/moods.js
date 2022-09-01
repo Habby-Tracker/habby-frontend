@@ -41,31 +41,28 @@ export function moodActions() {
 
     const create = async (mood) => {
         const data = await createMood(mood);
-        if (data) {
-            dispatchMoods({ type: 'add', payload: data });
-        }
-        if (data) {
+        if (data.message) {
             showError(data.message);
+        } else {
+            dispatchMoods({ type: 'add', payload: data });
         }
     };
 
     const update = async (id, mood) => {
         const data = await updateMood(id, mood);
-        if (data) {
-            dispatchMoods({ type: 'update', payload: data });
-        }
-        if (data) {
+        if (data.message) {
             showError(data.message);
+        } else {
+            dispatchMoods({ type: 'update', payload: data });
         }
     };
 
     const remove = async (id) => {
         const data = await deleteMood(id);
-        if (data) {
-            dispatchMoods({ type: 'remove', payload: data });
-        }
-        if (data) {
+        if (data.message) {
             showError(data.message);
+        } else {
+            dispatchMoods({ type: 'remove', payload: data });
         }
     };
 
