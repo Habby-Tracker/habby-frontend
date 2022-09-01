@@ -36,9 +36,9 @@ export default function Home() {
                         key={`goal card${goal.id}`} goal={goal} 
                         setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveGoal={setActiveGoal} />)}
             </Section>
-            <Section header="Goal Detail">
+            {/* <Section header="Goal Detail">
                 <GoalDetail />
-            </Section>
+            </Section> */}
             {modal && <CreateGoalModal setModal={setModal} />}
             {editModal && <EditGoalModal setEditModal={setEditModal} activeGoal={activeGoal} />}
             {deleteModal && <DeleteGoalModal setDeleteModal={setDeleteModal} activeGoal={activeGoal}/>}
