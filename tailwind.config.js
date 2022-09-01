@@ -11,8 +11,6 @@ module.exports = {
                 lightPurple: 'hsla(315, 97%, 42%, 0.81)',
                 primaryBlack: 'hsla(330, 28%, 13%, 1)',
                 successGreen: 'hsla(144, 57%, 33%, 1)',
-                // successBackgroundOption1: 'hsla(116, 46%, 49%, 1)',
-                // successBackgroundOriginal: 'hsla(144, 57%, 72%, 1)',
                 successBackground: 'hsla(144, 71%, 77%, 1)',
                 neonGreen: 'hsla(144, 82%, 47%, 1)',
                 darkGreen: 'hsla(162, 87%, 24%, 1)',
