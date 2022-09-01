@@ -21,8 +21,9 @@ module.exports = {
             },
             backgroundImage: {
                 netSVG: 'url(/public/imgs/habbysvg.png)',
-                logo: 'url(/imgs/habbyLogo.png)',
+                logo: "url('/public/imgs/habbyLogo.png')",
                 heroPattern: "url('/public/imgs/hero-pattern.png')",
+                growing: "url('/public/imgs/growing.gif')"
             },
         },
         screens: {
