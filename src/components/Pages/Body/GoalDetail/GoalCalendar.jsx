@@ -47,7 +47,6 @@ export default function GoalCalendar({ state }) {
                         );
                     }}
                     renderInput={() => {return;}}
-                    className={'last:hidden'}
                 />
             </LocalizationProvider>
         </div>
