@@ -7,13 +7,19 @@ import {
     updateGoal,
 } from '../Services/goal-service';
 import { showError, showSuccess } from '../Services/toaster';
+import { useUser } from './user';
 
 export function useGoals() {
     const { goals } = useContext(DataContext);
     const { dispatchGoal } = useContext(DataDispatchContext);
     const [error, setError] = useState(null);
+    const { user } = useUser();
     
     useEffect(() => {
+        if (!user) {
+            dispatchGoal({ type: 'load', payload: null });
+            return;
+        }
         if (goals) return;
         let ignore = false;
         const fetchGoals = async () => {
@@ -31,7 +37,7 @@ export function useGoals() {
         return () => {
             ignore = true;
         };
-    }, []);
+    }, [user]);
 
     return { goals, error };
 }
