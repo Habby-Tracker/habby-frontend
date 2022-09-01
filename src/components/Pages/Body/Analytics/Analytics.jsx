@@ -53,21 +53,21 @@ export default function List() {
                 </section>
             </div>
             
-            <div className="md:flex">
+            <div className="pb-16 w-full md:flex">
+                <Section 
+                    header="Your Stats"
+                    width="100%"
+                >
+                    <RadarGraph />
+                </Section>
+
                 <Section
                     header="Current Goals"  
                     maxWidth="100%" >
                     
-                    {goals && goals.map((goal) => <ProgressCard key={`goal card${goal.id}`} goal={goal} height={'125px'} width={'350px'} />)}
-                </Section>
-                <Section 
-                    header="Your Stats"
-                    maxWidth="90%"
-                >
-                    <RadarGraph />
+                    {goals && goals.map((goal) => <ProgressCard key={`goal card${goal.id}`} goal={goal} height={'125px'} width={'375px'} />)}
                 </Section>
             </div>
-           
         </div>
     );
 }
