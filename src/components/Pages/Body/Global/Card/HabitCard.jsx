@@ -12,6 +12,7 @@ export default function HabitCard({
     width,
     setEditModal,
     setDeleteModal,
+    setActiveItem,
 }) {
     const [completedState, setCompletedState] = useState(completed);
     const { update } = habitActions();
@@ -52,6 +53,11 @@ export default function HabitCard({
         setCompletedState(!completedState);
     }
 
+    function openModal(modalFunction) {
+        modalFunction(true);
+        setActiveItem(habit);
+    }
+
     return (
         <div
             className={completedState ? successBackground : defaultBackground}
@@ -61,7 +67,7 @@ export default function HabitCard({
             <p className={completedState ? successText : defaultText}>
                 {habit.habitName}
             </p>
-            <div data-tour="step-5" className="w-1/3 text-right">
+            <div data-tour="step-5" className="w-1/3 text-right mr-1">
                 {completedState ? (
                     <CheckBoxIcon
                         sx={{ color: 'hsla(144, 57%, 33%, 1)' }}
@@ -80,13 +86,13 @@ export default function HabitCard({
                     <div ref={ref} className="absolute z-10">
                         <div className="flex flex-col w-24 bg-white rounded-md shadow-md">
                             <p
-                                onClick={() => setEditModal(true)}
-                                className="text-sm text-center text-primaryOrange h-10 font-semibold"
+                                onClick={() => openModal(setEditModal)}
+                                className="text-sm text-center text-primaryOrange h-10 font-semibold mt-4"
                             >
                                 Edit
                             </p>
                             <p
-                                onClick={() => setDeleteModal(true)}
+                                onClick={() => openModal(setDeleteModal)}
                                 className="text-sm text-center text-primaryOrange h-10 font-semibold"
                             >
                                 Delete
