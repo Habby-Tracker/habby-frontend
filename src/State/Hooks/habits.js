@@ -41,31 +41,28 @@ export function habitActions() {
 
     const create = async (newHabit) => {
         const data = await createHabit(newHabit);
-        if (data) {
-            dispatchHabit({ type: 'add', payload: data });
-        }
-        if (data) {
+        if (data.message) {
             showError(data.message);
+        } else {
+            dispatchHabit({ type: 'add', payload: data });
         }
     };
 
     const remove = async (id) => {
         const data = await deleteHabit(id);
-        if (data) {
-            dispatchHabit({ type: 'remove', payload: data });
-        }
-        if (data) {
+        if (data.message) {
             showError(data.message);
+        } else {
+            dispatchHabit({ type: 'remove', payload: data });
         }
     };
 
     const update = async (id, updatedHabit) => {
         const data = await updateHabit(id, updatedHabit);
-        if (data) {
-            dispatchHabit({ type: 'update', payload: data });
-        }
-        if (!data) {
+        if (data.message) {
             showError(data.message);
+        } else {
+            dispatchHabit({ type: 'update', payload: data });
         }
     };
 
