@@ -2,6 +2,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useEffect } from 'react';
 import { useRef } from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useHabits } from '../../../../../State/Hooks/habits';
 import CategoryIcon from '../Icons/CategoryIcon';
 import ProgressBar from '../ProgressBar/ProgressBar';
@@ -79,6 +80,9 @@ export default function GoalCard({
                         {isOpen && (
                             <div ref={ref} className="absolute z-10">
                                 <div className="flex flex-col w-24 bg-white rounded-md shadow-md">
+                                    <p className="text-sm text-center text-primaryOrange h-10 font-semibold">
+                                        <Link to={`../goal/${goal.id}`} >Details</Link>
+                                    </p>
                                     <p
                                         onClick={() => openModal(setEditModal)}
                                         className="text-sm text-center text-primaryOrange h-10 font-semibold"
