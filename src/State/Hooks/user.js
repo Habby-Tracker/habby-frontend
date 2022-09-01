@@ -21,6 +21,7 @@ export function useAuthActions() {
         if (response.message) {
             showError(response.message);
         } else {
+            window.location.reload();
             setUser(response);
             showSuccess('Signed in successfully');
         }
@@ -31,6 +32,7 @@ export function useAuthActions() {
         if (response.message) {
             showError(response.message);
         } else {
+            window.location.reload();
             setUser(response);
             showSuccess('Signed up successfully');
         }
