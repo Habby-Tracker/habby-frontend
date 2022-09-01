@@ -8,7 +8,9 @@ export default function DeleteModal({ setDeleteModal, activeItem }) {
     const { remove } = goalActions();
     const { removeHabit } = habitActions();
 
-    const type = Object.keys(activeItem).contains('goalID') ? 'Habit' : 'Goal';
+    console.log(activeItem);
+
+    const type = Object.keys(activeItem).includes('goalID') ? 'Habit' : 'Goal';
     
     function deleteItem(e) {
         e.preventDefault();

@@ -34,8 +34,8 @@ export default function HabitCard({ habit, completed, width, setEditModal, setDe
 
     const ref = useOutsideClick(() => setIsOpen(false));
 
-    const successText = 'pl-4 w-2/3 text-left text-successGreen line-through';
-    const defaultText = 'pl-4 w-2/3 text-left';
+    const successText = 'pl-4 w-full text-left text-successGreen line-through';
+    const defaultText = 'pl-4 w-full text-left';
 
     const successBackground = 'flex flex-row w-full h-10 items-center rounded-md bg-successBackground my-2 shadow-md';
     const defaultBackground = 'flex flex-row w-full h-10 items-center rounded-md bg-lightGrey my-2 shadow-md';
@@ -54,7 +54,7 @@ export default function HabitCard({ habit, completed, width, setEditModal, setDe
         <div className={completedState ? successBackground : defaultBackground}
             style={{ width }} value={habit.id}>
             <p className={completedState ? successText : defaultText}>{habit.habitName}</p>
-            <div data-tour="step-5" className="w-1/3 text-right mr-1">
+            <div data-tour="step-5" className="w-16 text-right mr-1">
                 {completedState ? 
                     <CheckBoxIcon sx={{ color: 'hsla(144, 57%, 33%, 1)' }} onClick={() => updateHabit('1')} />
                     : <CheckBoxOutlineBlankIcon onClick={() =>  updateHabit('3')} /> }
