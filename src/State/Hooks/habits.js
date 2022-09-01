@@ -55,7 +55,7 @@ export function habitActions() {
         }
     };
 
-    const remove = async (id) => {
+    const removeHabit = async (id) => {
         const data = await deleteHabit(id);
         if (data.message) {
             showError(data.message);
@@ -73,5 +73,5 @@ export function habitActions() {
         }
     };
 
-    return { create, remove, update };
+    return { create, removeHabit, update };
 }

@@ -7,7 +7,7 @@ import DateSlider from '../Dates/DateSlider.jsx';
 import { useState } from 'react';
 import CreateGoalModal from './Modals/CreateGoalModal';
 import EditGoalModal from './Modals/EditGoalModal';
-import DeleteGoalModal from './Modals/DeleteGoalModal';
+import DeleteModal from './Modals/DeleteModal';
 import { useCalendar } from '../../../../State/Hooks/calendar';    
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useTour } from '@reactour/tour';
@@ -19,7 +19,7 @@ export default function Home() {
     const [seeAllGoals, setSeeAllGoals] = useState(false);
     const [editModal, setEditModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
-    const [activeGoal, setActiveGoal] = useState(null);
+    const [activeItem, setActiveItem] = useState(null);
     const { setIsOpen } = useTour();
     const { selectedDateHabits, selectedDateGoals } = useCalendar();
 
@@ -46,19 +46,21 @@ export default function Home() {
                 <Hero />
                 <div data-tour="step-4">
                     <Section header="Today's Habits" seeAll={true} width="90vw" open={openAllHabits} openState={seeAllHabits}>
-                        {selectedDateHabits && selectedDateHabits.map((habit) => <HabitCard key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} setEditModal={setEditModal} setDeleteModal={setDeleteModal} />)}
+                        {selectedDateHabits && selectedDateHabits.map((habit) => <HabitCard 
+                            key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} 
+                            setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveItem={setActiveItem} />)}
                     </Section>
                 </div>
                 <div data-tour="step-3">
                     <Section header="Your Goals" seeAll={true} width="90vw" marginBottom={'7vh'} open={openAllGoals} openState={seeAllGoals}>
                         {selectedDateGoals && selectedDateGoals.map((goal) => <GoalCard
                             key={`goal card${goal.id}`} goal={goal}
-                            setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveGoal={setActiveGoal} />)}
+                            setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveGoal={setActiveItem} />)}
                     </Section>
                 </div>
                 {modal && <CreateGoalModal setModal={setModal} />}
-                {editModal && <EditGoalModal setEditModal={setEditModal} activeGoal={activeGoal} />}
-                {deleteModal && <DeleteGoalModal setDeleteModal={setDeleteModal} activeGoal={activeGoal} />}
+                {editModal && <EditGoalModal setEditModal={setEditModal} activeGoal={activeItem} />}
+                {deleteModal && <DeleteModal setDeleteModal={setDeleteModal} activeItem={activeItem} />}
                 <AddGoalButton onClick={() => openModal()} />
             </div></>
     );
