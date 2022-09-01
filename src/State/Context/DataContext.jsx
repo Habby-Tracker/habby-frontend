@@ -1,5 +1,4 @@
-import { createContext, useEffect, useReducer } from 'react';
-import { useUser } from '../Hooks/user';
+import { createContext, useReducer } from 'react';
 
 export const DataContext = createContext();
 export const DataDispatchContext = createContext();

@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { createContext, useState } from 'react';
 import { useGoals } from '../Hooks/goals';
 import { useHabits } from '../Hooks/habits';
-import { useUser } from '../Hooks/user';
 
 export const CalendarStateContext = createContext();
 export const CalendarActionContext = createContext();
@@ -16,7 +15,7 @@ export default function CalendarProvider({ children }) {
     const { goals } = useGoals();
     const state = { selectedDate, dates, selectedDateHabits, selectedDateGoals };
     const actions = { setSelectedDate, setDates, setSelectedDateHabits, setSelectedDateGoals };
-    
+
     useEffect(() => {
         if (habits && habits.length >= 0 && goals && goals.length >= 0) {
             const selectedDateHabits = habits.filter(habit => selectedDate.toDateString() === new Date(habit.dueDate).toDateString());
