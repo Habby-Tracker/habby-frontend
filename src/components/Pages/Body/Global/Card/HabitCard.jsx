@@ -9,7 +9,7 @@ import { habitActions } from '../../../../../State/Hooks/habits';
 
 export default function HabitCard({ habit, completed, width, setEditModal, setDeleteModal, setActiveItem }) {
     const [completedState, setCompletedState] = useState(completed);
-    const { update } = habitActions();
+    const { updateHabit } = habitActions();
     const [isOpen, setIsOpen] = useState(false);
 
     const useOutsideClick = (callback) => {
@@ -40,8 +40,8 @@ export default function HabitCard({ habit, completed, width, setEditModal, setDe
     const successBackground = 'flex flex-row w-full h-10 items-center rounded-md bg-successBackground my-2 shadow-md';
     const defaultBackground = 'flex flex-row w-full h-10 items-center rounded-md bg-lightGrey my-2 shadow-md';
 
-    function updateHabit(value) {
-        update(habit.id, { statusID: value, completedDate: new Date() });
+    function updateHabitInCard(value) {
+        updateHabit(habit.id, { statusID: value, completedDate: new Date() });
         setCompletedState(!completedState);
     }
 
@@ -56,14 +56,14 @@ export default function HabitCard({ habit, completed, width, setEditModal, setDe
             <p className={completedState ? successText : defaultText}>{habit.habitName}</p>
             <div data-tour="step-5" className="w-16 text-right mr-1">
                 {completedState ? 
-                    <CheckBoxIcon sx={{ color: 'hsla(144, 57%, 33%, 1)' }} onClick={() => updateHabit('1')} />
-                    : <CheckBoxOutlineBlankIcon onClick={() =>  updateHabit('3')} /> }
-                <MoreVertIcon fontSize="small" onClick={() => setIsOpen(true)} />
+                    <CheckBoxIcon sx={{ color: 'hsla(144, 57%, 33%, 1)' }} onClick={() => updateHabitInCard('1')} className="cursor-pointer" />
+                    : <CheckBoxOutlineBlankIcon onClick={() =>  updateHabitInCard('3')} className="cursor-pointer"/> }
+                <MoreVertIcon fontSize="small" onClick={() => setIsOpen(true)} className="cursor-pointer"/>
                 {isOpen &&
                         <div ref={ref} className="absolute z-10">
                             <div className="flex flex-col w-24 bg-white rounded-md shadow-md">
-                                <p onClick={() => openModal(setEditModal)} className="text-sm text-center text-primaryOrange h-10 font-semibold mt-4">Edit</p>
-                                <p onClick={() => openModal(setDeleteModal)} className="text-sm text-center text-primaryOrange h-10 font-semibold">Delete</p>
+                                <p onClick={() => openModal(setEditModal)} className="text-sm text-center text-primaryOrange h-10 font-semibold mt-4 cursor-pointer">Edit</p>
+                                <p onClick={() => openModal(setDeleteModal)} className="text-sm text-center text-primaryOrange h-10 font-semibold cursor-pointer">Delete</p>
                             </div>
                         </div>}
             </div>
