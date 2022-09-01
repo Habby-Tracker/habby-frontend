@@ -45,7 +45,7 @@ export default function RadarGraph() {
     );
     
     const data = {
-        labels: labelData,
+        labels: labelData ? labelData : ['Career', 'Education', 'Finance', 'Fitness', 'Health', 'Mental Health', 'Nutrition', 'Other', 'Social', 'Spiritual'],
         datasets: [
             {
                 label: 'Toal Goal Categories',
