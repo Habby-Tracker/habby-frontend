@@ -6,8 +6,8 @@ import './App.css';
 import CalendarProvider from './State/Context/CalendarContext.jsx';
 import DataContextProvider from './State/Context/DataContext.jsx';
 
-
 export default function App() {
+
     return (
         <UserProvider>
             <DataContextProvider>

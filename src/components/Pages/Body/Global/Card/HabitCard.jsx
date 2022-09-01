@@ -49,7 +49,7 @@ export default function HabitCard({ habit, completed, width, setEditModal, setDe
         <div className={completedState ? successBackground : defaultBackground}
             style={{ width }} value={habit.id}>
             <p className={completedState ? successText : defaultText}>{habit.habitName}</p>
-            <div className="w-1/3 text-right">
+            <div data-tour="step-5" className="w-1/3 text-right">
                 {completedState ? 
                     <CheckBoxIcon sx={{ color: 'hsla(144, 57%, 33%, 1)' }} onClick={() => updateHabit('1')} />
                     : <CheckBoxOutlineBlankIcon onClick={() =>  updateHabit('3')} /> }

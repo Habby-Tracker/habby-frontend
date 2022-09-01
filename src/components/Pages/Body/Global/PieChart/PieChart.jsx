@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-// import { createTheme } from '@mui/system';
 
 function CircularProgressWithLabel(props) {
     
