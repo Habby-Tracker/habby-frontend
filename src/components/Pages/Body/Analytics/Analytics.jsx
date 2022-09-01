@@ -19,10 +19,10 @@ export default function List() {
     return (
         <div className="flex flex-col min-w-full items-center md:items-start">
             <h1 className="text-purple text-bold text-3xl flex justify-start px-6">Analytics</h1>
-            <Section
-                subText="A section to detail the users progress"  
-                maxWidth="100%">
-                <div className="flex md:flex-row">
+            <div className="flex w-full md:flex-row">
+                <Section 
+                    subText="A section to detail the users progress"  
+                    width="100%">
                     <div className="container flex justify-center items-center flex-col mx-auto md:justify-start md:w-50%">
                         <PieChart
                             progress={value}
@@ -38,16 +38,21 @@ export default function List() {
                             <CloseIcon /> {`You are still working on ${nonComplete} Habits!`}
                         </p>
                     </div>
-                    <div className="hidden bg-growing bg-cover bg-no-repeat mx-6 md:items-center md:flex ">
+                    
+                </Section>
+                <section className="container hidden bg-growing bg-contain bg-center bg-no-repeat flex-col items-center
+        py-2 px-4 rounded shadow-lg my-3 md:flex-row md:flex-wrap md:flex" >
+                    <div className="hidden  mx-6 md:items-center md:flex ">
                         <p>
                             "Keep track of all your habits and goals!
                             Studies show people who do stuff are happier!"
                             -Ghandi                       
                         </p>
                     
-                    </div>
-                </div>
-            </Section>
+                    </div> 
+                </section>
+            </div>
+            
             <div className="md:flex">
                 <Section
                     header="Current Goals"  

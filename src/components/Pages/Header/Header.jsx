@@ -2,11 +2,10 @@ import { Link } from 'react-router-dom';
 import { useUser } from '../../../State/Hooks/user';
 import Logout from './Logout';
 import { useTour } from '@reactour/tour';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+
 
 export default function Header() {
     const { user } = useUser();
-    const { setIsOpen } = useTour();
 
 
     return (
@@ -33,9 +32,6 @@ export default function Header() {
                         {user ? `${user.firstName}`  : 'user'}
                     </span>
                 </div>
-                <button className="flex space-x-0 px-2 py-2 text-xl justify-start" data-tour="step-1" onClick={() => setIsOpen(true)} >
-                    <HelpOutlineIcon />
-                </button>
             </div>
         </>
     );
