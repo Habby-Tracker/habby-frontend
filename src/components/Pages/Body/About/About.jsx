@@ -13,7 +13,7 @@ export default function About() {
                     <img src="/imgs/Riley.png" alt="Riley" className="h-12 rounded-full" />   
                     <p className="font-bold">Riley</p>
                 </div>
-                <div>
+                <div className="w-3/4 text-right mr-1">
                     <p className="text-darkPurple font-extrabold">Goal(s)</p>
                 </div>
             </div>
@@ -23,7 +23,7 @@ export default function About() {
                     <img src="/imgs/Beau.png" alt="Beau" className="h-12 rounded-full" />   
                     <p className="font-bold">Beau</p>
                 </div>
-                <div>
+                <div className="w-3/4 text-right mr-1">
                     <p className="text-darkPurple font-extrabold">Goal(s)</p>
                 </div>
             </div>
@@ -35,7 +35,7 @@ export default function About() {
                     </div>
                     <p className="font-bold">Susan</p>
                 </div>
-                <div>
+                <div  className="w-3/4 text-right mr-1">
                     <p className="text-darkPurple font-extrabold">Goal(s)</p>
                 </div>
             </div>
@@ -45,7 +45,7 @@ export default function About() {
                     <img src="/imgs/Cody.png" alt="Cody" className="h-12 rounded-full" />   
                     <p className="font-bold">Cody</p>
                 </div>
-                <div>
+                <div  className="w-3/4 text-right mr-1">
                     <p className="text-darkPurple font-extrabold">Goal(s)</p>
                 </div>
             </div>
@@ -55,7 +55,7 @@ export default function About() {
                     <img src="/imgs/Will.png" alt="Will" className="h-12 rounded-full" />   
                     <p className="font-bold">Will</p>
                 </div>
-                <div>
+                <div  className="w-3/4 text-right mr-1">
                     <p className="text-darkPurple font-extrabold">Goal(s)</p>
                 </div>
             </div>

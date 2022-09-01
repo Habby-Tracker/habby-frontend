@@ -11,7 +11,6 @@ import DeleteModal from './Modals/DeleteModal';
 import { useCalendar } from '../../../../State/Hooks/calendar';    
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useTour } from '@reactour/tour';
-import About from '../About/About';
 
 export default function Home() {
     const [modal, setModal] = useState(false);
@@ -39,7 +38,6 @@ export default function Home() {
                             setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveItem={setActiveItem} />)}
                     </Section>
                 </div>
-                <About />
                 <div data-tour="step-3">
                     <Section header="Your Goals" seeAll={true} width="90vw" marginBottom={'7vh'}>
                         {selectedDateGoals && selectedDateGoals.map((goal) => <GoalCard
