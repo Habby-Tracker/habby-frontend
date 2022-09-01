@@ -15,7 +15,7 @@ export default function ProgressCard({ goal, width, height }) {
 
 
     return (
-        <Link to={`goal/${goal.id}`} >
+        <Link to={`../goal/${goal.id}`} >
             <div className="flex flex-row w-full items-center rounded-md bg-lightGrey shadow-md py-4 my-1 hover:bg-grey"
                 style={{ width, height }}>
                 <div className="w-1/5">
