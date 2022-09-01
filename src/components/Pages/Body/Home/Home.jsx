@@ -12,8 +12,7 @@ import { useCalendar } from '../../../../State/Hooks/calendar';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useTour } from '@reactour/tour';
 import { useUser } from '../../../../State/Hooks/user';
-import Calendar from '../Dates/Calendar';
-// import { Popover } from '@reactour/popover';
+import GoalDetail from '../GoalDetail/GoalDetail';
 
 export default function Home() {
     const [modal, setModal] = useState(false);
@@ -43,8 +42,8 @@ export default function Home() {
             <button className="flex absolute top-16 pt-2.5 right-4" data-tour="step-1" onClick={() => setIsOpen(true)}>
                 <HelpOutlineIcon />
             </button>
-            <div className="flex flex-col justify-start items-center h-full">
-                <div className="flex justify-between space-around w-full items-end">
+            <div className="flex flex-col items-center h-full w-full md:mt-4">
+                <div className="flex justify-between space-around items-end">
                     <div className="flex space-x-0 px-2 py-2 text-xl justify-start md:hidden">
                         {'Welcome,'}
                         <span className="text-purple pl-1">
@@ -54,8 +53,8 @@ export default function Home() {
                 </div>
                 <DateSlider />
                 <Hero />
-                <div data-tour="step-4">
-                    <Section header="Today's Habits" seeAll={true} width="90vw" open={openAllHabits} openState={seeAllHabits}>
+                <div className="w-full flex justify-center items-center" data-tour="step-4">
+                    <Section header="Today's Habits" seeAll={true} width="90%" open={openAllHabits} openState={seeAllHabits}>
                         {selectedDateHabits && 
                             (seeAllHabits ? 
                                 selectedDateHabits.map((habit) => <HabitCard key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveItem={setActiveItem} />) 
@@ -65,8 +64,8 @@ export default function Home() {
                         }
                     </Section>
                 </div>
-                <div data-tour="step-3">
-                    <Section header="Your Goals" seeAll={true} width="90vw" marginBottom={'7vh'} open={openAllGoals} openState={seeAllGoals}>
+                <div className="w-full flex justify-center items-center" data-tour="step-3">
+                    <Section header="Your Goals" seeAll={true} width="90%" marginBottom={'7vh'} open={openAllGoals} openState={seeAllGoals}>
                         {selectedDateGoals && 
                             (seeAllGoals ?
                                 selectedDateGoals.map((goal) => <GoalCard key={`goal card${goal.id}`} goal={goal} setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveGoal={setActiveItem} />)
@@ -82,7 +81,7 @@ export default function Home() {
                 <AddGoalButton onClick={() => openModal()} />
             </div>
             <div className="hidden md:flex">
-                <Calendar />
+                {/* <GoalDetail /> */}
             </div>
         </div>
     );
