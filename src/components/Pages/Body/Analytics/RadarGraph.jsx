@@ -1,4 +1,3 @@
-import { useCategories } from '../../../../State/Hooks/categories';
 import {
     Chart as ChartJS,
     RadialLinearScale,
@@ -11,20 +10,30 @@ import { Radar } from 'react-chartjs-2';
 import { useGoals } from '../../../../State/Hooks/goals';
 
 export default function RadarGraph() {
-    const { categories } = useCategories();
     const { goals } = useGoals();
 
     const categoryData = goals && goals
         .map(goal => goal.category)
         .sort()
         .reduce((acc, category) => {
-            // const categoryList = ['Career', 'Education', 'Finance', 'Fitness', 'Health', 'Mental Health', 'Nutrition', 'Other', 'Social', 'Spiritual'];
             acc[category] ? acc[category] += 1 : acc[category] = 1;
             return acc;
         }, {});
-    console.log('categoryData', categoryData);
     const dataCat = Object.values(categoryData);
-    console.log('data', dataCat);
+    const labelData = Object.keys(categoryData).sort();
+
+    const completedData = goals && goals
+        .filter(goal => goal.statusID === '3' && goal.category)
+        .sort()
+        .reduce((acc, goal) => {
+            acc[goal.category] ? acc[goal.category] += 1 : acc[goal.category] = 1;
+            return acc;
+        }, {});
+    const compData = Object.values(completedData);
+
+    console.log('completedData', completedData);
+    console.log('goals', goals);
+    console.log('compData', compData);
     
 
     ChartJS.register(
@@ -34,16 +43,13 @@ export default function RadarGraph() {
         Filler,
         Legend
     );
-
-    const catData = categories && categories.map(category => category.name).sort();
-    console.log('catData', catData);
     
     const data = {
-        labels: categories ? categories.map(category => category.name).sort() : null,
+        labels: labelData,
         datasets: [
             {
                 label: 'Toal Goal Categories',
-                data: [6, 9, 8, 5, 6, 6, 6, 7, 8, 5],
+                data: dataCat,
                 fill: true,
                 spanGaps: true,
                 backgroundColor: 'hsla(21.6, 100%, 50%, 0.4)',
@@ -52,7 +58,7 @@ export default function RadarGraph() {
             },
             {
                 label: 'Completed Goal Categories',
-                data: [2, 4, 5, 2, 1, 3, 2, 5, 1, 2],
+                data: compData.length >= 3 ? compData : null,
                 fill: true,
                 spanGaps: true,
                 backgroundColor: 'hsla(315, 97%, 17%, .8)',
