@@ -28,11 +28,11 @@ export default function Home() {
     };
 
     const openAllHabits = () => {
-        setSeeAllHabits(false);
+        setSeeAllHabits(!seeAllHabits);
     };
     
     const openAllGoals = () => {
-        setSeeAllGoals(false);
+        setSeeAllGoals(!seeAllGoals);
     };
 
     console.log(seeAllHabits, seeAllGoals);
@@ -45,12 +45,12 @@ export default function Home() {
                 <DateSlider />
                 <Hero />
                 <div data-tour="step-4">
-                    <Section header="Today's Habits" seeAll={true} width="90vw" open={openAllHabits}>
+                    <Section header="Today's Habits" seeAll={true} width="90vw" open={openAllHabits} openState={seeAllHabits}>
                         {selectedDateHabits && selectedDateHabits.map((habit) => <HabitCard key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} setEditModal={setEditModal} setDeleteModal={setDeleteModal} />)}
                     </Section>
                 </div>
                 <div data-tour="step-3">
-                    <Section header="Your Goals" seeAll={true} width="90vw" marginBottom={'7vh'} open={openAllGoals}>
+                    <Section header="Your Goals" seeAll={true} width="90vw" marginBottom={'7vh'} open={openAllGoals} openState={seeAllGoals}>
                         {selectedDateGoals && selectedDateGoals.map((goal) => <GoalCard
                             key={`goal card${goal.id}`} goal={goal}
                             setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveGoal={setActiveGoal} />)}
