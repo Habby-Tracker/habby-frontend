@@ -1,6 +1,7 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useGoals } from '../../../../State/Hooks/goals';
 import { useHabits } from '../../../../State/Hooks/habits';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Section from '../Global/Section/Section';
 import GoalCalendar from './GoalCalendar';
 import GoalStats from './GoalStats';
@@ -22,6 +23,10 @@ export default function GoalDetail() {
     
     return (
         <div>
+            <div className="container flex flex-row bg-white py-2 px-4 my-3 w-full items-end">
+                <Link to="/analytics"><ArrowBackIcon /></Link>
+                <h1 className="text-black font-bold mx-2">Goal: {thisGoal.goalName}</h1>
+            </div>
             <Section width="100%">
                 <GoalCalendar state={values} />
             </Section>
