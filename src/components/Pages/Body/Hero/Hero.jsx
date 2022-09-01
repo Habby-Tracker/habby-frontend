@@ -10,8 +10,10 @@ export default function Hero() {
 
 
     return (
-        <div className="container flex w-96 items-center w-full bg-heroPattern bg-cover rounded-lg max-h-2/6 py-6 px-10 shadow-lg">
-            <PieChart progress={value} size={'8rem'} ringcolor={'hsla(315, 97%, 42%, 0.81)'} textcolor={textColor} textvariant={'h4'}/>
+        <div className="container flex w-96 items-center w-full bg-heroPattern bg-cover rounded-lg max-h-2/6 py-6 px-10 shadow-lg" >
+            <div data-tour="step-6">
+                <PieChart progress={value} size={'8rem'} ringcolor={'hsla(315, 97%, 42%, 0.81)'} textcolor={textColor} textvariant={'h4'}/>
+            </div>
             <p className="text-white text-bold pl-4">{value < 50 ? `Hip Hop don't stop! ${current} of ${goal} habits so far today` : `Kablam-O you have done ${current} of ${goal} habits so far today`}</p>
         </div>
     );
