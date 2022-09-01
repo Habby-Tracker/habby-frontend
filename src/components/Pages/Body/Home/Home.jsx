@@ -9,13 +9,14 @@ import CreateGoalModal from './Modals/CreateGoalModal';
 import EditGoalModal from './Modals/EditGoalModal';
 import DeleteGoalModal from './Modals/DeleteGoalModal';
 import { useCalendar } from '../../../../State/Hooks/calendar';
-import GoalDetail from '../GoalDetail/GoalDetail';
+// import { Popover } from '@reactour/popover';
 
 export default function Home() {
     const [modal, setModal] = useState(false);
     const [editModal, setEditModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
     const [activeGoal, setActiveGoal] = useState(null);
+    // const sizes = { padding: 100 };
 
     const { selectedDateHabits, selectedDateGoals } = useCalendar();
 
@@ -25,20 +26,22 @@ export default function Home() {
     
     return (
         <div className="flex flex-col justify-center items-center py-4">
+            {/* <Popover /> */}
             <DateSlider />
             <Hero />
-            <Section header="Today's Habits" seeAll={true} width="90vw">
-                {selectedDateHabits && selectedDateHabits.map((habit) => <HabitCard key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} setEditModal={setEditModal} setDeleteModal={setDeleteModal} />)}
-            </Section>
-            <Section header="Your Goals" seeAll={true} width="90vw">
-                {selectedDateGoals && selectedDateGoals.map((goal) => 
-                    <GoalCard 
-                        key={`goal card${goal.id}`} goal={goal} 
-                        setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveGoal={setActiveGoal} />)}
-            </Section>
-            {/* <Section header="Goal Detail">
-                <GoalDetail />
-            </Section> */}
+            <div data-tour="step-4">
+                <Section header="Today's Habits" seeAll={true} width="90vw">
+                    {selectedDateHabits && selectedDateHabits.map((habit) => <HabitCard key={`habit card${habit.id}`} habit={habit} completed={habit.statusID === '3' ? true : false} setEditModal={setEditModal} setDeleteModal={setDeleteModal} />)}
+                </Section>
+            </div>
+            <div  data-tour="step-3">
+                <Section header="Your Goals" seeAll={true} width="90vw" marginBottom={'7vh'}>
+                    {selectedDateGoals && selectedDateGoals.map((goal) => 
+                        <GoalCard 
+                            key={`goal card${goal.id}`} goal={goal} 
+                            setEditModal={setEditModal} setDeleteModal={setDeleteModal} setActiveGoal={setActiveGoal} />)}
+                </Section>
+            </div>
             {modal && <CreateGoalModal setModal={setModal} />}
             {editModal && <EditGoalModal setEditModal={setEditModal} activeGoal={activeGoal} />}
             {deleteModal && <DeleteGoalModal setDeleteModal={setDeleteModal} activeGoal={activeGoal}/>}

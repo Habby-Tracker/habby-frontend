@@ -1,23 +1,9 @@
-// import { useParams } from 'react-router-dom';
-import { useGoals } from '../../../../State/Hooks/goals';
-import { useHabits } from '../../../../State/Hooks/habits';
 import Section from '../Global/Section/Section';
 import StatusPill from '../Global/StatusPill/StatusPill';
 
-export default function GoalStats() {
-    // const { id } = useParams();
-    const { goals } = useGoals();
-    const { habits } = useHabits();
-    const today = new Date();
-    // const thisGoal = goals ? goals.filter(goal => goal.id === String(id))[0] : null;
-    const thisGoal = goals ? goals.filter(goal => goal.id === '8')[0] : null;
-    const goalHabits = (habits && habits.length) ? habits.filter(habit => habit.goalID === Number(thisGoal.id)) : null;
-    const totalHabits = goalHabits && goalHabits.length;
-    const completedHabits = goalHabits && goalHabits.filter(habit => habit.statusID === '3').length;
-    const failedHabits = goalHabits && goalHabits.filter(habit => habit.statusID !== '3' && new Date(habit.dueDate) < today).length;
-    const remainingHabits = goalHabits && goalHabits.filter(habit => habit.statusID !== '3' && new Date(habit.dueDate) > today).length;
-    const createdAtDate = thisGoal && new Date(thisGoal.createdAt).toDateString();
-
+export default function GoalStats({ state }) {
+    const { thisGoal, totalHabits, completedHabits, failedHabits, remainingHabits, createdAtDate } = state;
+    
     return (
         thisGoal && <Section>
             <div className="select-none border rounded p-4 w-full">
