@@ -48,7 +48,7 @@ export default function CreateGoalModal({ setModal }) {
 
     return (
         <Modal setShowModal={setModal}>
-            <form className="flex flex-col">
+            <form className="flex flex-col rounded w-40% bg-lightGrey md:items-center">
                 <h1 className="text-bold text-primaryOrange text-xl">Add Goal</h1>
                 <InputControl
                     label="Goal"
@@ -62,6 +62,7 @@ export default function CreateGoalModal({ setModal }) {
                         })
                     }
                     required
+                    className="border-b-2 border-primaryBlack"
                 />
                 <InputControl
                     label="Habit Name"
@@ -75,6 +76,7 @@ export default function CreateGoalModal({ setModal }) {
                         })
                     }
                     required
+                    className="border-b-2 border-primaryBlack"
                 />
                 <label>
                     <span className="label-text flex justify-start text-darkPurple my-2">Time Period</span>
