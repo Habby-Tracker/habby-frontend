@@ -1,11 +1,10 @@
-import Button from '../Global/Button/Button';
 import Section from '../Global/Section/Section';
 
 
 export default function About() {
 
     return(
-        <><Section width="100%">
+        <Section width="100%">
             <p className="w-full text-center text-2xl font-semibold">About Us</p>
             <div className="flex flex-row w-full py-1 items-center rounded-md bg-lightGrey my-2 shadow-md">
                 <div className="flex flex-col mx-6 my-2">
@@ -80,6 +79,5 @@ export default function About() {
                 </div>
             </div>
         </Section>
-        <Button text="Go Back" width={'80%'} /></>
     );
 }
