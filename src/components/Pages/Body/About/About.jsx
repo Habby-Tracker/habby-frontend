@@ -13,10 +13,9 @@ export default function About() {
                     <p className="font-bold">Riley</p>
                 </div>
                 <div className="w-3/4 text-left pl-10">
-                    <p className="text-darkPurple font-extrabold">Goals:</p>
+                    <p className="text-darkPurple font-extrabold">Goal:</p>
                     <div>
-                        <p className="text-sm ml-3"> • More sunshine </p>
-                        <p className="text-sm ml-3"> • More veggies</p>
+                        <p className="text-sm ml-3"> • Eat healthier </p>
                     </div>
                 </div>
             </div>
@@ -27,10 +26,9 @@ export default function About() {
                     <p className="font-bold">Beau</p>
                 </div>
                 <div className="w-3/4 text-left pl-10">
-                    <p className="text-darkPurple font-extrabold">Goals:</p>
+                    <p className="text-darkPurple font-extrabold">Goal:</p>
                     <div>
-                        <p className="text-sm ml-3"> • More sunshine </p>
-                        <p className="text-sm ml-3"> • More veggies</p>
+                        <p className="text-sm ml-3"> • Gain all Eldrich knowledge </p>
                     </div>
                 </div>
             </div>
@@ -43,10 +41,9 @@ export default function About() {
                     <p className="font-bold">Susan</p>
                 </div>
                 <div  className="w-3/4 text-left pl-10">
-                    <p className="text-darkPurple font-extrabold">Goals:</p>
+                    <p className="text-darkPurple font-extrabold">Goal:</p>
                     <div>
-                        <p className="text-sm ml-3"> • More sunshine </p>
-                        <p className="text-sm ml-3"> • More veggies</p>
+                        <p className="text-sm ml-3"> • Witness more sunrises </p>
                     </div>
                 </div>
             </div>
@@ -71,10 +68,9 @@ export default function About() {
                     <p className="font-bold">Will</p>
                 </div>
                 <div  className="w-3/4 text-left pl-10">
-                    <p className="text-darkPurple font-extrabold">Goals:</p>
+                    <p className="text-darkPurple font-extrabold">Goal:</p>
                     <div>
-                        <p className="text-sm ml-3"> • More sunshine </p>
-                        <p className="text-sm ml-3"> • More veggies</p>
+                        <p className="text-sm ml-3"> • Finish a Saturday Crossword </p>
                     </div>
                 </div>
             </div>
