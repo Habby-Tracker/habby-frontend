@@ -53,7 +53,7 @@ export default function List() {
                 </section>
             </div>
             
-            <div className="pb-16 w-full md:flex">
+            <div className="pb-16 w-full md:flex md:flex-row-reverse">
                 <Section 
                     header="Your Stats"
                     width="100%"

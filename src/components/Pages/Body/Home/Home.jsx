@@ -12,7 +12,8 @@ import { useCalendar } from '../../../../State/Hooks/calendar';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useTour } from '@reactour/tour';
 import { useUser } from '../../../../State/Hooks/user';
-import GoalDetail from '../GoalDetail/GoalDetail';
+import Calendar from '../Dates/Calendar';
+import CreateGoalForm from '../Global/Form/CreateGoalForm';
 
 export default function Home() {
     const [modal, setModal] = useState(false);
@@ -39,7 +40,7 @@ export default function Home() {
 
     return (
         <div className="flex md:flex-row">
-            <button className="flex absolute top-16 pt-2.5 right-4" data-tour="step-1" onClick={() => setIsOpen(true)}>
+            <button className="flex absolute top-16 pt-2.5 right-4 md:top-24 md:right-6" data-tour="step-1" onClick={() => setIsOpen(true)}>
                 <HelpOutlineIcon />
             </button>
             <div className="flex flex-col items-center h-full w-full md:mt-4">
@@ -80,8 +81,9 @@ export default function Home() {
                 {deleteModal && <DeleteModal setDeleteModal={setDeleteModal} activeItem={activeItem} />}
                 <AddGoalButton onClick={() => openModal()} />
             </div>
-            <div className="hidden md:flex">
-                {/* <GoalDetail /> */}
+            <div className="hidden md:flex md:flex-col">
+                <Calendar />
+                <CreateGoalForm />
             </div>
         </div>
     );

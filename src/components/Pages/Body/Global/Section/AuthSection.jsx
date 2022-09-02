@@ -11,8 +11,8 @@ export default function AuthSection({
             className="bg-lightGrey px-4 py-4 rounded shadow-lg"
             style={{ width, maxWidth, height }}
         >
-            <div className="pb-15">
-                <img src="/imgs/habbylogo.png" alt="Habby Logo" className="h-12" />   
+            <div >
+                <img src="/imgs/habbylogo.png" alt="Habby Logo" className="h-20 m-0 p-0" />   
             </div>
             <div className="flex justify-between space-around w-full ">
                 {header && <h1 className="text-black font-bold">{header}</h1>}
