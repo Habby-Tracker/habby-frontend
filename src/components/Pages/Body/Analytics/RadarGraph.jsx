@@ -16,8 +16,6 @@ export default function RadarGraph() {
     const [dataCat, setDataCat] = useState([]);
     const [compData, setCompData] = useState([]);
 
-    console.log(goals);
-
     useEffect(() => {
         const categoryData = goals && goals
             .map(goal => goal.category)
