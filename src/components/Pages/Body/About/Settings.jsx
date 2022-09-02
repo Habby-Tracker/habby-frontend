@@ -26,7 +26,7 @@ export default function Settings() {
                     </section>
                 </Link>
             </div>
-            <div className="hidden md:flex">
+            <div className="hidden md:flex md:flex-col">
                 <Account />
                 <About />
             </div>
