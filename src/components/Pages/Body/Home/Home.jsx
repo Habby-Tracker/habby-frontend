@@ -12,7 +12,6 @@ import { useCalendar } from '../../../../State/Hooks/calendar';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useTour } from '@reactour/tour';
 import { useUser } from '../../../../State/Hooks/user';
-import About from '../About/About';
 
 export default function Home() {
     const [modal, setModal] = useState(false);
@@ -64,7 +63,6 @@ export default function Home() {
                         }
                     </Section>
                 </div>
-                <About />
                 <div data-tour="step-3">
                     <Section header="Your Goals" seeAll={true} width="90vw" marginBottom={'7vh'} open={openAllGoals} openState={seeAllGoals}>
                         {selectedDateGoals && 
