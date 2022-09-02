@@ -16,7 +16,7 @@ export default function SignUpForm({ header, button, prompt, link, onSubmit }) {
 
     return (
         <div className="flex absolute inset-0 justify-center items-center bg-gradient-to-br from-lightGrey to-lightOrange">
-            <AuthSection width="90%" height="95%">
+            <AuthSection width="90%" height="78%" minHeight={'720px'} maxWidth={'500px'}>
                 <div className="flex flex-col items-center mt-20">
                     <div className="flex flex-row w-full items-end mb-10">
                         <p className="w-2/3 text-left text-2xl font-semibold">{header}</p>
