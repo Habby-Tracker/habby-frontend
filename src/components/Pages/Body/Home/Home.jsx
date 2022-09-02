@@ -25,7 +25,6 @@ export default function Home() {
     const { setIsOpen } = useTour();
     const { selectedDateHabits, selectedDateGoals } = useCalendar();
     const { user } = useUser();
-    const accentColor = '#b33030';
 
     const openModal = () => {
         setModal(true);
@@ -41,7 +40,7 @@ export default function Home() {
 
     return (
         <div className="flex md:flex-row">
-            <button className="flex absolute top-16 pt-2.5 right-4 md:top-24 md:right-6" data-tour="step-1" onClick={() => setIsOpen(true)} accentColor={accentColor}>
+            <button className="flex absolute top-16 pt-2.5 right-4 md:top-24 md:right-6" data-tour="step-1" onClick={() => setIsOpen(true)}>
                 <HelpOutlineIcon />
             </button>
             <div className="flex flex-col items-center h-full w-full md:mt-4">

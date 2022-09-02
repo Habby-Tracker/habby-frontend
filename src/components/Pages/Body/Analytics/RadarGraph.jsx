@@ -6,30 +6,40 @@ import {
     Filler,
     Legend,
 } from 'chart.js';
+import { useEffect, useState } from 'react';
 import { Radar } from 'react-chartjs-2';
 import { useGoals } from '../../../../State/Hooks/goals';
 
 export default function RadarGraph() {
     const { goals } = useGoals();
+    const [labelData, setLabelData] = useState([]);
+    const [dataCat, setDataCat] = useState([]);
+    const [compData, setCompData] = useState([]);
 
-    const categoryData = goals && goals
-        .map(goal => goal.category)
-        .sort()
-        .reduce((acc, category) => {
-            acc[category] ? acc[category] += 1 : acc[category] = 1;
-            return acc;
-        }, {});
-    const dataCat = Object.values(categoryData);
-    const labelData = Object.keys(categoryData).sort();
+    console.log(goals);
 
-    const completedData = goals && goals
-        .filter(goal => goal.statusID === '3' && goal.category)
-        .sort()
-        .reduce((acc, goal) => {
-            acc[goal.category] ? acc[goal.category] += 1 : acc[goal.category] = 1;
-            return acc;
-        }, {});
-    const compData = Object.values(completedData);  
+    useEffect(() => {
+        const categoryData = goals && goals
+            .map(goal => goal.category)
+            .sort()
+            .reduce((acc, category) => {
+                acc[category] ? acc[category] += 1 : acc[category] = 1;
+                return acc;
+            }, {});
+        setDataCat(Object.values(categoryData));
+        setLabelData(Object.keys(categoryData).sort());
+
+        const completedData = goals && goals
+            .filter(goal => goal.statusID === '3' && goal.category)
+            .sort()
+            .reduce((acc, goal) => {
+                acc[goal.category] ? acc[goal.category] += 1 : acc[goal.category] = 1;
+                return acc;
+            }, {});
+        setCompData(Object.values(completedData));
+    }, [goals]);
+
+
 
     ChartJS.register(
         RadialLinearScale,
