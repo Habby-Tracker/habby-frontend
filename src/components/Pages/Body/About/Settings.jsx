@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Account from '../About/Account';
+import About from '../About/About';
 
 export default function Settings() {
     
@@ -27,6 +28,7 @@ export default function Settings() {
             </div>
             <div className="hidden md:flex">
                 <Account />
+                <About />
             </div>
         </>
         

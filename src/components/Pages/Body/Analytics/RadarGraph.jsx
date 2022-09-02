@@ -16,27 +16,26 @@ export default function RadarGraph() {
     const [dataCat, setDataCat] = useState([]);
     const [compData, setCompData] = useState([]);
 
-    console.log(goals);
-
     useEffect(() => {
         const categoryData = goals && goals
-            .map(goal => goal.category)
             .sort()
+            .map(goal => goal.category)
             .reduce((acc, category) => {
                 acc[category] ? acc[category] += 1 : acc[category] = 1;
                 return acc;
             }, {});
         setDataCat(Object.values(categoryData));
-        setLabelData(Object.keys(categoryData).sort());
+        
 
         const completedData = goals && goals
-            .filter(goal => goal.statusID === '3' && goal.category)
             .sort()
             .reduce((acc, goal) => {
-                acc[goal.category] ? acc[goal.category] += 1 : acc[goal.category] = 1;
+                if(!acc[goal.category]) acc[goal.category] = 0;
+                if(goal.statusID === '3' && goal.category) acc[goal.category] += 1;
                 return acc;
             }, {});
         setCompData(Object.values(completedData));
+        setLabelData(Object.keys(completedData));
     }, [goals]);
 
 
