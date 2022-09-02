@@ -23,7 +23,7 @@ export default function EditModal({ setEditModal, activeItem }) {
 
     return (
         <Modal setShowModal={setEditModal}>
-            <form className="flex flex-col">
+            <form className="flex flex-col items-center w-40% bg-lightGrey md:w-20%">
                 <h1 className="text-bold text-primaryOrange text-xl">Edit {type}</h1>
                 {type === 'Goal' && <div className="my-4">
                     <InputControl

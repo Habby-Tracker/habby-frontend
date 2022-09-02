@@ -19,11 +19,11 @@ export default function DeleteModal({ setDeleteModal, activeItem }) {
 
     return (
         <Modal setShowModal={setDeleteModal}>
-            <form className="flex flex-col w-48">
-                <h1 className="text-bold text-primaryOrange text-xl">Delete {type}</h1>
+            <form className="flex flex-col items-center w-40% bg-lightGrey md:w-20%">
+                <h1 className="text-bold text-primaryOrange text-xl md:text-2xl">Delete {type}</h1>
                 <h3 className="text-bold p-4">Are you sure you want to delete this {type}?</h3>
-                <Button text="Delete" onClick={deleteItem} />
-                <SecondaryButton text="Cancel" onClick={() => setDeleteModal(false)} />
+                <Button text="Delete" onClick={deleteItem} width={'40%'}/>
+                <SecondaryButton text="Cancel" onClick={() => setDeleteModal(false)} width={'40%'}/>
             </form>
         </Modal>
     );

@@ -7,7 +7,7 @@ export default function Header() {
         <>
             <header className="flex justify-left space-x-0 md:space-x-6 px-4 py-2 bg-gradient-to-br from-primaryOrange to-lightOrange">
                 <div data-tour="step-7">
-                    <img src="/imgs/habbylogo.png" alt="Habby Logo" className="h-12" />   
+                    <img src="/imgs/habbylogo.png" alt="Habby Logo" className="h-12 md:h-20" />   
                 </div>
                 <div className="text-purple hidden pt-6 text-xl absolute 
                 space-x-4 right-20 hover:cursor-pointer md:flex">
