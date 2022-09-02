@@ -52,7 +52,7 @@ export default function RadarGraph() {
                 borderWidth: 2,
             },
             {
-                label: 'Completed Goal Categories',
+                label: 'Goals Completed',
                 data: compData.length >= 3 ? compData : null,
                 fill: true,
                 spanGaps: true,
