@@ -4,7 +4,7 @@ export default function AddGoalButton({ onClick }) {
             fixed bottom-14 right-4
             flex flex-row justify-center items-center
             shadow-md
-            border-4 border-white" data-tour="step-2">
+            border-4 border-white md:hidden" data-tour="step-2">
             <p className="text-4xl text-white font-bold pb-2">+</p>
         </div>
     );

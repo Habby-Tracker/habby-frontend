@@ -18,7 +18,7 @@ export default function EditGoalModal({ setEditModal, activeGoal }) {
 
     return (
         <Modal setShowModal={setEditModal}>
-            <form className="flex flex-col">
+            <form className="flex flex-col items-center w-40% bg-lightGrey md:w-20%">
                 <h1 className="text-bold text-primaryOrange text-xl">Edit Goal</h1>
                 <InputControl
                     label="Goal"
