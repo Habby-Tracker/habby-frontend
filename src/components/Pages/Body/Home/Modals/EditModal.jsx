@@ -7,7 +7,7 @@ import { useCategories } from '../../../../../State/Hooks/categories';
 import { habitActions } from '../../../../../State/Hooks/habits';
 
 export default function EditModal({ setEditModal, activeItem }) {
-    const [itemInForm, setGoalInForm] = useState(activeItem);
+    const [itemInForm, setGoalInForm] = useState({});
     const { update } = goalActions();
     const { updateHabit } = habitActions();
     const { categories } = useCategories();

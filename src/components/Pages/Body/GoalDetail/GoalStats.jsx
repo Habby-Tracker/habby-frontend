@@ -1,12 +1,11 @@
-import Section from '../Global/Section/Section';
 import StatusPill from '../Global/StatusPill/StatusPill';
 
 export default function GoalStats({ state }) {
     const { thisGoal, totalHabits, completedHabits, failedHabits, remainingHabits, createdAtDate } = state;
     
     return (
-        thisGoal && <Section>
-            <div className="select-none border rounded p-4 w-full">
+        thisGoal &&
+            <div className="select-none p-4 w-full">
                 <div className="flex flex-row justify-between mb-4 font-bold mx-2">
                     <h3>{thisGoal.goalName}</h3>
                     <div> 
@@ -38,6 +37,5 @@ export default function GoalStats({ state }) {
                     <span>{createdAtDate}</span>
                 </div>
             </div>
-        </Section>
     );
 }
