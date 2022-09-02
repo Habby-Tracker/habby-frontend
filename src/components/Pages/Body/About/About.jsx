@@ -13,7 +13,7 @@ export default function About() {
                     <img src="/imgs/Riley.png" alt="Riley" className="h-12 rounded-full" />   
                     <p className="font-bold">Riley</p>
                 </div>
-                <div className="w-3/4 text-left">
+                <div className="w-3/4 text-left pl-10">
                     <p className="text-darkPurple font-extrabold">Goals:</p>
                     <div>
                         <p className="text-sm ml-3"> • More sunshine </p>
@@ -27,7 +27,7 @@ export default function About() {
                     <img src="/imgs/Beau.png" alt="Beau" className="h-12 rounded-full" />   
                     <p className="font-bold">Beau</p>
                 </div>
-                <div className="w-3/4 text-left">
+                <div className="w-3/4 text-left pl-10">
                     <p className="text-darkPurple font-extrabold">Goals:</p>
                     <div>
                         <p className="text-sm ml-3"> • More sunshine </p>
@@ -43,7 +43,7 @@ export default function About() {
                     </div>
                     <p className="font-bold">Susan</p>
                 </div>
-                <div  className="w-3/4 text-left">
+                <div  className="w-3/4 text-left pl-10">
                     <p className="text-darkPurple font-extrabold">Goals:</p>
                     <div>
                         <p className="text-sm ml-3"> • More sunshine </p>
@@ -57,7 +57,7 @@ export default function About() {
                     <img src="/imgs/Cody.png" alt="Cody" className="h-12 rounded-full" />   
                     <p className="font-bold">Cody</p>
                 </div>
-                <div  className="w-3/4 text-left">
+                <div  className="w-3/4 text-left pl-10">
                     <p className="text-darkPurple font-extrabold align-top">Goals:</p>
                     <div>
                         <p className="text-sm ml-3"> • Drink more water </p>
@@ -71,7 +71,7 @@ export default function About() {
                     <img src="/imgs/Will.png" alt="Will" className="h-12 rounded-full" />   
                     <p className="font-bold">Will</p>
                 </div>
-                <div  className="w-3/4 text-left">
+                <div  className="w-3/4 text-left pl-10">
                     <p className="text-darkPurple font-extrabold">Goals:</p>
                     <div>
                         <p className="text-sm ml-3"> • More sunshine </p>
