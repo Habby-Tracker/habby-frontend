@@ -3,7 +3,7 @@ import { DataContext, DataDispatchContext } from '../Context/DataContext';
 import {
     createHabit,
     getHabits,
-    updateHabit,
+    updateHabit as update,
     deleteHabit,
 } from '../Services/habit-service';
 import { showError } from '../Services/toaster';
@@ -64,8 +64,8 @@ export function habitActions() {
         }
     };
 
-    const update = async (id, updatedHabit) => {
-        const data = await updateHabit(id, updatedHabit);
+    const updateHabit = async (id, updatedHabit) => {
+        const data = await update(id, updatedHabit);
         if (data.message) {
             showError(data.message);
         } else {
@@ -73,5 +73,5 @@ export function habitActions() {
         }
     };
 
-    return { create, removeHabit, update };
+    return { create, removeHabit, updateHabit };
 }

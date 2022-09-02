@@ -6,7 +6,7 @@ import Hero from '../Hero/Hero';
 import DateSlider from '../Dates/DateSlider.jsx';
 import { useState } from 'react';
 import CreateGoalModal from './Modals/CreateGoalModal';
-import EditGoalModal from './Modals/EditGoalModal';
+import EditModal from './Modals/EditModal';
 import DeleteModal from './Modals/DeleteModal';
 import { useCalendar } from '../../../../State/Hooks/calendar';    
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
@@ -77,7 +77,7 @@ export default function Home() {
                     </Section>
                 </div>
                 {modal && <CreateGoalModal setModal={setModal} />}
-                {editModal && <EditGoalModal setEditModal={setEditModal} activeGoal={activeItem} />}
+                {editModal && <EditModal setEditModal={setEditModal} activeItem={activeItem} />}
                 {deleteModal && <DeleteModal setDeleteModal={setDeleteModal} activeItem={activeItem} />}
                 <AddGoalButton onClick={() => openModal()} />
             </div>

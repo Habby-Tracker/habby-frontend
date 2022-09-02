@@ -15,8 +15,13 @@ export default function HabitCard({
     setActiveItem,
 }) {
     const [completedState, setCompletedState] = useState(completed);
-    const { update } = habitActions();
+    const { updateHabit } = habitActions();
     const [isOpen, setIsOpen] = useState(false);
+
+    const successText = 'pl-4 w-2/3 text-left text-successGreen line-through';
+    const defaultText = 'pl-4 w-2/3 text-left';
+    const successBackground = 'flex flex-row w-full h-10 items-center rounded-md bg-successBackground my-2 shadow-md';
+    const defaultBackground = 'flex flex-row w-full h-10 items-center rounded-md bg-lightGrey my-2 shadow-md';
 
     const useOutsideClick = (callback) => {
         const ref = useRef();
@@ -27,9 +32,7 @@ export default function HabitCard({
                     callback();
                 }
             };
-
             document.addEventListener('click', handleClick, true);
-
             return () => {
                 document.removeEventListener('click', handleClick, true);
             };
@@ -40,16 +43,8 @@ export default function HabitCard({
 
     const ref = useOutsideClick(() => setIsOpen(false));
 
-    const successText = 'pl-4 w-2/3 text-left text-successGreen line-through';
-    const defaultText = 'pl-4 w-2/3 text-left';
-
-    const successBackground =
-        'flex flex-row w-full h-10 items-center rounded-md bg-successBackground my-2 shadow-md';
-    const defaultBackground =
-        'flex flex-row w-full h-10 items-center rounded-md bg-lightGrey my-2 shadow-md';
-
-    function updateHabit(value) {
-        update(habit.id, { statusID: value, completedDate: new Date() });
+    function update(value) {
+        updateHabit(habit.id, { statusID: value, completedDate: new Date() });
         setCompletedState(!completedState);
     }
 
@@ -59,11 +54,9 @@ export default function HabitCard({
     }
 
     return (
-        <div
-            className={completedState ? successBackground : defaultBackground}
+        <div className={completedState ? successBackground : defaultBackground}
             style={{ width }}
-            value={habit.id}
-        >
+            value={habit.id} >
             <p className={completedState ? successText : defaultText}>
                 {habit.habitName}
             </p>
@@ -71,30 +64,26 @@ export default function HabitCard({
                 {completedState ? (
                     <CheckBoxIcon
                         sx={{ color: 'hsla(144, 57%, 33%, 1)' }}
-                        onClick={() => updateHabit('1')}
-                    />
+                        onClick={() => update('1')}
+                        className="cursor-pointer"/>
                 ) : (
                     <CheckBoxOutlineBlankIcon
-                        onClick={() => updateHabit('3')}
-                    />
+                        onClick={() => update('3')}
+                        className="cursor-pointer"/>
                 )}
                 <MoreVertIcon
                     fontSize="small"
                     onClick={() => setIsOpen(true)}
-                />
+                    className="cursor-pointer"/>
                 {isOpen && (
                     <div ref={ref} className="absolute z-10">
                         <div className="flex flex-col w-24 bg-white rounded-md shadow-md">
-                            <p
-                                onClick={() => openModal(setEditModal)}
-                                className="text-sm text-center text-primaryOrange h-10 font-semibold mt-4"
-                            >
+                            <p onClick={() => openModal(setEditModal)}
+                                className="text-sm text-center text-primaryOrange h-10 font-semibold mt-4 cursor-pointer">
                                 Edit
                             </p>
-                            <p
-                                onClick={() => openModal(setDeleteModal)}
-                                className="text-sm text-center text-primaryOrange h-10 font-semibold"
-                            >
+                            <p onClick={() => openModal(setDeleteModal)}
+                                className="text-sm text-center text-primaryOrange h-10 font-semibold cursor-pointer">
                                 Delete
                             </p>
                         </div>
