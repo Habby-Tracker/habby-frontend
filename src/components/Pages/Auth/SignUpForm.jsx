@@ -15,7 +15,7 @@ export default function SignUpForm({ header, button, prompt, link, onSubmit }) {
     const handleChange = (e) => setCredentials({ ...credentials, [e.target.name]: e.target.value });
 
     return (
-        <div className="flex absolute inset-0 justify-center items-center">
+        <div className="flex absolute inset-0 justify-center items-center bg-gradient-to-br from-lightGrey to-lightOrange">
             <AuthSection width="90%" height="95%">
                 <div className="flex flex-col items-center mt-20">
                     <div className="flex flex-row w-full items-end mb-10">
@@ -32,7 +32,7 @@ export default function SignUpForm({ header, button, prompt, link, onSubmit }) {
                                 type="first_name"
                                 required
                                 onChange={handleChange}
-                                className="w-full h-8 text-base"
+                                className="w-full h-8 text-base shadow-lg rounded-lg"
                             />
                         </div>
                         <div className="mb-10 w-full text-xs">
@@ -42,7 +42,7 @@ export default function SignUpForm({ header, button, prompt, link, onSubmit }) {
                                 type="last_name"
                                 required
                                 onChange={handleChange}
-                                className="w-full h-8 text-base"
+                                className="w-full h-8 text-base shadow-lg rounded-lg"
                             />
                         </div>
                         <div className="mb-10 w-full text-xs">
@@ -52,7 +52,7 @@ export default function SignUpForm({ header, button, prompt, link, onSubmit }) {
                                 type="email"
                                 required
                                 onChange={handleChange}
-                                className="w-full h-8 text-base"
+                                className="w-full h-8 text-base shadow-lg rounded-lg"
                             />
                         </div>
                         <div className="mb-10 w-full text-xs">
@@ -62,7 +62,7 @@ export default function SignUpForm({ header, button, prompt, link, onSubmit }) {
                                 type="password"
                                 required
                                 onChange={handleChange}
-                                className="w-full h-8 text-base"
+                                className="w-full h-8 text-base shadow-lg rounded-lg"
                             />                       
                         </div>
                         <div>

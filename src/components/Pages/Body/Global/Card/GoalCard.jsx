@@ -85,6 +85,7 @@ export default function GoalCard({
             </div>
             <div className="w-fit text-right pr-1 pb-1 relative">
                 <MoreVertIcon
+                    className="cursor-pointer"
                     fontSize="small"
                     onClick={() => setIsOpen(true)}/>
                 {isOpen && (
@@ -94,11 +95,11 @@ export default function GoalCard({
                                 <Link to={`../goal/${goal.id}`} >Details</Link>
                             </p>
                             <p onClick={() => openModal(setEditModal)}
-                                className="text-sm text-center text-primaryOrange h-10 font-semibold">
+                                className="text-sm text-center text-primaryOrange h-10 font-semibold cursor-pointer">
                                         Edit
                             </p>
                             <p onClick={() => openModal(setDeleteModal)}
-                                className="text-sm text-center text-primaryOrange h-10 font-semibold">
+                                className="text-sm text-center text-primaryOrange h-10 font-semibold cursor-pointer">
                                         Delete
                             </p>
                         </div>
